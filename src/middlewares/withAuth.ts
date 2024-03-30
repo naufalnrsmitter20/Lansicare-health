@@ -13,7 +13,7 @@ const onlyAdminPage = [
   "/administration/addPasien",
 ];
 
-const onlyUserPage = ["/profile"];
+const authPage = ["/signin", "/signup"];
 
 export default function withAuth(
   middleware: NextMiddleware,
@@ -25,16 +25,21 @@ export default function withAuth(
     if (requireAuth.includes(pathName)) {
       const token = await getToken({
         req,
-        secret: "JSGVCGHSDBJCHBHKBEWTYYUC326ET7WQUIOI",
+        secret: process.env.NEXTAUTH_SECRET,
       });
-      if (!token) {
-        const url = new URL("/administration/login", req.url);
+      if (!token && !authPage.includes(pathName)) {
+        const url = new URL("/signin" || "/administration/login", req.url);
         url.searchParams.set("callbackUrl", encodeURI(req.url));
         return NextResponse.redirect(url);
       }
 
-      if (token.role !== "admin" && onlyAdminPage.includes(pathName)) {
-        return NextResponse.redirect(new URL("/profile", req.url));
+      if (token) {
+        if (authPage.includes(pathName)) {
+          return NextResponse.redirect(new URL("/profile", req.url));
+        }
+        if (token.role !== "admin" && onlyAdminPage.includes(pathName)) {
+          return NextResponse.redirect(new URL("/profile", req.url));
+        }
       }
     }
     return middleware(req, next);
