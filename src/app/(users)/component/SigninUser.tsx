@@ -117,6 +117,13 @@ export default function SigninUser() {
                     </p>
                   </button>
                 </div>
+                <button
+                  type="button"
+                  onClick={() => signIn("google")}
+                  className="mb-2 me-2 mt-8 w-full rounded-lg border-2 border-black bg-white px-5 py-2.5 text-sm font-medium text-black hover:bg-slate-200 hover:text-base-100 focus:outline-none focus:ring-4 focus:ring-gray-200"
+                >
+                  <p className="text-[14px] font-medium">Signin with Google</p>
+                </button>
                 {error ? (
                   <p className="mb-4 text-sm text-red-600">{error}</p>
                 ) : null}
