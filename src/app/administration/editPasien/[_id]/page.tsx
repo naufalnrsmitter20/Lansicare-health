@@ -1,12 +1,12 @@
 import React from "react";
-import Sidebar from "../../../components/content/Sidebar";
-import Headers from "../../../components/content/Headers";
+import Sidebar from "../../components/content/Sidebar";
+import Headers from "../../components/content/Headers";
 import Link from "next/link";
-import EditPatient from "../../../components/content/EditPatient";
-import WelcomeBack from "../../../components/WelcomeBack";
+import EditPatient from "../../components/content/EditPatient";
+import WelcomeBack from "../../components/WelcomeBack";
 
 interface PatientData {
-  _id: string;
+  id: string;
   nfcId: number;
   email: string;
   riwayatPenyakit: string;
@@ -26,9 +26,9 @@ interface PatientData {
   Kewarganegaraan: string;
 }
 
-const getTopicById = async (id: any) => {
+const getTopicById = async (_id: any) => {
   try {
-    const res = await fetch(`/api/topics/${id}`, {
+    const res = await fetch(`/api/topics/${_id}`, {
       cache: "no-store",
     });
 
@@ -41,12 +41,16 @@ const getTopicById = async (id: any) => {
     console.log(error);
   }
 };
-export default async function EditDataPages({ params }: { params: any }) {
-  const { id } = params;
+export default async function EditDataPages({
+  params,
+}: {
+  params: { _id: string };
+}) {
+  const { _id } = params;
   try {
-    const patientData: PatientData = await getTopicById(id);
+    const patientData: PatientData = await getTopicById(_id);
     const {
-      _id,
+      id,
       nfcId,
       email,
       riwayatPenyakit,
@@ -76,7 +80,7 @@ export default async function EditDataPages({ params }: { params: any }) {
               <WelcomeBack />
             </div>
             <EditPatient
-              _id={_id}
+              _id={id}
               nfcId={nfcId}
               email={email}
               riwayatPenyakit={riwayatPenyakit}

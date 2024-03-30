@@ -1,9 +1,9 @@
 import React from "react";
-import Headers from "../../components/content/Headers";
-import Sidebar from "../../components/content/Sidebar";
+import Headers from "../components/content/Headers";
+import Sidebar from "../components/content/Sidebar";
 import Link from "next/link";
-import Login from "../../components/Login";
-import WelcomeBack from "../../components/WelcomeBack";
+import Login from "../components/Login";
+import WelcomeBack from "../components/WelcomeBack";
 
 export default function ApotekPage() {
   return (

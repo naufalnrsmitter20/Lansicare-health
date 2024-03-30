@@ -83,6 +83,6 @@ export async function GET(
 ) {
   const { _id } = params;
   await connect();
-  const pasien = await User.findOne({ _id: _id });
+  const pasien = await User.findOne({ id: _id });
   return NextResponse.json(pasien, { status: 200 });
 }

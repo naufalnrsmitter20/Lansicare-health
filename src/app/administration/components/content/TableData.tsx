@@ -102,7 +102,7 @@ export default function TableData() {
             <CopyClipboard text={textCopy} />
           </div>
         </div>
-        <div>
+        {/* <div>
           <Link
             href={"/administration/addPasien"}
             className="absolute right-28 top-36 mb-2 me-2 flex rounded-lg bg-mainBlue px-3 py-2.5 text-sm font-medium text-white hover:bg-sky-400 focus:outline-none focus:ring-4 focus:ring-blue-300"
@@ -110,7 +110,7 @@ export default function TableData() {
             <p className="mr-2">Add</p>
             <Image src={AddDataIcons} alt="Add Icons" width={20} />
           </Link>
-        </div>
+        </div> */}
         <div className="mb-8 mt-8 max-w-7xl">
           <div className="relative overflow-x-auto">
             <table className="w-full text-left text-sm text-gray-500 dark:text-gray-400 rtl:text-right">
@@ -163,7 +163,7 @@ export default function TableData() {
 
                     <td className="flex-1 justify-center border-4 border-white bg-sky-200 px-6 py-2">
                       <Link
-                        href={`editPasien/${Data._id}`}
+                        href={`/administration/editPasien/${Data._id}`}
                         className="mb-2 me-2 rounded-lg bg-green-400 px-5 py-2.5 text-sm font-medium text-white hover:bg-green-500 focus:outline-none focus:ring-4 focus:ring-blue-300 "
                       >
                         Edit & View

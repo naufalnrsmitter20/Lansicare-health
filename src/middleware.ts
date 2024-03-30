@@ -11,4 +11,6 @@ export default withAuth(mainMiddleware, [
   "/administration/insight",
   "/administration/dataPage",
   "/administration/apotek",
+  "/signin",
+  "/signup",
 ]);

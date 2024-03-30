@@ -24,11 +24,11 @@ export default function SigninUser() {
         callbackUrl: "/profile",
       });
       if (!res?.error) {
-        setTimeout(() => {
-          window.location.reload();
-        }, 2000);
-        await push("/profile");
-        setIsLoading(false);
+        // setTimeout(() => {
+        window.location.reload();
+        // }, 2000);
+        // await push("/profile");
+        // setIsLoading(false);
       } else {
         if (res.status === 401) {
           setError("Email or Password is Incorrect");
@@ -41,10 +41,10 @@ export default function SigninUser() {
     }
   };
   if (status === "authenticated") {
-    setTimeout(() => {
-      window.location.reload();
-    }, 2000);
-    push("/profile");
+    // setTimeout(() => {
+    window.location.reload();
+    // }, 2000);
+    // push("/profile");
   }
   return (
     <>

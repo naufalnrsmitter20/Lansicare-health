@@ -38,6 +38,7 @@ const userSchema = new Schema<UserDocument>(
     },
     password: {
       type: String,
+      required: true,
     },
     role: {
       type: String,

@@ -1,10 +1,10 @@
 import React from "react";
-import Sidebar from "../../components/content/Sidebar";
-import Headers from "../../components/content/Headers";
+import Sidebar from "../components/content/Sidebar";
+import Headers from "../components/content/Headers";
 import Link from "next/link";
 import { useSession } from "next-auth/react";
-import AddPatient from "../../components/content/AddPatient";
-import WelcomeBack from "../../components/WelcomeBack";
+import AddPatient from "../components/content/AddPatient";
+import WelcomeBack from "../components/WelcomeBack";
 
 export default function AddDataPages() {
   return (

@@ -5,6 +5,7 @@ import React, { useState, SyntheticEvent } from "react";
 export default function AddPatient() {
   const [nfcId, setNfcId] = useState("");
   const [fullname, setNama] = useState("");
+  const [password, setPassword] = useState("");
   const [TTL, setTTL] = useState("");
   const [alamat, setAlamat] = useState("");
   const [RT, setRT] = useState("");
@@ -36,6 +37,7 @@ export default function AddPatient() {
         body: JSON.stringify({
           nfcId: parseInt(nfcId),
           email: email,
+          password: password,
           riwayatPenyakit: riwayatPenyakit,
           pasienStatus: status,
           fullname: fullname,
@@ -152,6 +154,23 @@ export default function AddPatient() {
                 className="block w-full rounded-lg border border-gray-400 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-mainBlue focus:ring-sky-400 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500"
                 placeholder="name@example.com"
                 required
+              />
+            </div>
+            <div>
+              <label
+                htmlFor="password"
+                className="mb-2 block text-sm font-medium text-gray-900 dark:text-white"
+              >
+                Password
+              </label>
+              <input
+                type="password"
+                id="password"
+                onChange={(e) => setPassword(e.target.value)}
+                value={password}
+                className="block w-full rounded-lg border border-gray-400 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-mainBlue focus:ring-sky-400 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500"
+                placeholder="***********"
+                // required
               />
             </div>
             <div>
@@ -332,21 +351,17 @@ export default function AddPatient() {
               >
                 Status
               </label>
-              <select
-                name="status"
+              <input
+                type="text"
                 id="status"
                 onChange={(e) => setStatus(e.target.value)}
                 value={status}
                 className="block w-full rounded-lg border border-gray-400 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-mainBlue focus:ring-sky-400 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500"
+                placeholder="Rawat Inap / Rawat Jalan"
                 required
-              >
-                <option value="null">-- SELECT --</option>
-                <option value="Registered">Registered</option>
-                <option value="InProgress">In Progress</option>
-                <option value="Verify">Verify</option>
-                <option value="Done">Done</option>
-              </select>
+              />
             </div>
+
             <div>
               {!isMutating ? (
                 <button
