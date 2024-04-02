@@ -9,6 +9,7 @@ import Regist from "@/public/registrasi.jpg";
 import Carousel from "./Carousel";
 import Forms from "./Forms";
 import Link from "next/link";
+import Footer from "./Footer";
 
 export default function Homepage() {
   return (
@@ -141,6 +142,7 @@ export default function Homepage() {
             <Forms />
           </div>
         </div>
+        <Footer />
       </section>
     </>
   );
