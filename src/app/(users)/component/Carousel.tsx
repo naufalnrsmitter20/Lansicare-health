@@ -5,10 +5,12 @@ import React, { useEffect } from "react";
 import hospitals from "@/public/rumahsakits.jpeg";
 import lansia from "@/public/lansia.jpg";
 import checkUp from "@/public/pexels-pixabay-40568.jpg";
+import { useSession } from "next-auth/react";
 interface BackgroundImageProps {
   imageURL: string;
 }
 export default function Carousel({ imageURL }: any) {
+  const { data: session } = useSession();
   useEffect(() => {
     const init = async () => {
       const { Carousel, initTE } = await import("tw-elements");
@@ -70,24 +72,26 @@ export default function Carousel({ imageURL }: any) {
                 className="absolute -z-20 w-screen bg-center bg-no-repeat"
                 alt="background Image"
               />
-              <div className="max-w-sm px-4 py-5 text-start lg:max-w-screen-xl lg:py-[58px]">
-                <h1 className="my-5 ml-10 text-4xl font-extrabold leading-none tracking-tight text-white md:text-5xl lg:ml-48 lg:text-6xl">
-                  Welcome User{" "}
+              <div className="max-w-sm px-4 py-5 text-start lg:max-w-screen-xl lg:py-[72px]">
+                <h1 className="my-2 ml-10 text-3xl font-extrabold leading-none tracking-tight text-white md:text-5xl lg:my-5 lg:ml-48 lg:text-6xl">
+                  Welcome to LansiCare
                 </h1>
-                <p className="mb-4 px-10 text-[8.25px] font-normal text-gray-300 lg:mb-8 lg:px-48 lg:text-lg">
-                  Selamat datang, user! Website ini dirancang khusus untuk
-                  membantu Anda dalam melakukan registrasi check-up kesehatan,
-                  selain itu website ini juga bisa membantu Anda melihat riwayat
-                  check-up kesehatan. Dapatkan akses informasi kesehatan Anda
-                  dengan mudah dan cepat. Kami berkomitmen untuk menyediakan
-                  layanan yang dapat meningkatkan kesehatan dan kesejahteraan
-                  lansia. Jangan ragu untuk mulai registrasi dan jadwalkan
-                  check-up Anda sekarang!
+                <p className="mb-2 text-ellipsis pl-10 text-[12px] font-normal text-gray-300 lg:mb-7 lg:px-48 lg:text-lg">
+                  Selamat datang {session ? `${session.user?.name}` : "Guest"}!{" "}
+                  Website ini dirancang khusus untuk membantu Anda dalam
+                  melakukan registrasi check-up kesehatan, selain itu website
+                  ini juga bisa membantu Anda melihat riwayat check-up
+                  kesehatan.
+                  <span className="hidden md:inline">
+                    Kami berkomitmen untuk menyediakan layanan yang dapat
+                    meningkatkan kesehatan dan kesejahteraan lansia. Jangan ragu
+                    untuk mulai registrasi dan jadwalkan check-up Anda sekarang!
+                  </span>
                 </p>
                 <div className="mb-10 ml-10 flex flex-col space-y-4 sm:flex-row sm:justify-start sm:space-y-0 lg:ml-48">
                   <Link
                     href={"checkup"}
-                    className="inline-flex items-center justify-center rounded-lg bg-darkBlue px-4 py-2 text-center text-sm font-medium text-white hover:bg-mainBlue focus:ring-4 focus:ring-blue-300 dark:focus:ring-blue-900 lg:px-5 lg:py-3 lg:text-base"
+                    className=" inline-flex w-40 items-center justify-center rounded-lg bg-darkBlue px-4 py-2 text-center text-xs font-medium text-white hover:bg-mainBlue focus:ring-4 focus:ring-blue-300 dark:focus:ring-blue-900 md:text-sm lg:w-auto lg:px-5 lg:py-3 lg:text-base"
                   >
                     Daftar Check Up
                     <svg
@@ -129,20 +133,23 @@ export default function Carousel({ imageURL }: any) {
                 <h1 className="my-5 text-4xl font-extrabold leading-none tracking-tight text-white md:text-5xl lg:mr-10 lg:text-6xl">
                   LansiCare{" "}
                 </h1>
-                <p className="mb-4 ml-8 text-end text-[8.25px] font-normal text-gray-300 lg:ml-24 lg:mr-10 lg:text-lg">
+                <p className="mb-4 ml-8 text-end text-[12px] font-normal text-gray-300 lg:ml-24 lg:mr-10 lg:text-lg">
                   Website ini membantu Anda dalam melakukan registrasi check-up
                   secara online. Anda bisa melakukan registrasi check-up dengan
-                  memilih dokter yang sesuai. Selanjutnya akan keluar nomor
-                  antrean dan waktu untuk pemeriksaan. Selain itu, website ini
-                  juga membantu Anda untuk mengecek riwayat pemeriksaan Anda.
-                  Anda tidak perlu lagi mengantre dengan kurun waktu yang lama
-                  di klinik karena bisa mengantre secara online. Tunggu apa
-                  lagi? Jadwalkan check-up kesehatan Anda sekarang juga!
+                  memilih dokter yang sesuai.Selanjutnya akan keluar nomor
+                  antrean dan waktu untuk pemeriksaan.
+                  <span className="hidden lg:inline">
+                    Selain itu, website ini juga membantu Anda untuk mengecek
+                    riwayat pemeriksaan Anda. Anda tidak perlu lagi mengantre
+                    dengan kurun waktu yang lama di klinik karena bisa mengantre
+                    secara online. Tunggu apa lagi? Jadwalkan check-up kesehatan
+                    Anda sekarang juga!
+                  </span>
                 </p>
-                <div className="mb-10 ml-10 flex flex-col space-y-4 sm:flex-row sm:justify-end sm:space-y-0 lg:mr-10">
+                <div className="mb-10 ml-10 flex flex-row justify-end  space-y-0 lg:mr-10 lg:space-y-4">
                   <Link
                     href={"about"}
-                    className="inline-flex items-center justify-center rounded-lg bg-darkBlue px-4 py-2 text-center text-sm font-medium text-primary-50 hover:bg-mainBlue focus:ring-4 focus:ring-blue-300 dark:focus:ring-blue-900 lg:px-5 lg:py-3 lg:text-base"
+                    className="inline-flex w-40 items-center justify-center rounded-lg bg-darkBlue px-4 py-2 text-center text-xs font-medium text-primary-50 hover:bg-mainBlue focus:ring-4 focus:ring-blue-300 dark:focus:ring-blue-900 lg:w-auto lg:px-5 lg:py-3 lg:text-sm"
                   >
                     Explore more
                     <svg
@@ -181,10 +188,10 @@ export default function Carousel({ imageURL }: any) {
                 alt="background Image"
               />
               <div
-                className="mx-auto max-w-screen-xl px-4 py-1 text-center lg:py-20"
+                className="mx-auto max-w-screen-xl px-4 py-1 text-center lg:py-[85px]"
                 // style={{ backgroundImage: `url('${imageURL}')` }}
               >
-                <h1 className="my-[98px] text-3xl font-extrabold leading-none tracking-tight text-slate-200 md:text-4xl lg:text-6xl">
+                <h1 className="my-[90px] text-3xl font-extrabold leading-none tracking-tight text-slate-200 md:text-4xl lg:text-6xl">
                   Ayo jadwalkan check-up kesehatan Anda sekarang juga!
                 </h1>
 
