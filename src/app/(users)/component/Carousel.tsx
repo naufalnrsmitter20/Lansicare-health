@@ -5,10 +5,12 @@ import React, { useEffect } from "react";
 import hospitals from "@/public/rumahsakits.jpeg";
 import lansia from "@/public/lansia.jpg";
 import checkUp from "@/public/pexels-pixabay-40568.jpg";
+import { useSession } from "next-auth/react";
 interface BackgroundImageProps {
   imageURL: string;
 }
 export default function Carousel({ imageURL }: any) {
+  const { data: session } = useSession();
   useEffect(() => {
     const init = async () => {
       const { Carousel, initTE } = await import("tw-elements");
@@ -72,16 +74,16 @@ export default function Carousel({ imageURL }: any) {
               />
               <div className="max-w-sm px-4 py-5 text-start lg:max-w-screen-xl lg:py-[58px]">
                 <h1 className="my-5 ml-10 text-4xl font-extrabold leading-none tracking-tight text-white md:text-5xl lg:ml-48 lg:text-6xl">
-                  Welcome User{" "}
+                  Welcome to LansiCare
                 </h1>
                 <p className="mb-4 text-ellipsis px-10 text-[8.25px] font-normal text-gray-300 lg:mb-8 lg:px-48 lg:text-lg">
-                  Selamat datang, user! Website ini dirancang khusus untuk
-                  membantu Anda dalam melakukan registrasi check-up kesehatan,
-                  selain itu website ini juga bisa membantu Anda melihat riwayat
-                  check-up kesehatan. Dapatkan akses informasi kesehatan Anda
-                  dengan mudah dan cepat. Kami berkomitmen untuk menyediakan
-                  layanan yang dapat meningkatkan kesehatan dan kesejahteraan
-                  lansia.
+                  Selamat datang {session ? `${session.user?.name}` : "Guest"}!{" "}
+                  Website ini dirancang khusus untuk membantu Anda dalam
+                  melakukan registrasi check-up kesehatan, selain itu website
+                  ini juga bisa membantu Anda melihat riwayat check-up
+                  kesehatan. Dapatkan akses informasi kesehatan Anda dengan
+                  mudah dan cepat. Kami berkomitmen untuk menyediakan layanan
+                  yang dapat meningkatkan kesehatan dan kesejahteraan lansia.
                   <span className=" hidden md:inline">
                     Jangan ragu untuk mulai registrasi dan jadwalkan check-up
                     Anda sekarang!
