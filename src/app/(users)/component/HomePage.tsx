@@ -9,14 +9,15 @@ import Regist from "@/public/registrasi.jpg";
 import Carousel from "./Carousel";
 import Forms from "./Forms";
 import Link from "next/link";
+import Footer from "./Footer";
 
 export default function Homepage() {
   return (
     <>
       {/* Home Carousel */}
-      <section className="scroll-smooth text-base-100">
+      <section className="scroll-smooths text-base-100">
         <Carousel />
-        <div className="mx-auto flex h-full flex-col place-items-center justify-center bg-base-50 pb-[30px] pt-[70px] align-middle font-inter">
+        <div className="mx-auto flex h-full flex-col place-items-center justify-center bg-base-50 pb-[30px] pt-[30px] align-middle font-inter">
           {/* Fitur-fitur */}
           <div
             id="main"
@@ -43,7 +44,7 @@ export default function Homepage() {
                 >
                   <div>
                     <Image
-                      className="h-[200px] rounded-t-lg object-cover lg:h-[300px]"
+                      className="h-[150px] rounded-t-lg object-cover lg:h-[150px]"
                       src={TrackingKesehatan}
                       alt="foto"
                     />
@@ -66,7 +67,7 @@ export default function Homepage() {
                 >
                   <div>
                     <Image
-                      className="h-[200px] rounded-t-lg object-cover lg:h-[300px]"
+                      className="h-[150px] rounded-t-lg object-cover lg:h-[150px]"
                       src={ResepObat}
                       width={700}
                       alt="foto"
@@ -89,7 +90,7 @@ export default function Homepage() {
                 >
                   <div>
                     <Image
-                      className="h-[200px] rounded-t-lg object-cover lg:h-[300px]"
+                      className="h-[150px] rounded-t-lg object-cover lg:h-[150px]"
                       src={Regist}
                       alt="foto"
                     />
@@ -111,7 +112,7 @@ export default function Homepage() {
                 >
                   <div>
                     <Image
-                      className="h-[200px] rounded-t-lg object-cover object-top lg:h-[300px]"
+                      className="h-[150px] rounded-t-lg object-cover object-top lg:h-[150px]"
                       src={CheckUp}
                       alt="foto"
                     />
@@ -141,6 +142,7 @@ export default function Homepage() {
             <Forms />
           </div>
         </div>
+        <Footer />
       </section>
     </>
   );

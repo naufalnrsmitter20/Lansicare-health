@@ -308,7 +308,7 @@ export default function NavBar() {
                   <li className=" border-b border-b-gray-500">
                     <button
                       onClick={() => signIn()}
-                      className="group flex justify-center px-3 py-2"
+                      className="group flex justify-center mx-auto px-3 py-2"
                     >
                       <svg
                         width="18"

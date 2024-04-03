@@ -39,6 +39,7 @@ const config: Config = {
         cyanBlue: "#4b778d",
         mainGreen: "#34be82",
         limeGreen: "#6ac57f",
+        darkBlue2: "#002C42",
 
         base: { "50": "#EEEEEF", "100": "#252525", "150": "#D9D9D9" },
         "gray-800": "#1f2937",

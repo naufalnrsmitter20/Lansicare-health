@@ -1,9 +1,9 @@
 "use client";
 
 import React, { useState } from "react";
-import Carousel from "./Carousel";
-import serchIcon from "@/public/searchIcon.svg";
-import Image from "next/image";
+// import Carousel from "./Carousel";
+// import serchIcon from "@/public/searchIcon.svg";
+// import Image from "next/image";
 import Lokasi from "./utilities/Lokasi";
 import Spesialis from "./utilities/Spesialis";
 import PilihanDokter from "./utilities/PilihanDokter";

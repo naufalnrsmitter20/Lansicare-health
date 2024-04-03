@@ -46,8 +46,8 @@ export default function SignUpUser() {
   };
   return (
     <>
-      <section className="lg:min-w-xl mt-10 flex flex-1 flex-col justify-center bg-base-50 align-middle lg:mt-20 lg:h-full lg:px-8 lg:pb-20 lg:pt-40">
-        <div className="max-h-xl lg:max-h-3xl m-auto h-fit w-full max-w-7xl justify-around rounded-[5px] bg-primary-1000 px-5 pb-12 pt-5 shadow-md shadow-slate-600 lg:flex lg:rounded-[30px] lg:px-0 lg:pr-20">
+      <section className="lg:min-w-xl mt-10 flex flex-1 flex-col justify-center bg-base-50 align-middle lg:mt-20 lg:h-full lg:px-8 lg:pb-40 lg:pt-40">
+        <div className="max-h-xl lg:max-h-3xl m-auto h-fit w-full max-w-7xl justify-around rounded-[5px] bg-primary-1000 px-5 pb-5 pt-5 shadow-md shadow-slate-600 lg:flex lg:rounded-[30px] lg:px-0 lg:pr-20">
           <main className="m-20">
             <Image
               src={SignupImage}
@@ -58,9 +58,6 @@ export default function SignUpUser() {
           </main>
           <main className="w-full max-w-lg">
             <form onSubmit={handleSubmit}>
-              <h1 className="mb-10 mt-20 justify-center text-center text-4xl font-bold">
-                SignUp
-              </h1>
               <div className="mb-5">
                 <label
                   htmlFor="fullname"
@@ -124,27 +121,27 @@ export default function SignUpUser() {
                   <p>Sign Up</p>
                 </button>
                 {/* <p className="mb-4 text-sm text-red-600"></p> */}
-                <p className="mt-8 text-center text-base font-semibold text-base-100 ">
+                <p className="mt-8 text-center text-[18px] font-semibold text-base-100 ">
                   Or Sign Up With
                 </p>
                 <div className="mt-7 grid grid-cols-2 gap-2">
                   <button
                     type="button"
-                    onClick={() => signIn("credentials")}
-                    className="mb-2 me-2 rounded-lg border border-gray-300 bg-white px-5 py-2.5 text-sm font-medium text-base-100 hover:bg-base-100 hover:text-white focus:outline-none focus:ring-4 focus:ring-gray-100 dark:border-gray-600 dark:bg-gray-800 dark:text-white dark:hover:border-gray-600 dark:hover:bg-gray-700 dark:focus:ring-gray-700"
+                    onClick={() => signIn("google")}
+                    className="mb-2 me-2 rounded-lg border-2 border-gray-300 bg-white px-5 py-2.5 text-sm font-medium text-base-100 hover:bg-darkBlue hover:text-white focus:outline-none focus:ring-4 focus:ring-gray-100 dark:border-gray-600 dark:bg-gray-800 dark:text-white dark:hover:border-gray-600 dark:hover:bg-gray-700 dark:focus:ring-gray-700"
                   >
                     {/* image */}
                     <p className="text-[14px] font-medium">Google</p>
                   </button>
                   <button
                     type="button"
-                    className="mb-2 me-2 rounded-lg border border-gray-300 bg-white px-5 py-2.5 text-sm font-medium text-base-100 hover:bg-base-100 hover:text-white focus:outline-none focus:ring-4 focus:ring-gray-100 dark:border-gray-600 dark:bg-gray-800 dark:text-white dark:hover:border-gray-600 dark:hover:bg-gray-700 dark:focus:ring-gray-700"
+                    className="mb-2 me-2 rounded-lg border-2 border-gray-300 bg-white px-5 py-2.5 text-sm font-medium text-base-100 hover:bg-darkBlue hover:text-white focus:outline-none focus:ring-4 focus:ring-gray-100 dark:border-gray-600 dark:bg-gray-800 dark:text-white dark:hover:border-gray-600 dark:hover:bg-gray-700 dark:focus:ring-gray-700"
                   >
                     {/* image */}
                     <p className="text-[14px] font-medium">Facebook</p>
                   </button>
                 </div>
-                <p className="mt-9 text-center text-[18px] font-semibold text-base-100">
+                <p className="mt-8 text-center text-[18px] font-semibold text-base-100">
                   Already have an account?
                 </p>
                 <div className="mt-7 grid grid-cols-2 gap-2">

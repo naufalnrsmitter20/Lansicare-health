@@ -18,7 +18,7 @@ export default function Carousel({ imageURL }: any) {
   }, []);
 
   return (
-    <div className="h-screen max-h-screen w-full">
+    <div className="relative mx-auto w-[450px] rounded-[10px] pt-[130px] lg:w-[1366.48px]">
       <div
         id="carouselExampleCaptions"
         className="relative"
@@ -54,7 +54,7 @@ export default function Carousel({ imageURL }: any) {
           ></button>
         </div>
 
-        <div className="relative w-full overflow-hidden after:clear-both after:block after:content-['']">
+        <div className="relative w-full overflow-hidden rounded-[10px] shadow-md after:clear-both after:block after:content-['']">
           <div
             className="relative float-left -mr-[100%] w-full transition-transform duration-[600ms] ease-in-out motion-reduce:transition-none"
             data-te-carousel-active
@@ -63,18 +63,18 @@ export default function Carousel({ imageURL }: any) {
           >
             <main
               id="carousel1"
-              className="flex h-auto w-screen bg-gray-900/90 bg-center bg-no-repeat"
+              className="flex h-auto w-full bg-darkBlue2/80 bg-center bg-no-repeat"
             >
               <Image
                 src={hospitals}
-                className="absolute -z-20 w-screen bg-center bg-no-repeat bg-blend-multiply"
+                className="absolute -z-20 w-screen bg-center bg-no-repeat"
                 alt="background Image"
               />
-              <div className="max-w-sm px-4 py-24 text-start lg:max-w-screen-xl lg:py-[188px]">
-                <h1 className="mb-10 pl-48 text-4xl font-extrabold leading-none tracking-tight text-white md:text-5xl lg:text-7xl">
+              <div className="max-w-sm px-4 py-5 text-start lg:max-w-screen-xl lg:py-[58px]">
+                <h1 className="my-5 ml-10 text-4xl font-extrabold leading-none tracking-tight text-white md:text-5xl lg:ml-48 lg:text-6xl">
                   Welcome User{" "}
                 </h1>
-                <p className="mb-8 text-sm font-normal text-gray-300 sm:px-16 lg:px-48 lg:text-xl">
+                <p className="mb-4 px-10 text-[8.25px] font-normal text-gray-300 lg:mb-8 lg:px-48 lg:text-lg">
                   Selamat datang, user! Website ini dirancang khusus untuk
                   membantu Anda dalam melakukan registrasi check-up kesehatan,
                   selain itu website ini juga bisa membantu Anda melihat riwayat
@@ -84,10 +84,10 @@ export default function Carousel({ imageURL }: any) {
                   lansia. Jangan ragu untuk mulai registrasi dan jadwalkan
                   check-up Anda sekarang!
                 </p>
-                <div className="ml-48 flex flex-col space-y-4 sm:flex-row sm:justify-start sm:space-y-0">
+                <div className="mb-10 ml-10 flex flex-col space-y-4 sm:flex-row sm:justify-start sm:space-y-0 lg:ml-48">
                   <Link
                     href={"checkup"}
-                    className="inline-flex items-center justify-center rounded-lg bg-darkBlue px-5 py-3 text-center text-base font-medium text-white hover:bg-mainBlue focus:ring-4 focus:ring-blue-300 dark:focus:ring-blue-900"
+                    className="inline-flex items-center justify-center rounded-lg bg-darkBlue px-4 py-2 text-center text-sm font-medium text-white hover:bg-mainBlue focus:ring-4 focus:ring-blue-300 dark:focus:ring-blue-900 lg:px-5 lg:py-3 lg:text-base"
                   >
                     Daftar Check Up
                     <svg
@@ -108,7 +108,7 @@ export default function Carousel({ imageURL }: any) {
                   </Link>
                 </div>
               </div>
-              <div className="mx-auto max-w-screen-xl px-4 py-24 text-center lg:py-[188px]"></div>
+              <div className="mx-auto max-w-screen-xl px-4 py-24 text-center lg:py-20"></div>
             </main>
           </div>
           <div
@@ -118,18 +118,18 @@ export default function Carousel({ imageURL }: any) {
           >
             <main
               id="carousel2"
-              className="z-50  w-screen bg-gray-900/90 bg-center bg-no-repeat bg-blend-multiply "
+              className="z-50 w-full bg-darkBlue2/80 bg-center bg-no-repeat "
             >
               <Image
                 src={lansia}
-                className="absolute -z-20 w-screen bg-center bg-no-repeat object-right-top bg-blend-multiply"
+                className="absolute -z-20 w-screen bg-center bg-no-repeat object-right-top"
                 alt="background Image"
               />
-              <div className=" ml-40 max-w-screen-xl px-4 py-24 text-end lg:py-[188px]">
-                <h1 className="mb-10 mt-7 pl-48 text-4xl font-extrabold leading-none tracking-tight text-white md:text-5xl lg:text-7xl">
+              <div className=" max-w-sm px-4 py-5 text-end lg:max-w-screen-xl lg:py-20">
+                <h1 className="my-5 text-4xl font-extrabold leading-none tracking-tight text-white md:text-5xl lg:mr-10 lg:text-6xl">
                   LansiCare{" "}
                 </h1>
-                <p className="mb-8 text-end text-sm font-normal text-gray-300 sm:pl-16 lg:pl-64 lg:text-xl">
+                <p className="mb-4 ml-8 text-end text-[8.25px] font-normal text-gray-300 lg:ml-24 lg:mr-10 lg:text-lg">
                   Website ini membantu Anda dalam melakukan registrasi check-up
                   secara online. Anda bisa melakukan registrasi check-up dengan
                   memilih dokter yang sesuai. Selanjutnya akan keluar nomor
@@ -139,10 +139,10 @@ export default function Carousel({ imageURL }: any) {
                   di klinik karena bisa mengantre secara online. Tunggu apa
                   lagi? Jadwalkan check-up kesehatan Anda sekarang juga!
                 </p>
-                <div className="ml-48 flex flex-col space-y-4 sm:flex-row sm:justify-end sm:space-y-0">
+                <div className="mb-10 ml-10 flex flex-col space-y-4 sm:flex-row sm:justify-end sm:space-y-0 lg:mr-10">
                   <Link
                     href={"about"}
-                    className="inline-flex items-center justify-center rounded-lg bg-darkBlue px-5 py-3 text-center text-base font-medium text-primary-50 hover:bg-mainBlue focus:ring-4 focus:ring-blue-300 dark:focus:ring-blue-900"
+                    className="inline-flex items-center justify-center rounded-lg bg-darkBlue px-4 py-2 text-center text-sm font-medium text-primary-50 hover:bg-mainBlue focus:ring-4 focus:ring-blue-300 dark:focus:ring-blue-900 lg:px-5 lg:py-3 lg:text-base"
                   >
                     Explore more
                     <svg
@@ -173,7 +173,7 @@ export default function Carousel({ imageURL }: any) {
           >
             <main
               id="carousel3"
-              className="z-50 w-screen bg-gray-900/90 bg-center bg-no-repeat bg-blend-multiply "
+              className="z-50 w-full bg-darkBlue2/80 bg-center bg-no-repeat bg-blend-multiply "
             >
               <Image
                 src={checkUp}
@@ -181,10 +181,10 @@ export default function Carousel({ imageURL }: any) {
                 alt="background Image"
               />
               <div
-                className=" mx-auto max-w-screen-xl px-4 py-24 text-center lg:py-[188px]"
+                className="mx-auto max-w-screen-xl px-4 py-1 text-center lg:py-20"
                 // style={{ backgroundImage: `url('${imageURL}')` }}
               >
-                <h1 className=" mb-36 mt-16 text-4xl font-extrabold leading-none tracking-tight text-slate-200 md:text-5xl lg:text-7xl">
+                <h1 className="my-[98px] text-3xl font-extrabold leading-none tracking-tight text-slate-200 md:text-4xl lg:text-6xl">
                   Ayo jadwalkan check-up kesehatan Anda sekarang juga!
                 </h1>
 
