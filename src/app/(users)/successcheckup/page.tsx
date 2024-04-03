@@ -2,7 +2,6 @@
 
 import React from "react";
 import NavBar from "../component/NavBar";
-import InBar from "../component/InBar";
 import Footer from "../component/Footer";
 import SuccessCheckUp from "../component/SuccessCheckUp";
 
