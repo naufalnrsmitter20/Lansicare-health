@@ -120,7 +120,7 @@ export default function SigninUser() {
                 <button
                   type="button"
                   onClick={() => signIn("google")}
-                  className="mb-2 me-2 mt-8 w-full rounded-lg border-2 bg-darkBlue/10 px-5 py-2.5 text-sm font-medium text-black hover:bg-darkBlue hover:text-white focus:outline-none focus:ring-4 focus:ring-gray-500"
+                  className="mb-2 me-2 mt-8 w-full rounded-lg border-2 px-5 py-2.5 text-sm font-medium text-black hover:bg-darkBlue hover:text-white focus:outline-none focus:ring-4 focus:ring-gray-500"
                 >
                   <p className="text-[14px] font-medium">Signin with Google</p>
                 </button>
