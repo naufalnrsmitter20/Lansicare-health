@@ -184,7 +184,7 @@ export default function Carousel({ imageURL }: any) {
                 className="mx-auto max-w-screen-xl px-4 py-1 text-center lg:py-20"
                 // style={{ backgroundImage: `url('${imageURL}')` }}
               >
-                <h1 className="my-[98px] text-3xl font-extrabold leading-none tracking-tight text-slate-200 md:text-4xl lg:text-6xl">
+                <h1 className="my-[98px] text-3xl font-bold leading-none tracking-tight text-white md:text-4xl lg:text-6xl lg:font-extrabold">
                   Ayo jadwalkan check-up kesehatan Anda sekarang juga!
                 </h1>
 
