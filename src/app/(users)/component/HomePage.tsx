@@ -44,7 +44,7 @@ export default function Homepage() {
                 >
                   <div>
                     <Image
-                      className="h-[200px] rounded-t-lg object-cover lg:h-[300px]"
+                      className="h-[150px] rounded-t-lg object-cover lg:h-[150px]"
                       src={TrackingKesehatan}
                       alt="foto"
                     />
@@ -67,7 +67,7 @@ export default function Homepage() {
                 >
                   <div>
                     <Image
-                      className="h-[200px] rounded-t-lg object-cover lg:h-[300px]"
+                      className="h-[150px] rounded-t-lg object-cover lg:h-[150px]"
                       src={ResepObat}
                       width={700}
                       alt="foto"
@@ -90,7 +90,7 @@ export default function Homepage() {
                 >
                   <div>
                     <Image
-                      className="h-[200px] rounded-t-lg object-cover lg:h-[300px]"
+                      className="h-[150px] rounded-t-lg object-cover lg:h-[150px]"
                       src={Regist}
                       alt="foto"
                     />
@@ -112,7 +112,7 @@ export default function Homepage() {
                 >
                   <div>
                     <Image
-                      className="h-[200px] rounded-t-lg object-cover object-top lg:h-[300px]"
+                      className="h-[150px] rounded-t-lg object-cover object-top lg:h-[150px]"
                       src={CheckUp}
                       alt="foto"
                     />
