@@ -48,10 +48,11 @@ export default function SigninUser() {
   }
   return (
     <>
-      <section className="flex flex-1 flex-col justify-center bg-base-50 pb-10 align-middle lg:mt-20 lg:h-full lg:min-w-full lg:px-8 lg:py-40">
-        <div className=" max-h-3xl m-auto mt-36 w-full max-w-7xl justify-around rounded-[30px] bg-primary-1000 pt-5 shadow-md shadow-slate-600 lg:mt-0 lg:flex lg:h-fit lg:pr-20">
+      <section className="flex flex-1 flex-col justify-center bg-base-50 align-middle lg:mt-20 lg:h-full lg:min-w-full lg:px-8 lg:py-40">
+        <div className=" max-h-3xl m-auto mt-36 max-w-[350px] justify-around rounded-[15px] bg-primary-1000 pt-5 shadow-md lg:mt-0 lg:flex lg:h-fit lg:w-full lg:max-w-7xl lg:pr-20">
           <main className="m-10">
             <Image
+              className="hidden md:block"
               src={SigninImage}
               width={560.63}
               height={392.28}
@@ -60,10 +61,10 @@ export default function SigninUser() {
           </main>
           <main className="w-full max-w-lg px-5 lg:px-0">
             <form onSubmit={handleSubmit}>
-              <h1 className="mb-10 mt-20 justify-center text-center text-4xl font-bold">
+              <h1 className="mb-10 mt-10 justify-center text-center text-3xl font-bold lg:mt-20 lg:text-4xl">
                 Hi User!
               </h1>
-              <div className=" mb-5">
+              <div className="mb-5">
                 <label
                   htmlFor="name"
                   className="mb-2 block text-sm font-semibold text-base-100 dark:text-white"
@@ -99,28 +100,38 @@ export default function SigninUser() {
                   required
                 />
               </div>
-              <div className="mb-28 mt-10">
-                <div className="mt-7 grid grid-cols-2 gap-2">
-                  <button
-                    type="button"
-                    className="mb-2 me-2 rounded-lg border-2 bg-darkBlue/10 px-5 py-2.5 text-sm font-medium text-base-100 hover:bg-darkBlue hover:text-white focus:outline-none focus:ring-4 focus:ring-gray-500"
-                  >
-                    <p className="text-[14px] font-medium">Forgot Password?</p>
-                  </button>
+              <div className="mb-20 mt-10">
+                <div className="mt-7 grid grid-cols-1 gap-2">
                   <button
                     disabled={IsLoading}
                     type="submit"
                     className="mb-2 me-2 rounded-lg border-2 border-darkBlue bg-darkBlue px-5 py-2.5 text-sm font-medium text-white hover:bg-white hover:text-base-100 focus:outline-none focus:ring-4 focus:ring-gray-500"
                   >
                     <p className="text-[14px] font-medium">
-                      {IsLoading ? "Loading..." : "Signin"}
+                      {IsLoading ? "Loading..." : "Sign In"}
                     </p>
                   </button>
                 </div>
+                <div className="mt-10 grid grid-cols-2 gap-2">
+                  <button
+                    type="button"
+                    className="mb-2 me-2 rounded-lg border-2 bg-darkBlue/10 px-3 py-1 text-sm font-medium text-base-100 hover:bg-darkBlue hover:text-white focus:outline-none focus:ring-4 focus:ring-gray-500 lg:px-5 lg:py-2.5"
+                  >
+                    <p className="text-[14px] font-medium">Forgot Password?</p>
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => push("/signup")}
+                    className="mb-2 me-2 rounded-lg border-2 bg-darkBlue/10 px-3 py-1 text-sm font-medium text-base-100 hover:bg-darkBlue hover:text-white focus:outline-none focus:ring-4 focus:ring-gray-500 lg:px-5 lg:py-2.5"
+                  >
+                    <p className="text-[14px] font-medium">Sign Up</p>
+                  </button>
+                </div>
+                <hr className="mt-4" />
                 <button
                   type="button"
                   onClick={() => signIn("google")}
-                  className="mb-2 me-2 mt-8 w-full rounded-lg border-2 px-5 py-2.5 text-sm font-medium text-black hover:bg-darkBlue hover:text-white focus:outline-none focus:ring-4 focus:ring-gray-500"
+                  className="mb-2 me-2 mt-4 w-full rounded-lg border-2 px-5 py-2.5 text-sm font-medium text-black hover:bg-black hover:text-white focus:outline-none focus:ring-4 focus:ring-gray-500"
                 >
                   <p className="text-[14px] font-medium">Signin with Google</p>
                 </button>

@@ -9,13 +9,15 @@ export default function AboutComponent() {
     <>
       <section className="bg-base-50 pb-5">
         <div className="mx-auto pt-40 text-base-100">
-          <h6 className="m-1 text-center text-sm lg:text-xl">About us</h6>
+          <h6 className="m-1 text-center text-sm font-medium lg:text-xl">
+            About us
+          </h6>
           <h1 className="mx-auto mt-10 bg-gradient-to-r from-darkBlue to-mainBlue bg-clip-text pb-20 text-center text-[45px] font-bold text-transparent lg:text-6xl">
             InnoSync Team
           </h1>
         </div>
 
-        <div className=" mx-auto h-auto w-[450px] place-items-center justify-center rounded-[10px] border-gray-200 bg-primary-1000 shadow-md lg:w-[1380px] ">
+        <div className=" mx-auto h-auto w-[400px] place-items-center justify-center rounded-[10px] border-gray-200 bg-primary-1000 shadow-md lg:w-[1380px] ">
           <div className="relative h-full p-[100px]">
             <div className="relative grid h-fit w-full grid-cols-1 gap-y-10 lg:mb-20 lg:mt-[200px] lg:h-20 lg:grid-cols-4">
               <div className="relative flex justify-center">
@@ -26,7 +28,7 @@ export default function AboutComponent() {
                       alt="image"
                       className="rounded-[6px] group-hover:ring-4 group-hover:ring-mainBlue/20"
                     />
-                    <p className="mt-3 hidden pb-7 text-center text-base font-medium group-hover:block lg:mb-7">
+                    <p className="mt-3 hidden pb-7 text-center text-[12px] font-medium group-hover:block lg:mb-7">
                       Muhammad Keefa Syawal (Hipster)
                     </p>
                   </div>
@@ -40,7 +42,7 @@ export default function AboutComponent() {
                       alt="image"
                       className="rounded-[6px] group-hover:ring-4 group-hover:ring-mainBlue/20"
                     />
-                    <p className="mt-3 hidden pb-7 text-center text-base font-medium group-hover:block lg:mb-7">
+                    <p className="mt-3 hidden pb-7 text-center text-[12px] font-medium group-hover:block lg:mb-7">
                       Naufal Nabil Ramadhan (Hacker)
                     </p>
                   </div>
@@ -54,7 +56,7 @@ export default function AboutComponent() {
                       alt="image"
                       className="rounded-[6px] group-hover:ring-4 group-hover:ring-mainBlue/20"
                     />
-                    <p className="mb-7 mt-3 hidden text-center text-base font-medium group-hover:block">
+                    <p className="mb-7 mt-3 hidden text-center text-[12px] font-medium group-hover:block">
                       Raisya Ramadhani Achmad (Hustler)
                     </p>
                   </div>
@@ -68,7 +70,7 @@ export default function AboutComponent() {
                       alt="image"
                       className="rounded-[6px] group-hover:ring-4 group-hover:ring-mainBlue/20"
                     />
-                    <p className="mt-3 hidden text-center text-base font-medium group-hover:block">
+                    <p className="mt-3 hidden text-center text-[12px] font-medium group-hover:block">
                       Rakha Adrian Nur Tanaya (Leader)
                     </p>
                   </div>
@@ -79,7 +81,7 @@ export default function AboutComponent() {
         </div>
 
         {/* deskripsi */}
-        <div className=" mx-auto mt-[10px] h-auto w-[450px] place-items-center justify-center rounded-[10px] border-gray-200 bg-primary-1000 shadow-md lg:w-[1380px] ">
+        <div className=" mx-auto mt-[10px] h-auto w-[400px] place-items-center justify-center rounded-[10px] border-gray-200 bg-primary-1000 shadow-md lg:w-[1380px] ">
           <div className="relative mb-20 ml-10 mt-20 h-full">
             <div className="mx-5 mt-10 grid grid-cols-1 pb-10 pt-10 lg:mx-10 lg:flex">
               <div className=" w-full max-w-5xl">
