@@ -62,7 +62,7 @@ export default function SignUpUser() {
           </main>
           <main className="w-full max-w-lg">
             <form onSubmit={handleSubmit}>
-              <div className="mb-5">
+              <div className="mb-5 mt-5">
                 <label
                   htmlFor="fullname"
                   className="mb-2 block text-sm font-semibold text-base-100 dark:text-white"
@@ -124,42 +124,18 @@ export default function SignUpUser() {
                 >
                   <p>Sign Up</p>
                 </button>
-                {/* <p className="mb-4 text-sm text-red-600"></p> */}
-                <p className="mt-8 text-center text-[18px] font-semibold text-base-100 ">
-                  Or Sign Up With
-                </p>
-                <div className="mt-7 grid grid-cols-2 gap-2">
-                  <button
-                    type="button"
-                    onClick={() => signIn("google")}
-                    className="mb-2 me-2 rounded-lg border-2 border-gray-300 bg-white px-5 py-2.5 text-sm font-medium text-base-100 hover:bg-darkBlue hover:text-white focus:outline-none focus:ring-4 focus:ring-gray-100 dark:border-gray-600 dark:bg-gray-800 dark:text-white dark:hover:border-gray-600 dark:hover:bg-gray-700 dark:focus:ring-gray-700"
-                  >
-                    {/* image */}
-                    <p className="text-[14px] font-medium">Google</p>
-                  </button>
-                  <button
-                    type="button"
-                    className="mb-2 me-2 rounded-lg border-2 border-gray-300 bg-white px-5 py-2.5 text-sm font-medium text-base-100 hover:bg-darkBlue hover:text-white focus:outline-none focus:ring-4 focus:ring-gray-100 dark:border-gray-600 dark:bg-gray-800 dark:text-white dark:hover:border-gray-600 dark:hover:bg-gray-700 dark:focus:ring-gray-700"
-                  >
-                    {/* image */}
-                    <p className="text-[14px] font-medium">Facebook</p>
-                  </button>
-                </div>
+
                 <p className="mt-8 text-center text-[18px] font-semibold text-base-100">
                   Already have an account?
                 </p>
-                <div className="mb-20 mt-7 grid grid-cols-2 gap-2">
-                  <button
-                    type="button"
-                    className="mb-2 me-2 rounded-lg border-2 bg-darkBlue/10 px-3 py-1 text-sm font-medium text-base-100 hover:bg-darkBlue hover:text-white focus:outline-none focus:ring-4 focus:ring-gray-500 dark:border-gray-600 lg:px-5 lg:py-2.5"
-                  >
-                    <p className="text-[14px] font-medium">Forgot Password?</p>
-                  </button>
+                <div className="mb-20 mt-7 grid grid-cols-1 gap-2">
                   <Link
-                    href={"/users/signin"}
-                    className="mb-2 me-2 rounded-lg border-2 border-darkBlue bg-darkBlue px-5 py-2.5 text-sm font-medium text-white hover:bg-white hover:text-base-100 focus:outline-none focus:ring-4 focus:ring-gray-500 dark:border-gray-600 dark:bg-gray-800 dark:text-white dark:hover:border-gray-600 dark:hover:bg-gray-700 dark:focus:ring-gray-700"
+                    href={"/signin"}
+                    className="mb-2 me-2 rounded-lg border-2 border-darkBlue bg-white  px-5 py-2.5 text-sm font-medium text-black hover:bg-slate-200 hover:text-base-100 focus:outline-none focus:ring-4 focus:ring-gray-500 dark:border-gray-600 dark:bg-gray-800 dark:text-white dark:hover:border-gray-600 dark:hover:bg-gray-700 dark:focus:ring-gray-700"
                   >
-                    <p className="text-center text-[14px] font-medium">Login</p>
+                    <p className="text-center text-[14px] font-medium">
+                      Sign In
+                    </p>
                   </Link>
                 </div>
               </div>

@@ -101,7 +101,18 @@ export default function SigninUser() {
                 />
               </div>
               <div className="mb-20 mt-10">
-                <div className="mt-7 grid grid-cols-2 gap-2">
+                <div className="mt-7 grid grid-cols-1 gap-2">
+                  <button
+                    disabled={IsLoading}
+                    type="submit"
+                    className="mb-2 me-2 rounded-lg border-2 border-darkBlue bg-darkBlue px-5 py-2.5 text-sm font-medium text-white hover:bg-white hover:text-base-100 focus:outline-none focus:ring-4 focus:ring-gray-500"
+                  >
+                    <p className="text-[14px] font-medium">
+                      {IsLoading ? "Loading..." : "Sign In"}
+                    </p>
+                  </button>
+                </div>
+                <div className="mt-10 grid grid-cols-2 gap-2">
                   <button
                     type="button"
                     className="mb-2 me-2 rounded-lg border-2 bg-darkBlue/10 px-3 py-1 text-sm font-medium text-base-100 hover:bg-darkBlue hover:text-white focus:outline-none focus:ring-4 focus:ring-gray-500 lg:px-5 lg:py-2.5"
@@ -109,19 +120,18 @@ export default function SigninUser() {
                     <p className="text-[14px] font-medium">Forgot Password?</p>
                   </button>
                   <button
-                    disabled={IsLoading}
-                    type="submit"
-                    className="mb-2 me-2 rounded-lg border-2 border-darkBlue bg-darkBlue px-5 py-2.5 text-sm font-medium text-white hover:bg-white hover:text-base-100 focus:outline-none focus:ring-4 focus:ring-gray-500"
+                    type="button"
+                    onClick={() => push("/signup")}
+                    className="mb-2 me-2 rounded-lg border-2 bg-darkBlue/10 px-3 py-1 text-sm font-medium text-base-100 hover:bg-darkBlue hover:text-white focus:outline-none focus:ring-4 focus:ring-gray-500 lg:px-5 lg:py-2.5"
                   >
-                    <p className="text-[14px] font-medium">
-                      {IsLoading ? "Loading..." : "Login"}
-                    </p>
+                    <p className="text-[14px] font-medium">Sign Up</p>
                   </button>
                 </div>
+                <hr className="mt-4" />
                 <button
                   type="button"
                   onClick={() => signIn("google")}
-                  className="mb-2 me-2 mt-8 w-full rounded-lg border-2 px-5 py-2.5 text-sm font-medium text-black hover:bg-darkBlue hover:text-white focus:outline-none focus:ring-4 focus:ring-gray-500"
+                  className="mb-2 me-2 mt-4 w-full rounded-lg border-2 px-5 py-2.5 text-sm font-medium text-black hover:bg-black hover:text-white focus:outline-none focus:ring-4 focus:ring-gray-500"
                 >
                   <p className="text-[14px] font-medium">Signin with Google</p>
                 </button>
