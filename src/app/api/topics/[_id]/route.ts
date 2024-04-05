@@ -3,7 +3,7 @@ import connect from "@/src/utils/db";
 import User from "@/src/models/userModel";
 
 interface NewUserResponse {
-  id: string;
+  _id: string;
   fullname: string;
   email: string;
   role: string;
@@ -83,6 +83,6 @@ export async function GET(
 ) {
   const { _id } = params;
   await connect();
-  const pasien = await User.findOne({ id: _id });
+  const pasien = await User.findOne({ _id: _id });
   return NextResponse.json(pasien, { status: 200 });
 }
