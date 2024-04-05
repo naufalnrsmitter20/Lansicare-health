@@ -34,6 +34,7 @@ type Patient = {
   Kewarganegaraan: string;
   BerlakuHingga: Date;
   updatedAt: string;
+  role: string;
 };
 
 export const getData = async () => {
@@ -129,6 +130,9 @@ export default function TableData() {
                     Status
                   </th>
                   <th scope="col" className="border-4 border-white px-6 py-3">
+                    Role
+                  </th>
+                  <th scope="col" className="border-4 border-white px-6 py-3">
                     Terakhir Diubah
                   </th>
                   <th scope="col" className="border-4 border-white px-6 py-3">
@@ -156,6 +160,9 @@ export default function TableData() {
                     </td>
                     <td className="border-4 border-white bg-sky-200 px-6 py-2 text-center text-xs">
                       {Data.pasienStatus}
+                    </td>
+                    <td className="border-4 border-white bg-sky-200 px-6 py-2 text-center text-xs">
+                      {Data.role}
                     </td>
                     <td className="border-4 border-white bg-sky-200 px-6 py-2 text-center text-xs">
                       {Data.updatedAt}
