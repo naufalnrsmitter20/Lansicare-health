@@ -46,10 +46,14 @@ export default function SignUpUser() {
   };
   return (
     <>
-      <section className="lg:min-w-xl mt-10 flex flex-1 flex-col justify-center bg-base-50 align-middle lg:mt-20 lg:h-full lg:px-8 lg:pb-40 lg:pt-40">
-        <div className="max-h-xl lg:max-h-3xl m-auto h-fit w-full max-w-7xl justify-around rounded-[5px] bg-primary-1000 px-5 pb-5 pt-5 shadow-md shadow-slate-600 lg:flex lg:rounded-[30px] lg:px-0 lg:pr-20">
+      <section className="lg:min-w-xl flex flex-1 flex-col justify-center bg-base-50 pt-28 align-middle lg:mt-20 lg:h-full lg:px-8 lg:pb-40 lg:pt-40">
+        <div className="max-h-xl lg:max-h-3xl m-auto h-fit w-full max-w-[350px] justify-around rounded-[15px] bg-primary-1000 px-5 shadow-md lg:flex lg:max-w-7xl lg:px-0 lg:pb-5 lg:pr-20 lg:pt-5">
+          <h1 className="mt-10 text-center text-3xl font-bold md:hidden">
+            Hi User!
+          </h1>
           <main className="m-20">
             <Image
+              className="hidden md:block"
               src={SignupImage}
               width={397.22}
               height={305.61}
@@ -144,10 +148,10 @@ export default function SignUpUser() {
                 <p className="mt-8 text-center text-[18px] font-semibold text-base-100">
                   Already have an account?
                 </p>
-                <div className="mt-7 grid grid-cols-2 gap-2">
+                <div className="mb-20 mt-7 grid grid-cols-2 gap-2">
                   <button
                     type="button"
-                    className="mb-2 me-2 rounded-lg border-2 bg-darkBlue/10 px-5 py-2.5 text-sm font-medium text-base-100 hover:bg-darkBlue hover:text-white focus:outline-none focus:ring-4 focus:ring-gray-500 dark:border-gray-600"
+                    className="mb-2 me-2 rounded-lg border-2 bg-darkBlue/10 px-3 py-1 text-sm font-medium text-base-100 hover:bg-darkBlue hover:text-white focus:outline-none focus:ring-4 focus:ring-gray-500 dark:border-gray-600 lg:px-5 lg:py-2.5"
                   >
                     <p className="text-[14px] font-medium">Forgot Password?</p>
                   </button>

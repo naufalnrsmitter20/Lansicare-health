@@ -308,7 +308,7 @@ export default function NavBar() {
                   <li className=" border-b border-b-gray-500">
                     <button
                       onClick={() => signIn()}
-                      className="group flex justify-center mx-auto px-3 py-2"
+                      className="group mx-auto flex justify-center px-3 py-2"
                     >
                       <svg
                         width="18"
@@ -338,7 +338,7 @@ export default function NavBar() {
                         />
                       </svg>
                       <p className="rounded px-2 text-[12px] text-base-100 hover:bg-gray-100 dark:border-gray-700 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:p-0 md:hover:bg-transparent group-hover:md:text-Navbar-Hover md:dark:hover:bg-transparent group-hover:md:dark:text-Navbar-Hover">
-                        SignIn
+                        Sign In
                       </p>
                     </button>
                   </li>
@@ -381,7 +381,7 @@ export default function NavBar() {
                         />
                       </svg>
                       <p className="rounded px-2 text-[12px] text-base-100 hover:bg-gray-100 dark:border-gray-700 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:p-0 md:hover:bg-transparent group-hover:md:text-Navbar-Hover md:dark:hover:bg-transparent group-hover:md:dark:text-Navbar-Hover">
-                        SignUp
+                        Sign Up
                       </p>
                     </Link>
                   </li>

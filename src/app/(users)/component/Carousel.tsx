@@ -20,7 +20,7 @@ export default function Carousel({ imageURL }: any) {
   }, []);
 
   return (
-    <div className="relative mx-auto w-[450px] rounded-[10px] pt-[130px] lg:w-[1366.48px]">
+    <div className="relative mx-auto w-[400px] rounded-[10px] pt-[130px] lg:w-[1366.48px]">
       <div
         id="carouselExampleCaptions"
         className="relative"
@@ -56,7 +56,7 @@ export default function Carousel({ imageURL }: any) {
           ></button>
         </div>
 
-        <div className="relative w-full overflow-hidden rounded-[10px] shadow-md after:clear-both after:block after:content-['']">
+        <div className="relative max-h-[250px] w-full overflow-hidden rounded-[10px] shadow-md after:clear-both after:block after:content-[''] lg:max-h-[450px]">
           <div
             className="relative float-left -mr-[100%] w-full transition-transform duration-[600ms] ease-in-out motion-reduce:transition-none"
             data-te-carousel-active
@@ -73,19 +73,19 @@ export default function Carousel({ imageURL }: any) {
                 alt="background Image"
               />
               <div className="max-w-sm px-4 py-5 text-start lg:max-w-screen-xl lg:py-[72px]">
-                <h1 className="my-2 ml-10 text-3xl font-extrabold leading-none tracking-tight text-white md:text-5xl lg:my-5 lg:ml-48 lg:text-6xl">
+                <h1 className="my-3 ml-10 text-3xl font-extrabold leading-none tracking-tight text-white md:text-5xl lg:my-5 lg:ml-48 lg:text-6xl">
                   Welcome to LansiCare
                 </h1>
                 <p className="mb-2 text-ellipsis pl-10 text-[12px] font-normal text-gray-300 lg:mb-7 lg:px-48 lg:text-lg">
                   Selamat datang {session ? `${session.user?.name}` : "Guest"}!{" "}
                   Website ini dirancang khusus untuk membantu Anda dalam
-                  melakukan registrasi check-up kesehatan, selain itu website
-                  ini juga bisa membantu Anda melihat riwayat check-up
-                  kesehatan.
+                  melakukan registrasi check-up kesehatan
                   <span className="hidden md:inline">
-                    Kami berkomitmen untuk menyediakan layanan yang dapat
-                    meningkatkan kesehatan dan kesejahteraan lansia. Jangan ragu
-                    untuk mulai registrasi dan jadwalkan check-up Anda sekarang!
+                    , selain itu website ini juga bisa membantu Anda melihat
+                    riwayat check-up kesehatan. Kami berkomitmen untuk
+                    menyediakan layanan yang dapat meningkatkan kesehatan dan
+                    kesejahteraan lansia. Jangan ragu untuk mulai registrasi dan
+                    jadwalkan check-up Anda sekarang!
                   </span>
                 </p>
                 <div className="mb-10 ml-10 flex flex-col space-y-4 sm:flex-row sm:justify-start sm:space-y-0 lg:ml-48">
@@ -133,20 +133,20 @@ export default function Carousel({ imageURL }: any) {
                 <h1 className="my-5 text-4xl font-extrabold leading-none tracking-tight text-white md:text-5xl lg:mr-10 lg:text-6xl">
                   LansiCare{" "}
                 </h1>
-                <p className="mb-4 ml-8 text-end text-[12px] font-normal text-gray-300 lg:ml-24 lg:mr-10 lg:text-lg">
+                <p className="mb-3 ml-8 text-end text-[12px] font-normal text-gray-300 lg:ml-24 lg:mr-10 lg:text-lg">
                   Website ini membantu Anda dalam melakukan registrasi check-up
                   secara online. Anda bisa melakukan registrasi check-up dengan
-                  memilih dokter yang sesuai.Selanjutnya akan keluar nomor
-                  antrean dan waktu untuk pemeriksaan.
+                  memilih dokter yang sesuai.
                   <span className="hidden lg:inline">
-                    Selain itu, website ini juga membantu Anda untuk mengecek
-                    riwayat pemeriksaan Anda. Anda tidak perlu lagi mengantre
-                    dengan kurun waktu yang lama di klinik karena bisa mengantre
-                    secara online. Tunggu apa lagi? Jadwalkan check-up kesehatan
-                    Anda sekarang juga!
+                    Selanjutnya akan keluar nomor antrean dan waktu untuk
+                    pemeriksaan. Selain itu, website ini juga membantu Anda
+                    untuk mengecek riwayat pemeriksaan Anda. Anda tidak perlu
+                    lagi mengantre dengan kurun waktu yang lama di klinik karena
+                    bisa mengantre secara online. Tunggu apa lagi? Jadwalkan
+                    check-up kesehatan Anda sekarang juga!
                   </span>
                 </p>
-                <div className="mb-10 ml-10 flex flex-row justify-end  space-y-0 lg:mr-10 lg:space-y-4">
+                <div className="mb-10 ml-10 flex flex-row justify-end space-y-0 lg:mr-10 lg:space-y-4">
                   <Link
                     href={"about"}
                     className="inline-flex w-40 items-center justify-center rounded-lg bg-darkBlue px-4 py-2 text-center text-xs font-medium text-primary-50 hover:bg-mainBlue focus:ring-4 focus:ring-blue-300 dark:focus:ring-blue-900 lg:w-auto lg:px-5 lg:py-3 lg:text-sm"
@@ -191,7 +191,7 @@ export default function Carousel({ imageURL }: any) {
                 className="mx-auto max-w-screen-xl px-4 py-1 text-center lg:py-[85px]"
                 // style={{ backgroundImage: `url('${imageURL}')` }}
               >
-                <h1 className="my-[90px] text-3xl font-extrabold leading-none tracking-tight text-slate-200 md:text-4xl lg:text-6xl">
+                <h1 className="my-[80px] text-3xl font-extrabold leading-none tracking-tight text-slate-200 md:text-4xl lg:text-6xl">
                   Ayo jadwalkan check-up kesehatan Anda sekarang juga!
                 </h1>
 

@@ -17,11 +17,11 @@ export default function Homepage() {
       {/* Home Carousel */}
       <section className="scroll-smooths text-base-100">
         <Carousel />
-        <div className="mx-auto flex h-full flex-col place-items-center justify-center bg-base-50 pb-[30px] pt-[30px] align-middle font-inter">
+        <div className="flex h-full flex-col place-items-center justify-center bg-base-50 pb-[30px] pt-[30px] align-middle font-inter">
           {/* Fitur-fitur */}
           <div
             id="main"
-            className="mx-[35] mt-[10px] h-auto w-[450px] rounded-[10px] bg-primary-1000 pb-10 shadow-md lg:w-[1366.48px]"
+            className="mx-[35] mt-[10px] h-auto w-[400px] rounded-[10px] bg-primary-1000 pb-10 shadow-md lg:w-[1366.48px]"
           >
             <div className="mt-[33px] inline-flex h-6 w-96 flex-col items-start justify-start px-10">
               <div className="self-stretch text-2xl font-semibold leading-normal text-neutral-800">
@@ -37,7 +37,7 @@ export default function Homepage() {
                 <div className="relative h-3 w-3" />
               </div> */}
 
-              <div className="mx-10 mt-5 grid grid-cols-1 content-center gap-4 lg:grid-cols-2">
+              <div className="mx-10 mt-5 grid grid-cols-1 content-center gap-4 lg:grid-cols-4">
                 <Link
                   href={"profile"}
                   className="max-h-sm w-fit rounded-lg border border-gray-200 bg-primary-1000 shadow transition-all hover:scale-95 hover:ring-4 hover:ring-mainBlue/20 dark:border-gray-700 dark:bg-gray-800"
@@ -55,7 +55,7 @@ export default function Homepage() {
                         Track Kesehatan
                       </h5>
                     </div>
-                    <p className="mb-3 text-[15px] font-normal text-base-100 dark:text-gray-400">
+                    <p className="mb-3 text-[14px] font-normal text-base-100 dark:text-gray-400">
                       Lacak Kesehatanmu Disini
                     </p>
                   </div>
@@ -79,7 +79,7 @@ export default function Homepage() {
                         Resep Obat
                       </h5>
                     </div>
-                    <p className="mb-3 text-[15px] font-normal text-base-100 dark:text-gray-400">
+                    <p className="mb-3 text-[14px] font-normal text-base-100 dark:text-gray-400">
                       Lihat Resep Obatmu Disini
                     </p>
                   </div>
@@ -101,7 +101,7 @@ export default function Homepage() {
                         Registrasi Cepat
                       </h5>
                     </div>
-                    <p className="mb-3 text-[15px] font-normal text-base-100 dark:text-gray-400">
+                    <p className="mb-3 text-[14px] font-normal text-base-100 dark:text-gray-400">
                       Sekarang registrasi kesehatan tidak perlu ribet
                     </p>
                   </div>
@@ -123,7 +123,7 @@ export default function Homepage() {
                         Checkup Kesehatan
                       </h5>
                     </div>
-                    <p className="mb-3 text-[15px] font-normal text-base-100 dark:text-gray-400">
+                    <p className="mb-3 text-[14px] font-normal text-base-100 dark:text-gray-400">
                       Cek kesehatanmu dengan sekali tap di klinik/rumah sakit
                       terdekat
                     </p>
@@ -133,7 +133,7 @@ export default function Homepage() {
             </div>
           </div>
           {/* Komentar */}
-          <div className="mx-[35] mb-[20px] mt-[30px] w-[450px] rounded-[10px] bg-primary-1000 shadow-md lg:w-[1366.48px]">
+          <div className="mx-[35] mb-[20px] mt-[30px] w-[400px] rounded-[10px] bg-primary-1000 shadow-md lg:w-[1366.48px]">
             <div className="mt-[33px] inline-flex h-6 w-96 flex-col items-start justify-start px-10">
               <div className="self-stretch text-2xl font-semibold leading-normal text-neutral-800">
                 Komentar
