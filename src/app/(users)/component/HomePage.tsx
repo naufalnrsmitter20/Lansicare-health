@@ -17,13 +17,13 @@ export default function Homepage() {
       {/* Home Carousel */}
       <section className="scroll-smooths text-base-100">
         <Carousel />
-        <div className="flex h-full flex-col place-items-center justify-center bg-base-50 pb-[30px] pt-[30px] align-middle font-inter">
+        <div className="mt-[30px] flex h-full flex-col place-items-center justify-center bg-base-50 align-middle font-inter">
           {/* Fitur-fitur */}
           <div
             id="main"
-            className="mx-[35] mt-[10px] h-auto w-[400px] rounded-[10px] bg-primary-1000 pb-10 shadow-md lg:w-[1366.48px]"
+            className="mx-[15px] h-auto rounded-[10px] bg-primary-1000 pb-10 shadow-md lg:mx-[35px]"
           >
-            <div className="mt-[33px] inline-flex h-6 w-96 flex-col items-start justify-start px-10">
+            <div className="mt-[30px] inline-flex h-6 flex-col items-start justify-start px-10">
               <div className="self-stretch text-2xl font-semibold leading-normal text-neutral-800">
                 Fitur-fitur
               </div>
@@ -133,8 +133,8 @@ export default function Homepage() {
             </div>
           </div>
           {/* Komentar */}
-          <div className="mx-[35] mb-[20px] mt-[30px] w-[400px] rounded-[10px] bg-primary-1000 shadow-md lg:w-[1366.48px]">
-            <div className="mt-[33px] inline-flex h-6 w-96 flex-col items-start justify-start px-10">
+          <div className="mx-[15px] mb-[30px] mt-[30px] rounded-[10px] bg-primary-1000 shadow-md lg:mx-[35px]">
+            <div className="mt-[30px] inline-flex h-6 w-[400px] flex-col items-start justify-start px-10">
               <div className="self-stretch text-2xl font-semibold leading-normal text-neutral-800">
                 Komentar
               </div>
