@@ -61,7 +61,8 @@ export default function Sidebar() {
               </li>
               <li>
                 <Link
-                  href="/administration/apotek"
+                  rel="links"
+                  href="https://apotek-amanah.000webhostapp.com/"
                   className="group flex items-center  rounded-lg p-2 py-3 text-white hover:bg-darkBlue"
                 >
                   <svg
