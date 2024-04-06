@@ -49,7 +49,7 @@ export default function SigninUser() {
   return (
     <>
       <section className="flex flex-1 flex-col justify-center bg-base-50 align-middle lg:mt-20 lg:h-full lg:min-w-full lg:px-8 lg:pt-[50px]">
-        <div className=" max-h-3xl mx-[40px] mt-36 justify-around rounded-[15px] bg-primary-1000 pt-5 shadow-md lg:m-auto lg:mt-0 lg:flex lg:h-fit lg:w-full lg:max-w-7xl lg:pr-20">
+        <div className=" max-h-3xl mx-[20px] mt-36 justify-around rounded-[15px] bg-primary-1000 pt-5 shadow-md lg:m-auto lg:mt-0 lg:flex lg:h-fit lg:w-full lg:max-w-7xl lg:pr-20">
           <main className="m-10">
             <Image
               className="hidden md:block"

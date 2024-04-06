@@ -47,7 +47,7 @@ export default function SignUpUser() {
   return (
     <>
       <section className="lg:min-w-xl flex flex-1 flex-col justify-center bg-base-50 pt-28 align-middle lg:mt-20 lg:h-full lg:px-8 lg:pb-40 lg:pt-40">
-        <div className="max-h-xl lg:max-h-3xl m-auto h-fit w-full max-w-[350px] justify-around rounded-[15px] bg-primary-1000 px-5 shadow-md lg:flex lg:max-w-7xl lg:px-0 lg:pb-5 lg:pr-20 lg:pt-5">
+        <div className="max-h-xl lg:max-h-3xl mx-[20px] h-fit w-full max-w-[350px] justify-around rounded-[15px] bg-primary-1000 px-5 shadow-md lg:m-auto lg:flex lg:max-w-7xl lg:px-0 lg:pb-5 lg:pr-20 lg:pt-5">
           <h1 className="mt-10 text-center text-3xl font-bold md:hidden">
             Hi User!
           </h1>
