@@ -105,7 +105,7 @@ export default function SigninUser() {
                   <button
                     disabled={IsLoading}
                     type="submit"
-                    className="mb-2 me-2 rounded-lg border-2 border-darkBlue bg-darkBlue px-5 py-2.5 text-sm font-medium text-white hover:bg-white hover:text-base-100 focus:outline-none focus:ring-2 focus:ring-darkBlue"
+                    className="mb-2 me-2 rounded-lg border-2 border-darkBlue bg-darkBlue px-5 py-2.5 text-sm font-medium text-white transition-all duration-200 hover:bg-white hover:text-base-100 focus:outline-none focus:ring-2 focus:ring-darkBlue"
                   >
                     <p className="text-[12px] font-medium lg:text-[14px]">
                       {IsLoading ? "Loading..." : "Login"}
@@ -115,7 +115,7 @@ export default function SigninUser() {
                 <div className="mt-[20px] grid grid-cols-2 gap-2">
                   <button
                     type="button"
-                    className="mb-2 me-2 rounded-lg border-2 border-darkBlue px-3 py-1 text-sm font-medium text-base-100 hover:bg-darkBlue hover:text-white focus:outline-none focus:ring-2 focus:ring-darkBlue lg:px-5 lg:py-2.5"
+                    className="mb-2 me-2 rounded-lg border-2 border-darkBlue px-3 py-1 text-sm font-medium text-base-100 transition-all duration-200 hover:bg-darkBlue hover:text-white focus:outline-none focus:ring-2 focus:ring-darkBlue lg:px-5 lg:py-2.5"
                   >
                     <p className="text-[12px] font-medium lg:text-[14px]">
                       Forgot Password?
@@ -124,7 +124,7 @@ export default function SigninUser() {
                   <button
                     type="button"
                     onClick={() => push("/signup")}
-                    className="mb-2 me-2 rounded-lg border-2 border-darkBlue bg-darkBlue px-5 py-2.5 text-sm font-medium text-white hover:bg-white hover:text-base-100 focus:outline-none focus:ring-2 focus:ring-darkBlue"
+                    className="mb-2 me-2 rounded-lg border-2 border-darkBlue bg-darkBlue px-5 py-2.5 text-sm font-medium text-white transition-all duration-200 hover:bg-white hover:text-base-100 focus:outline-none focus:ring-2 focus:ring-darkBlue"
                   >
                     <p className="text-[12px] font-medium lg:text-[14px]">
                       Sign Up
@@ -135,7 +135,7 @@ export default function SigninUser() {
                 <button
                   type="button"
                   onClick={() => signIn("google")}
-                  className="mb-2 me-2 mt-4 w-full rounded-lg border-2 px-5 py-2.5 text-sm font-medium text-base-100 hover:bg-base-100 hover:text-white focus:outline-none focus:ring-2 focus:ring-gray-500"
+                  className="mb-2 me-2 mt-4 w-full rounded-lg border-2 border-base-100 px-5 py-2.5 text-sm font-medium text-base-100 transition-all duration-200 hover:bg-base-100 hover:text-white focus:outline-none focus:ring-2 focus:ring-gray-500"
                 >
                   <p className="text-[12px] font-medium lg:text-[14px]">
                     Sign In with Google
