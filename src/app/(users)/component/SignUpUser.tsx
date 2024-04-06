@@ -46,12 +46,12 @@ export default function SignUpUser() {
   };
   return (
     <>
-      <section className="lg:min-w-xl flex flex-1 flex-col justify-center bg-base-50 pt-28 align-middle lg:mt-20 lg:h-full lg:px-8 lg:pb-40 lg:pt-40">
-        <div className="max-h-xl lg:max-h-3xl m-auto h-fit w-full max-w-[350px] justify-around rounded-[15px] bg-primary-1000 px-5 shadow-md lg:flex lg:max-w-7xl lg:px-0 lg:pb-5 lg:pr-20 lg:pt-5">
+      <section className="flex flex-1 flex-col justify-center bg-base-50 py-[50px] align-middle lg:mt-20 lg:h-full lg:min-w-full lg:px-8 lg:py-[100px]">
+        <div className="mx-[20px] mt-[50px] max-h-[650px] justify-around rounded-[15px] bg-primary-1000 pt-5 shadow-md lg:m-auto lg:mt-0 lg:flex lg:h-fit lg:w-full lg:max-w-[1100px] lg:pr-[40px]">
           <h1 className="mt-10 text-center text-3xl font-bold md:hidden">
             Hi User!
           </h1>
-          <main className="mt-10">
+          <main className="m-auto">
             <Image
               className="hidden md:block"
               src={SignupImage}
@@ -60,7 +60,7 @@ export default function SignUpUser() {
               alt="SignUp Image"
             />
           </main>
-          <main className="w-full max-w-lg">
+          <main className="w-full max-w-lg px-5 lg:px-0">
             <form onSubmit={handleSubmit}>
               <div className="mb-5 mt-5">
                 <label

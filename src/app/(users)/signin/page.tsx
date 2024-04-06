@@ -6,7 +6,7 @@ export default function SigninPage() {
   return (
     <div className="h-screen w-screen">
       <SigninUser />
-      <div className=" my-20 lg:my-0"></div>
+      <div className=""></div>
       <Footer />
     </div>
   );

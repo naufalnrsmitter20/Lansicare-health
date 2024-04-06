@@ -48,11 +48,11 @@ export default function SigninUser() {
   }
   return (
     <>
-      <section className="flex flex-1 flex-col justify-center bg-base-50 align-middle lg:mt-20 lg:h-full lg:min-w-full lg:px-8 lg:pt-[50px]">
-        <div className=" max-h-3xl mx-[40px] mt-36 justify-around rounded-[15px] bg-primary-1000 pt-5 shadow-md lg:m-auto lg:mt-0 lg:flex lg:h-fit lg:w-full lg:max-w-7xl lg:pr-20">
-          <main className="m-10">
+      <section className="flex flex-1 flex-col justify-center bg-base-50 py-[50px] align-middle lg:mt-20 lg:h-full lg:min-w-full lg:px-8 lg:py-[100px]">
+        <div className="mx-[20px] mt-[50px] max-h-[650px] justify-around rounded-[15px] bg-primary-1000 pt-5 shadow-md lg:m-auto lg:mt-0 lg:flex lg:h-fit lg:w-full lg:max-w-[1100px] lg:pr-[40px]">
+          <main className="m-auto">
             <Image
-              className="hidden md:block"
+              className="hidden items-center md:block"
               src={SigninImage}
               width={560.63}
               height={392.28}
@@ -61,7 +61,7 @@ export default function SigninUser() {
           </main>
           <main className="w-full max-w-lg px-5 lg:px-0">
             <form onSubmit={handleSubmit}>
-              <h1 className="mb-10 mt-10 justify-center text-center text-3xl font-bold lg:mt-20 lg:text-4xl">
+              <h1 className="mb-10 mt-10 justify-center text-center text-3xl font-extrabold lg:mt-20 lg:text-[32px]">
                 Hi User!
               </h1>
               <div className="mb-5">
@@ -108,7 +108,7 @@ export default function SigninUser() {
                     className="mb-2 me-2 rounded-lg border-2 border-darkBlue bg-darkBlue px-5 py-2.5 text-sm font-medium text-white transition-all duration-200 hover:bg-white hover:text-base-100 focus:outline-none focus:ring-2 focus:ring-darkBlue"
                   >
                     <p className="text-[12px] font-medium lg:text-[14px]">
-                      {IsLoading ? "Loading..." : "Login"}
+                      {IsLoading ? "Loading..." : "Sign In"}
                     </p>
                   </button>
                 </div>
