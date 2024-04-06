@@ -30,11 +30,11 @@ const Forms: React.FC = () => {
 
   return (
     <form name="form-komentar" onSubmit={handleSubmit}>
-      <div className="my-8 max-w-3xl px-12">
+      <div className="relative my-8 px-10">
         <div className="mb-4">
           <label
             htmlFor="nama"
-            className="mb-2 block text-sm font-semibold text-gray-900 dark:text-white"
+            className="mb-2 block text-sm font-semibold text-gray-900"
           >
             Nama{" "}
           </label>
@@ -44,7 +44,7 @@ const Forms: React.FC = () => {
             name="nama"
             value={nama}
             onChange={(e) => setNama(e.target.value)}
-            className="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-mainBlue focus:ring-mainBlue dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500"
+            className="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-mainBlue focus:ring-mainBlue dark:border-gray-600 dark:bg-gray-700 dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500"
             placeholder="Masukkan Nama"
             required
           />
@@ -52,7 +52,7 @@ const Forms: React.FC = () => {
         <div className="mb-4">
           <label
             htmlFor="email"
-            className="mb-2 block text-sm font-semibold text-gray-900 dark:text-white"
+            className="mb-2 block text-sm font-semibold text-gray-900"
           >
             Email{" "}
           </label>
@@ -62,7 +62,7 @@ const Forms: React.FC = () => {
             name="email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
-            className="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-mainBlue focus:ring-mainBlue dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500"
+            className="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-mainBlue focus:ring-mainBlue dark:border-gray-600 dark:bg-gray-700 dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500"
             placeholder="Masukkan Email"
             required
           />
@@ -70,7 +70,7 @@ const Forms: React.FC = () => {
         <div className="mb-4">
           <label
             htmlFor="Komentar"
-            className="mb-2 block text-sm font-semibold text-gray-900 dark:text-white"
+            className="mb-2 block text-sm font-semibold text-gray-900"
           >
             Komentar{" "}
           </label>
@@ -79,7 +79,7 @@ const Forms: React.FC = () => {
             name="komentar"
             value={komentar}
             onChange={(e) => setKomentar(e.target.value)}
-            className="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-mainBlue focus:ring-mainBlue dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500"
+            className="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-mainBlue focus:ring-mainBlue dark:border-gray-600 dark:bg-gray-700 dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500"
             placeholder="Komentar Anda"
             required
           />

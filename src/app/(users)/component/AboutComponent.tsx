@@ -8,16 +8,16 @@ export default function AboutComponent() {
   return (
     <>
       <section className="bg-base-50 pb-5">
-        <div className="mx-auto pt-40 text-base-100">
+        <div className="mx-auto pt-[120px] text-base-100 lg:pt-[160px]">
           <h6 className="m-1 text-center text-sm font-medium lg:text-xl">
             About us
           </h6>
-          <h1 className="mx-auto mt-10 bg-gradient-to-r from-darkBlue to-mainBlue bg-clip-text pb-20 text-center text-[45px] font-bold text-transparent lg:text-6xl">
+          <h1 className="mx-auto mt-5 bg-gradient-to-r from-darkBlue to-mainBlue bg-clip-text pb-[50px] text-center text-[45px] font-bold text-transparent lg:mt-10 lg:pb-[70px] lg:text-6xl">
             InnoSync Team
           </h1>
         </div>
 
-        <div className=" mx-auto h-auto w-[400px] place-items-center justify-center rounded-[10px] border-gray-200 bg-primary-1000 shadow-md lg:w-[1380px] ">
+        <div className="h-autoplace-items-center mx-[15px] justify-center rounded-[10px] border-gray-200 bg-primary-1000 shadow-md lg:mx-[35px]">
           <div className="relative h-full p-[100px]">
             <div className="relative grid h-fit w-full grid-cols-1 gap-y-10 lg:mb-20 lg:mt-[200px] lg:h-20 lg:grid-cols-4">
               <div className="relative flex justify-center">
@@ -81,7 +81,7 @@ export default function AboutComponent() {
         </div>
 
         {/* deskripsi */}
-        <div className=" mx-auto mt-[10px] h-auto w-[400px] place-items-center justify-center rounded-[10px] border-gray-200 bg-primary-1000 shadow-md lg:w-[1380px] ">
+        <div className=" mx-[15px] mt-[10px] h-auto place-items-center justify-center rounded-[10px] border-gray-200 bg-primary-1000 shadow-md lg:mx-[35px]">
           <div className="relative mb-20 ml-10 mt-20 h-full">
             <div className="mx-5 mt-10 grid grid-cols-1 pb-10 pt-10 lg:mx-10 lg:flex">
               <div className=" w-full max-w-5xl">
@@ -90,7 +90,7 @@ export default function AboutComponent() {
                   are we
                 </h3>
               </div>
-              <div className="mt-10 text-sm font-medium lg:text-[16px]">
+              <div className="mt-10 text-[12px] font-medium lg:text-[16px]">
                 <p className="flex justify-normal text-left lg:mx-20">
                   Selamat datang di website resmi LansiCare! Kami adalah tim
                   InnoSync yang terdiri dari empat individu berbakat yang

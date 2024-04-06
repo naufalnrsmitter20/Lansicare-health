@@ -20,7 +20,7 @@ export default function Carousel({ imageURL }: any) {
   }, []);
 
   return (
-    <div className="relative mx-auto w-[400px] rounded-[10px] pt-[130px] lg:w-[1366.48px]">
+    <div className="relative mx-[15px] rounded-[10px] pt-[100px] lg:mx-[35px] lg:pt-[130px]">
       <div
         id="carouselExampleCaptions"
         className="relative"
