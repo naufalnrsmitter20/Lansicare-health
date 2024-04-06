@@ -48,8 +48,8 @@ export default function SigninUser() {
   }
   return (
     <>
-      <section className="flex flex-1 flex-col justify-center bg-base-50 align-middle lg:mt-20 lg:h-full lg:min-w-full lg:px-8 lg:py-40">
-        <div className=" max-h-3xl m-auto mt-36 max-w-[350px] justify-around rounded-[15px] bg-primary-1000 pt-5 shadow-md lg:mt-0 lg:flex lg:h-fit lg:w-full lg:max-w-7xl lg:pr-20">
+      <section className="flex flex-1 flex-col justify-center bg-base-50 align-middle lg:mt-20 lg:h-full lg:min-w-full lg:px-8 lg:pt-[50px]">
+        <div className=" max-h-3xl mx-[40px] mt-36 justify-around rounded-[15px] bg-primary-1000 pt-5 shadow-md lg:m-auto lg:mt-0 lg:flex lg:h-fit lg:w-full lg:max-w-7xl lg:pr-20">
           <main className="m-10">
             <Image
               className="hidden md:block"
@@ -77,7 +77,7 @@ export default function SigninUser() {
                   name="email"
                   // value={email}
                   // onChange={handleChange}
-                  className="block w-full rounded-lg border border-gray-300 bg-gray-50 px-2.5 py-2 text-sm text-base-100 focus:border-black focus:ring-slate-800 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500"
+                  className="block w-full rounded-lg border border-gray-300 bg-gray-50 px-2.5 py-2 text-sm text-base-100 focus:border-darkBlue focus:ring-darkBlue"
                   placeholder="Enter Your email"
                   required
                 />
@@ -95,45 +95,51 @@ export default function SigninUser() {
                   name="password"
                   // value={password}
                   // onChange={handleChange}
-                  className="block w-full rounded-lg border border-gray-300 bg-gray-50 px-2.5 py-2 text-sm text-base-100 focus:border-black focus:ring-slate-800 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500"
+                  className="block w-full rounded-lg border border-gray-300 bg-gray-50 px-2.5 py-2 text-sm text-base-100 focus:border-darkBlue focus:ring-darkBlue"
                   placeholder="Enter Your Password"
                   required
                 />
               </div>
-              <div className="mb-20 mt-10">
+              <div className="mb-[70px] mt-[20px]">
                 <div className="mt-7 grid grid-cols-1 gap-2">
                   <button
                     disabled={IsLoading}
                     type="submit"
-                    className="mb-2 me-2 rounded-lg border-2 border-darkBlue bg-darkBlue px-5 py-2.5 text-sm font-medium text-white hover:bg-white hover:text-base-100 focus:outline-none focus:ring-4 focus:ring-gray-500"
+                    className="mb-2 me-2 rounded-lg border-2 border-darkBlue bg-darkBlue px-5 py-2.5 text-sm font-medium text-white transition-all duration-200 hover:bg-white hover:text-base-100 focus:outline-none focus:ring-2 focus:ring-darkBlue"
                   >
-                    <p className="text-[14px] font-medium">
-                      {IsLoading ? "Loading..." : "Sign In"}
+                    <p className="text-[12px] font-medium lg:text-[14px]">
+                      {IsLoading ? "Loading..." : "Login"}
                     </p>
                   </button>
                 </div>
-                <div className="mt-10 grid grid-cols-2 gap-2">
+                <div className="mt-[20px] grid grid-cols-2 gap-2">
                   <button
                     type="button"
-                    className="mb-2 me-2 rounded-lg border-2 bg-darkBlue/10 px-3 py-1 text-sm font-medium text-base-100 hover:bg-darkBlue hover:text-white focus:outline-none focus:ring-4 focus:ring-gray-500 lg:px-5 lg:py-2.5"
+                    className="mb-2 me-2 rounded-lg border-2 border-darkBlue px-3 py-1 text-sm font-medium text-base-100 transition-all duration-200 hover:bg-darkBlue hover:text-white focus:outline-none focus:ring-2 focus:ring-darkBlue lg:px-5 lg:py-2.5"
                   >
-                    <p className="text-[14px] font-medium">Forgot Password?</p>
+                    <p className="text-[12px] font-medium lg:text-[14px]">
+                      Forgot Password?
+                    </p>
                   </button>
                   <button
                     type="button"
                     onClick={() => push("/signup")}
-                    className="mb-2 me-2 rounded-lg border-2 bg-darkBlue/10 px-3 py-1 text-sm font-medium text-base-100 hover:bg-darkBlue hover:text-white focus:outline-none focus:ring-4 focus:ring-gray-500 lg:px-5 lg:py-2.5"
+                    className="mb-2 me-2 rounded-lg border-2 border-darkBlue bg-darkBlue px-5 py-2.5 text-sm font-medium text-white transition-all duration-200 hover:bg-white hover:text-base-100 focus:outline-none focus:ring-2 focus:ring-darkBlue"
                   >
-                    <p className="text-[14px] font-medium">Sign Up</p>
+                    <p className="text-[12px] font-medium lg:text-[14px]">
+                      Sign Up
+                    </p>
                   </button>
                 </div>
                 <hr className="mt-4" />
                 <button
                   type="button"
                   onClick={() => signIn("google")}
-                  className="mb-2 me-2 mt-4 w-full rounded-lg border-2 px-5 py-2.5 text-sm font-medium text-black hover:bg-black hover:text-white focus:outline-none focus:ring-4 focus:ring-gray-500"
+                  className="mb-2 me-2 mt-4 w-full rounded-lg border-2 border-base-100 px-5 py-2.5 text-sm font-medium text-base-100 transition-all duration-200 hover:bg-base-100 hover:text-white focus:outline-none focus:ring-2 focus:ring-gray-500"
                 >
-                  <p className="text-[14px] font-medium">Signin with Google</p>
+                  <p className="text-[12px] font-medium lg:text-[14px]">
+                    Sign In with Google
+                  </p>
                 </button>
                 {error ? (
                   <p className="mb-4 text-sm text-red-600">{error}</p>

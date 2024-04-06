@@ -19,7 +19,7 @@ export default function NavBar() {
       <nav className=" border-gray-200- fixed start-0 top-0 z-20 w-full border-b bg-primary-1000 shadow-md dark:border-gray-600 dark:bg-gray-900">
         <div className="mx-auto flex max-w-screen-xl flex-wrap items-center justify-between p-4">
           <Link
-            href={"#"}
+            href={"/homepage"}
             className="flex items-center space-x-3 rtl:space-x-reverse"
           >
             <Image

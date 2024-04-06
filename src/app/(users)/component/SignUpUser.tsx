@@ -51,7 +51,7 @@ export default function SignUpUser() {
           <h1 className="mt-10 text-center text-3xl font-bold md:hidden">
             Hi User!
           </h1>
-          <main className="m-20">
+          <main className="mt-10">
             <Image
               className="hidden md:block"
               src={SignupImage}
@@ -75,7 +75,7 @@ export default function SignUpUser() {
                   name="fullname"
                   value={fullname}
                   onChange={handleChange}
-                  className="block w-full rounded-lg border border-gray-300 bg-gray-50 px-2.5 py-2 text-sm text-base-100 focus:border-base-100 focus:ring-slate-800 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500"
+                  className="block w-full rounded-lg border border-gray-300 bg-gray-50 px-2.5 py-2 text-sm text-base-100 focus:border-darkBlue focus:ring-darkBlue dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500"
                   placeholder="Enter Your Name"
                   required
                 />
@@ -93,7 +93,7 @@ export default function SignUpUser() {
                   name="email"
                   value={email}
                   onChange={handleChange}
-                  className="block w-full rounded-lg border border-gray-300 bg-gray-50 px-2.5 py-2 text-sm text-base-100 focus:border-base-100 focus:ring-slate-800 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500"
+                  className="block w-full rounded-lg border border-gray-300 bg-gray-50 px-2.5 py-2 text-sm text-base-100 focus:border-darkBlue focus:ring-darkBlue dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500"
                   placeholder="Enter Your Email"
                   required
                 />
@@ -111,7 +111,7 @@ export default function SignUpUser() {
                   name="password"
                   value={password}
                   onChange={handleChange}
-                  className="block w-full rounded-lg border border-gray-300 bg-gray-50 px-2.5 py-2 text-sm text-base-100 focus:border-base-100 focus:ring-slate-800 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500"
+                  className="block w-full rounded-lg border border-gray-300 bg-gray-50 px-2.5 py-2 text-sm text-base-100 focus:border-darkBlue focus:ring-darkBlue dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500"
                   placeholder="Enter Your Password"
                   required
                 />
@@ -120,20 +120,43 @@ export default function SignUpUser() {
                 <button
                   disabled={isLoading}
                   type={"submit"}
-                  className="w-full max-w-full rounded-lg bg-darkBlue px-5 py-2.5 text-center text-sm font-medium text-white focus:outline-none focus:ring-4 focus:ring-slate-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+                  className="w-full max-w-full rounded-lg border-2 border-darkBlue bg-darkBlue px-5 py-2.5 text-sm font-medium text-white transition-all duration-200 hover:bg-white hover:text-base-100 focus:outline-none focus:ring-2 focus:ring-darkBlue"
                 >
-                  <p>Sign Up</p>
+                  <p className="text-center text-[12px] font-medium lg:text-[14px]">
+                    Sign Up
+                  </p>
                 </button>
 
-                <p className="mt-8 text-center text-[18px] font-semibold text-base-100">
-                  Already have an account?
+                {/* <p className="mb-[12px] mt-[20px] text-center text-[14px] font-semibold text-base-100 lg:text-[18px]">
+                  Or Sign Up with
                 </p>
-                <div className="mb-20 mt-7 grid grid-cols-1 gap-2">
+                <div className="mt-7 grid grid-cols-1 gap-2">
                   <Link
                     href={"/signin"}
-                    className="mb-2 me-2 rounded-lg border-2 border-darkBlue bg-white  px-5 py-2.5 text-sm font-medium text-black hover:bg-slate-200 hover:text-base-100 focus:outline-none focus:ring-4 focus:ring-gray-500 dark:border-gray-600 dark:bg-gray-800 dark:text-white dark:hover:border-gray-600 dark:hover:bg-gray-700 dark:focus:ring-gray-700"
+                    className="mb-2 me-2 w-full rounded-lg border-2 px-5 py-2.5 text-sm font-medium text-base-100 hover:bg-base-100 hover:text-white focus:outline-none focus:ring-2 focus:ring-gray-500"
                   >
-                    <p className="text-center text-[14px] font-medium">
+                    <p className="text-center text-[12px] font-medium lg:text-[14px]">
+                      Sign In with Google
+                    </p>
+                  </Link>
+                </div> */}
+                <p className="mt-[20px] text-center text-[14px] font-semibold text-base-100 lg:text-[18px]">
+                  Already have an account?
+                </p>
+                <div className="mb-[45px] mt-7 grid grid-cols-2 gap-2">
+                  <button
+                    type="button"
+                    className="mb-2 me-2 rounded-lg border-2 border-darkBlue px-3 py-1 text-sm font-medium text-base-100 transition-all duration-200 hover:bg-darkBlue hover:text-white focus:outline-none focus:ring-2 focus:ring-darkBlue lg:px-5 lg:py-2.5"
+                  >
+                    <p className="text-[12px] font-medium lg:text-[14px]">
+                      Forgot Password?
+                    </p>
+                  </button>
+                  <Link
+                    href={"/signin"}
+                    className="mb-2 me-2 rounded-lg border-2 border-darkBlue bg-darkBlue px-5 py-2.5 text-sm font-medium text-white transition-all duration-200 hover:bg-white hover:text-base-100 focus:outline-none focus:ring-2 focus:ring-darkBlue"
+                  >
+                    <p className="text-center text-[12px] font-medium lg:text-[14px]">
                       Sign In
                     </p>
                   </Link>
