@@ -61,7 +61,7 @@ export default function SigninUser() {
           </main>
           <main className="w-full max-w-lg px-5 lg:px-0">
             <form onSubmit={handleSubmit}>
-              <h1 className="mb-10 mt-10 justify-center text-center text-3xl font-bold lg:mt-20 lg:text-4xl">
+              <h1 className="mb-10 mt-10 justify-center text-center text-3xl font-extrabold lg:mt-20 lg:text-[32px]">
                 Hi User!
               </h1>
               <div className="mb-5">
