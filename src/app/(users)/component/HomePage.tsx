@@ -16,7 +16,6 @@ export default function Homepage() {
     <>
       {/* Home Carousel */}
       <section className="scroll-smooths text-base-100">
-        <Carousel />
         <div className="mt-[30px] flex h-full flex-col place-items-center justify-center bg-base-50 align-middle font-inter">
           {/* Fitur-fitur */}
           <div
@@ -133,8 +132,8 @@ export default function Homepage() {
             </div>
           </div>
           {/* Komentar */}
-          <div className="mx-[15px] mb-[30px] mt-[30px] rounded-[10px] bg-primary-1000 shadow-md lg:mx-[35px]">
-            <div className="mt-[30px] inline-flex h-6 w-[400px] flex-col items-start justify-start px-10">
+          <div className="mx-[15px] mb-[30px] mt-[30px] rounded-[10px] bg-primary-1000 pr-0 shadow-md lg:mx-[35px] lg:pr-[1160px]">
+            <div className="mt-[30px] inline-flex h-6 flex-col items-start justify-start px-10">
               <div className="self-stretch text-2xl font-semibold leading-normal text-neutral-800">
                 Komentar
               </div>
