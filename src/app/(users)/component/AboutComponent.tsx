@@ -22,7 +22,7 @@ export default function AboutComponent() {
             <div className="relative grid h-fit w-full grid-cols-1 gap-y-10 lg:mb-20 lg:mt-[200px] lg:h-20 lg:grid-cols-4">
               <div className="relative flex justify-center">
                 <div className="group relative w-52 transition-all hover:scale-105 lg:absolute lg:-top-64">
-                  <div className="">
+                  <div>
                     <Image
                       src={image1}
                       alt="image"
@@ -36,7 +36,7 @@ export default function AboutComponent() {
               </div>
               <div className="relative flex justify-center">
                 <div className="group relative w-52 transition-all hover:scale-105 lg:absolute lg:-top-32">
-                  <div className=" ">
+                  <div>
                     <Image
                       src={image2}
                       alt="image"
@@ -50,7 +50,7 @@ export default function AboutComponent() {
               </div>
               <div className="relative flex justify-center">
                 <div className="group relative w-52 transition-all hover:scale-105 lg:absolute lg:-top-64">
-                  <div className=" ">
+                  <div>
                     <Image
                       src={image3}
                       alt="image"
@@ -64,7 +64,7 @@ export default function AboutComponent() {
               </div>
               <div className="relative flex justify-center">
                 <div className="group relative w-52 transition-all hover:scale-105  lg:absolute lg:-top-32">
-                  <div className="">
+                  <div>
                     <Image
                       src={image4}
                       alt="image"

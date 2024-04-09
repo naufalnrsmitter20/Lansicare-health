@@ -5,8 +5,6 @@ import SignupImage from "@/public/SignUpImageSide.png";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { error } from "console";
-import { signIn } from "next-auth/react";
 
 export default function SignUpUser() {
   const router = useRouter();
@@ -26,11 +24,8 @@ export default function SignUpUser() {
   const handleSubmit: FormEventHandler<HTMLFormElement> = async (e: any) => {
     e.preventDefault();
     setIsLoading(true);
-    const res = await fetch("/api/auth/users", {
+    await fetch("/api/auth/users", {
       method: "POST",
-      // headers: {
-      //   "Content-Type": "application/json",
-      // },
       body: JSON.stringify(userInfo),
     })
       .then((res: any) => {
@@ -127,19 +122,6 @@ export default function SignUpUser() {
                   </p>
                 </button>
 
-                {/* <p className="mb-[12px] mt-[20px] text-center text-[14px] font-semibold text-base-100 lg:text-[18px]">
-                  Or Sign Up with
-                </p>
-                <div className="mt-7 grid grid-cols-1 gap-2">
-                  <Link
-                    href={"/signin"}
-                    className="mb-2 me-2 w-full rounded-lg border-2 px-5 py-2.5 text-sm font-medium text-base-100 hover:bg-base-100 hover:text-white focus:outline-none focus:ring-2 focus:ring-gray-500"
-                  >
-                    <p className="text-center text-[12px] font-medium lg:text-[14px]">
-                      Sign In with Google
-                    </p>
-                  </Link>
-                </div> */}
                 <p className="mt-[20px] text-center text-[14px] font-semibold text-base-100 lg:text-[18px]">
                   Already have an account?
                 </p>

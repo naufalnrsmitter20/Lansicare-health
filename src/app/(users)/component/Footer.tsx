@@ -5,6 +5,43 @@ import Image from "next/image";
 import LogoFooter from "@/public/logo-baru.png";
 
 export default function Footer() {
+  const Resource = [
+    {
+      name: "Next js",
+      href: "https://nextjs.org/",
+    },
+    {
+      name: "Tailwind CSS",
+      href: "https://tailwindcss.com/",
+    },
+    {
+      name: "Typescript",
+      href: "https://www.typescriptlang.org/",
+    },
+    {
+      name: "Javascript",
+      href: "https://www.javascript.com/",
+    },
+    {
+      name: "MongoDB",
+      href: "https://www.mongodb.com/",
+    },
+    {
+      name: "Figma",
+      href: "https://figma.com/",
+    },
+  ];
+
+  const socialMedia = [
+    {
+      name: "Github",
+      href: "https://github.com/Fast-and-Serious-Production",
+    },
+    {
+      name: "Instagram",
+      href: "https://www.instagram.com/innosync_",
+    },
+  ];
   return (
     <>
       <section>
@@ -22,64 +59,17 @@ export default function Footer() {
                     Resource
                   </h2>
                   <ul className="font-medium text-gray-500 dark:text-gray-400">
-                    <li className="mb-4">
-                      <a
-                        href="https://nextjs.org/"
-                        target="_blank"
-                        className="hover:underline"
-                      >
-                        Next js
-                      </a>
-                    </li>
-                    <li className="mb-4">
-                      <span>
+                    {Resource.map((resource, i) => (
+                      <li key={i} className="mb-4">
                         <a
-                          href="https://www.javascript.com/"
+                          href={resource.href}
                           target="_blank"
                           className="hover:underline"
                         >
-                          Javascript{" "}
+                          {resource.name}
                         </a>
-                      </span>
-                      &
-                      <span>
-                        <a
-                          href="https://www.typescriptlang.org/"
-                          target="_blank"
-                          className="hover:underline"
-                        >
-                          {" "}
-                          TypeScript
-                        </a>
-                      </span>
-                    </li>
-                    <li className="mb-4">
-                      <a
-                        href="https://tailwindcss.com/"
-                        target="_blank"
-                        className="hover:underline"
-                      >
-                        Tailwind CSS
-                      </a>
-                    </li>
-                    <li className="mb-4">
-                      <a
-                        href="https://www.mongodb.com/"
-                        target="_blank"
-                        className="hover:underline"
-                      >
-                        MongoDB
-                      </a>
-                    </li>
-                    <li className="mb-4">
-                      <a
-                        href="https://figma.com/"
-                        target="_blank"
-                        className="hover:underline"
-                      >
-                        Figma
-                      </a>
-                    </li>
+                      </li>
+                    ))}
                   </ul>
                 </div>
                 <div>
@@ -87,24 +77,17 @@ export default function Footer() {
                     Follow Us
                   </h2>
                   <ul className="font-medium text-gray-500 dark:text-gray-400">
-                    <li className="mb-4">
-                      <a
-                        href="https://github.com/Fast-and-Serious-Production"
-                        target="_blank"
-                        className="hover:underline "
-                      >
-                        Github
-                      </a>
-                    </li>
-                    <li>
-                      <a
-                        href="https://www.instagram.com/innosync_"
-                        target="_blank"
-                        className="hover:underline"
-                      >
-                        Instagram
-                      </a>
-                    </li>
+                    {socialMedia.map((media, i) => (
+                      <li key={i} className="mb-4">
+                        <a
+                          href={media.href}
+                          target="_blank"
+                          className="hover:underline "
+                        >
+                          {media.name}
+                        </a>
+                      </li>
+                    ))}
                   </ul>
                 </div>
               </div>

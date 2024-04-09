@@ -21,7 +21,6 @@ export default function AddPatient() {
   const [kewarganegaraan, setKewarganegaraan] = useState("");
   const [pekerjaan, setPekerjaan] = useState("");
   const router = useRouter();
-  //   const [modal, setModal] = useState(false);
   const [isMutating, setIsMutating] = useState(false);
 
   const handleSubmit = async (e: SyntheticEvent) => {
