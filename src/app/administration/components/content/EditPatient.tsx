@@ -21,6 +21,7 @@ export default function EditPatient({
   Agama,
   Pekerjaan,
   Kewarganegaraan,
+  role,
 }: {
   _id?: string;
   nfcId?: number;
@@ -39,6 +40,7 @@ export default function EditPatient({
   Agama?: string;
   Pekerjaan?: string;
   Kewarganegaraan?: string;
+  role?: string;
 }): React.ReactElement {
   const [newNfcId, setNewNfcId] = useState(nfcId ?? "");
   const [newFullname, setNewNama] = useState(fullname ?? "");
@@ -62,6 +64,7 @@ export default function EditPatient({
     Kewarganegaraan ?? "",
   );
   const [newPekerjaan, setNewPekerjaan] = useState(Pekerjaan ?? "");
+  const [newRole, setNewRole] = useState(role ?? "");
   const router = useRouter();
   const [isMutating, setIsMutating] = useState(false);
 
@@ -92,6 +95,7 @@ export default function EditPatient({
           newAgama,
           newKewarganegaraan,
           newPekerjaan,
+          newRole,
         }),
       });
 
@@ -386,6 +390,24 @@ export default function EditPatient({
                 required
               />
             </div>
+            <div>
+              <label
+                htmlFor="status"
+                className="mb-2 block text-sm font-medium text-gray-900 dark:text-white"
+              >
+                Role
+              </label>
+              <input
+                type="text"
+                id="role"
+                onChange={(e) => setNewRole(e.target.value)}
+                value={newRole}
+                placeholder="user / admin"
+                className="block w-full rounded-lg border border-gray-400 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-mainBlue focus:ring-sky-400 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500"
+                required
+              />
+            </div>
+            <div></div>
             <div>
               {!isMutating ? (
                 <button
