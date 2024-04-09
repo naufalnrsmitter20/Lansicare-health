@@ -39,8 +39,6 @@ type Patient = {
 
 export default function Profiles() {
   const { data: session, status } = useSession();
-  const [modal, setModal] = useState(false);
-  const [isMutating, setIsMutating] = useState(false);
   const [IsVisible, setIsVisible] = useState(false);
   const [patient, setPatient] = useState<Patient | null>(null);
   const router = useRouter();
@@ -50,7 +48,6 @@ export default function Profiles() {
   if (session === null) {
     router.push("/signin");
   }
-  const setDataState = status === "unauthenticated";
   const HandleToggle = () => {
     setIsVisible(!IsVisible);
   };
