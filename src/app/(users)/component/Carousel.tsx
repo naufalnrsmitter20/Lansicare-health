@@ -6,6 +6,13 @@ import hospitals from "@/public/rumahsakits.jpeg";
 import lansia from "@/public/lansia.jpg";
 import checkUp from "@/public/pexels-pixabay-40568.jpg";
 import { useSession } from "next-auth/react";
+import { useRouter } from "next/navigation";
+import { Button } from "flowbite-react";
+import ButtonProops from "./buttons/Button";
+import RightArrow from "./svg/RightArrow";
+import Prev from "./svg/Prev";
+import Next from "./svg/Next";
+
 interface BackgroundImageProps {
   imageURL: string;
 }
@@ -89,27 +96,14 @@ export default function Carousel({ imageURL }: any) {
                   </span>
                 </p>
                 <div className="mb-10 ml-10 flex flex-col space-y-4 sm:flex-row sm:justify-start sm:space-y-0 lg:ml-48">
-                  <Link
-                    href={"checkup"}
-                    className=" inline-flex w-40 items-center justify-center rounded-lg bg-darkBlue px-4 py-2 text-center text-xs font-medium text-white hover:bg-mainBlue focus:ring-4 focus:ring-blue-300 dark:focus:ring-blue-900 md:text-sm lg:w-auto lg:px-5 lg:py-3 lg:text-base"
+                  <Button
+                    theme={ButtonProops.button}
+                    color="carousel"
+                    href="/checkup"
                   >
                     Daftar Check Up
-                    <svg
-                      className="ms-2 h-3.5 w-3.5 rtl:rotate-180"
-                      aria-hidden="true"
-                      xmlns="http://www.w3.org/2000/svg"
-                      fill="none"
-                      viewBox="0 0 14 10"
-                    >
-                      <path
-                        stroke="currentColor"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth="2"
-                        d="M1 5h12m0 0L9 1m4 4L9 9"
-                      />
-                    </svg>
-                  </Link>
+                    <RightArrow />
+                  </Button>
                 </div>
               </div>
               <div className="mx-auto max-w-screen-xl px-4 py-24 text-center lg:py-20"></div>
@@ -147,30 +141,16 @@ export default function Carousel({ imageURL }: any) {
                   </span>
                 </p>
                 <div className="mb-10 ml-10 flex flex-row justify-end space-y-0 lg:mr-10 lg:space-y-4">
-                  <Link
-                    href={"about"}
-                    className="inline-flex w-40 items-center justify-center rounded-lg bg-darkBlue px-4 py-2 text-center text-xs font-medium text-primary-50 hover:bg-mainBlue focus:ring-4 focus:ring-blue-300 dark:focus:ring-blue-900 lg:w-auto lg:px-5 lg:py-3 lg:text-sm"
+                  <Button
+                    theme={ButtonProops.button}
+                    color="carousel"
+                    href="/about"
                   >
                     Explore more
-                    <svg
-                      className="ms-2 h-3.5 w-3.5 rtl:rotate-180"
-                      aria-hidden="true"
-                      xmlns="http://www.w3.org/2000/svg"
-                      fill="none"
-                      viewBox="0 0 14 10"
-                    >
-                      <path
-                        stroke="currentColor"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth="2"
-                        d="M1 5h12m0 0L9 1m4 4L9 9"
-                      />
-                    </svg>
-                  </Link>
+                    <RightArrow />
+                  </Button>
                 </div>
               </div>
-              {/* <div className="mx-auto max-w-screen-xl px-4 py-24 text-center lg:py-[188px]"></div> */}
             </main>
           </div>
           <div
@@ -187,37 +167,12 @@ export default function Carousel({ imageURL }: any) {
                 className="absolute -z-20 w-screen bg-center bg-no-repeat bg-blend-multiply"
                 alt="background Image"
               />
-              <div
-                className="mx-auto max-w-screen-xl px-4 py-1 text-center lg:py-[85px]"
-                // style={{ backgroundImage: `url('${imageURL}')` }}
-              >
+              <div className="mx-auto max-w-screen-xl px-4 py-1 text-center lg:py-[85px]">
                 <h1 className="my-[80px] text-3xl font-extrabold leading-none tracking-tight text-slate-200 md:text-4xl lg:text-6xl">
                   Ayo jadwalkan check-up kesehatan Anda sekarang juga!
                 </h1>
 
-                <div className="flex flex-col space-y-4 sm:flex-row sm:justify-center sm:space-y-0">
-                  {/* <a
-                    href="#"
-                    className="inline-flex items-center justify-center rounded-lg bg-darkBlue px-5 py-3 text-center text-base font-medium text-white hover:bg-mainBlue focus:ring-4 focus:ring-blue-300 dark:focus:ring-blue-900"
-                  >
-                    Explore more
-                    <svg
-                      className="ms-2 h-3.5 w-3.5 rtl:rotate-180"
-                      aria-hidden="true"
-                      xmlns="http://www.w3.org/2000/svg"
-                      fill="none"
-                      viewBox="0 0 14 10"
-                    >
-                      <path
-                        stroke="currentColor"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth="2"
-                        d="M1 5h12m0 0L9 1m4 4L9 9"
-                      />
-                    </svg>
-                  </a> */}
-                </div>
+                <div className="flex flex-col space-y-4 sm:flex-row sm:justify-center sm:space-y-0"></div>
               </div>
             </main>
           </div>
@@ -230,20 +185,7 @@ export default function Carousel({ imageURL }: any) {
           data-te-slide="prev"
         >
           <span className="inline-block h-8 w-8">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              strokeWidth="1.5"
-              stroke="currentColor"
-              className="h-6 w-6"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M15.75 19.5L8.25 12l7.5-7.5"
-              />
-            </svg>
+            <Prev />
           </span>
           <span className="!absolute !-m-px !h-px !w-px !overflow-hidden !whitespace-nowrap !border-0 !p-0 ![clip:rect(0,0,0,0)]">
             Previous
@@ -256,20 +198,7 @@ export default function Carousel({ imageURL }: any) {
           data-te-slide="next"
         >
           <span className="inline-block h-8 w-8">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              strokeWidth="1.5"
-              stroke="currentColor"
-              className="h-6 w-6"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M8.25 4.5l7.5 7.5-7.5 7.5"
-              />
-            </svg>
+            <Next />
           </span>
           <span className="!absolute !-m-px !h-px !w-px !overflow-hidden !whitespace-nowrap !border-0 !p-0 ![clip:rect(0,0,0,0)]">
             Next

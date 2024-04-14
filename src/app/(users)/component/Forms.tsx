@@ -1,5 +1,8 @@
+import { Button, Flowbite, Spinner } from "flowbite-react";
 import { useRouter } from "next/navigation";
 import React, { useState } from "react";
+import ButtonProops from "./buttons/Button";
+import SpinnerProops from "./spinners/Spinner";
 
 const ScriptURL =
   "https://script.google.com/macros/s/AKfycbzEhRYDsstw2b4UPkz6qwhJ90HIe7V5G-NAfdf-1k1zLiq6WwdcvcGdCxS0tTQhPMplwA/exec";
@@ -30,7 +33,7 @@ const Forms: React.FC = () => {
 
   return (
     <form name="form-komentar" onSubmit={handleSubmit}>
-      <div className="relative my-8 px-10">
+      <div className="relative my-8  px-10">
         <div className="mb-4">
           <label
             htmlFor="nama"
@@ -85,19 +88,21 @@ const Forms: React.FC = () => {
           />
         </div>
         {!isMutating ? (
-          <button
+          <Button
+            theme={ButtonProops.button}
+            color="carousel"
             type="submit"
-            className="mb-2 me-2 rounded-lg bg-darkBlue px-5 py-2.5 text-sm font-medium text-white hover:bg-mainBlue focus:outline-none focus:ring-4 focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+            className=""
           >
             Submit
-          </button>
+          </Button>
         ) : (
-          <button
-            type="button"
-            className="mb-2 me-2 rounded-lg bg-mainBlue px-5 py-2.5 text-sm font-medium text-white hover:bg-mainBlue focus:outline-none focus:ring-4 focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
-          >
-            Loading . . .
-          </button>
+          <Button theme={ButtonProops.button} color="loading" type="button">
+            <Spinner theme={SpinnerProops.spinner} color="white" />
+            <p className="ml-3 pt-0.5 text-[12px] font-semibold lg:text-[14px]">
+              Loading...
+            </p>
+          </Button>
         )}
       </div>
     </form>

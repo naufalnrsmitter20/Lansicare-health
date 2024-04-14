@@ -1,21 +1,21 @@
 "use client";
 
-import React, { ChangeEventHandler, FormEventHandler, useState } from "react";
+import React, { useState } from "react";
 import SigninImage from "@/public/SignInImageSide.png";
 import Image from "next/image";
 import { signIn, useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
+import { Button, Flowbite } from "flowbite-react";
+import ButtonProops from "./buttons/Button";
 
 export default function SigninUser() {
   const { data: session, status } = useSession();
   const [IsLoading, setIsLoading] = useState(false);
   const [error, setError] = useState("");
-  const { push, refresh } = useRouter();
-  const [email, setEmail] = useState("");
+  const { push } = useRouter();
   const handleSubmit = async (e: any) => {
     e.preventDefault();
     setIsLoading(true);
-    // await signIn("email", { email });
     try {
       const res = await signIn("credentials", {
         redirect: false,
@@ -24,11 +24,7 @@ export default function SigninUser() {
         callbackUrl: "/profile",
       });
       if (!res?.error) {
-        // setTimeout(() => {
         window.location.reload();
-        // }, 2000);
-        // await push("/profile");
-        // setIsLoading(false);
       } else {
         if (res.status === 401) {
           setError("Email or Password is Incorrect");
@@ -41,10 +37,7 @@ export default function SigninUser() {
     }
   };
   if (status === "authenticated") {
-    // setTimeout(() => {
     window.location.reload();
-    // }, 2000);
-    // push("/profile");
   }
   return (
     <>
@@ -75,8 +68,6 @@ export default function SigninUser() {
                   type="email"
                   id="email"
                   name="email"
-                  // value={email}
-                  // onChange={handleChange}
                   className="block w-full rounded-lg border border-gray-300 bg-gray-50 px-2.5 py-2 text-sm text-base-100 focus:border-darkBlue focus:ring-darkBlue"
                   placeholder="Enter Your email"
                   required
@@ -93,58 +84,48 @@ export default function SigninUser() {
                   type="password"
                   id="password"
                   name="password"
-                  // value={password}
-                  // onChange={handleChange}
                   className="block w-full rounded-lg border border-gray-300 bg-gray-50 px-2.5 py-2 text-sm text-base-100 focus:border-darkBlue focus:ring-darkBlue"
                   placeholder="Enter Your Password"
                   required
                 />
               </div>
-              <div className="mb-[70px] mt-[20px]">
-                <div className="mt-7 grid grid-cols-1 gap-2">
-                  <button
-                    disabled={IsLoading}
-                    type="submit"
-                    className="mb-2 me-2 rounded-lg border-2 border-darkBlue bg-darkBlue px-5 py-2.5 text-sm font-medium text-white transition-all duration-200 hover:bg-white hover:text-base-100 focus:outline-none focus:ring-2 focus:ring-darkBlue"
-                  >
-                    <p className="text-[12px] font-medium lg:text-[14px]">
-                      {IsLoading ? "Loading..." : "Sign In"}
-                    </p>
-                  </button>
-                </div>
-                <div className="mt-[20px] grid grid-cols-2 gap-2">
-                  <button
+              <Flowbite theme={{ theme: ButtonProops }}>
+                <div className="mb-[70px] mt-[20px]">
+                  <div className="mt-7 grid grid-cols-1 gap-2">
+                    <Button disabled={IsLoading} type="submit" color="primary">
+                      <p className="text-[12px] font-medium lg:text-[14px]">
+                        {IsLoading ? "Loading..." : "Sign In"}
+                      </p>
+                    </Button>
+                  </div>
+                  <div className="mt-[20px] grid grid-cols-2 gap-2">
+                    <Button type="button" color="secondary">
+                      <p className="text-[12px] font-medium lg:text-[14px]">
+                        Forgot Password?
+                      </p>
+                    </Button>
+                    <Button type="button" href="/signup" color="primary">
+                      <p className="text-[12px] font-medium lg:text-[14px]">
+                        Sign Up
+                      </p>
+                    </Button>
+                  </div>
+                  <hr className="mt-4" />
+                  <Button
                     type="button"
-                    className="mb-2 me-2 rounded-lg border-2 border-darkBlue px-3 py-1 text-sm font-medium text-base-100 transition-all duration-200 hover:bg-darkBlue hover:text-white focus:outline-none focus:ring-2 focus:ring-darkBlue lg:px-5 lg:py-2.5"
+                    className="w-full"
+                    onClick={() => signIn("google")}
+                    color="tertiary"
                   >
                     <p className="text-[12px] font-medium lg:text-[14px]">
-                      Forgot Password?
+                      Sign In with Google
                     </p>
-                  </button>
-                  <button
-                    type="button"
-                    onClick={() => push("/signup")}
-                    className="mb-2 me-2 rounded-lg border-2 border-darkBlue bg-darkBlue px-5 py-2.5 text-sm font-medium text-white transition-all duration-200 hover:bg-white hover:text-base-100 focus:outline-none focus:ring-2 focus:ring-darkBlue"
-                  >
-                    <p className="text-[12px] font-medium lg:text-[14px]">
-                      Sign Up
-                    </p>
-                  </button>
+                  </Button>
+                  {error ? (
+                    <p className="mb-4 text-sm text-red-600">{error}</p>
+                  ) : null}
                 </div>
-                <hr className="mt-4" />
-                <button
-                  type="button"
-                  onClick={() => signIn("google")}
-                  className="mb-2 me-2 mt-4 w-full rounded-lg border-2 border-base-100 px-5 py-2.5 text-sm font-medium text-base-100 transition-all duration-200 hover:bg-base-100 hover:text-white focus:outline-none focus:ring-2 focus:ring-gray-500"
-                >
-                  <p className="text-[12px] font-medium lg:text-[14px]">
-                    Sign In with Google
-                  </p>
-                </button>
-                {error ? (
-                  <p className="mb-4 text-sm text-red-600">{error}</p>
-                ) : null}
-              </div>
+              </Flowbite>
             </form>
           </main>
         </div>

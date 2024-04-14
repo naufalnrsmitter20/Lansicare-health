@@ -87,7 +87,7 @@ export default function Homepage() {
               </div>
             </div>
           </div>
-          <div className=" mx-[15px] mb-[30px] mt-[30px] rounded-[10px] bg-primary-1000 pr-0 shadow-md lg:mx-[35px] lg:pr-[1160px]">
+          <div className=" mb-[30px] mt-[30px] max-w-screen-2xl rounded-[10px] bg-primary-1000 pr-[824px] shadow-md lg:w-full">
             <div className="mt-[30px] inline-flex h-6 flex-col items-start justify-start px-10">
               <div className="self-stretch text-2xl font-semibold leading-normal text-neutral-800">
                 Komentar

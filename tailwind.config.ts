@@ -1,3 +1,4 @@
+import flowbite from "flowbite-react/tailwind";
 import type { Config } from "tailwindcss";
 
 const config: Config = {
@@ -9,6 +10,9 @@ const config: Config = {
     // Or if using `src` directory:
     "./src/**/*.{js,ts,jsx,tsx,mdx}",
     "./node_modules/tw-elements/dist/js/**/*.js",
+
+    // flowbite-react
+    flowbite.content(),
   ],
   darkMode: "class",
 
@@ -61,10 +65,6 @@ const config: Config = {
       },
     },
   },
-  plugins: [
-    require("flowbite/plugin"),
-    // "prettier-plugin-tailwindcss",
-    require("tw-elements/dist/plugin.cjs"),
-  ],
+  plugins: [flowbite.plugin(), require("tw-elements/dist/plugin.cjs")],
 };
 export default config;

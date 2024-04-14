@@ -5,7 +5,10 @@ type InputSearchProps = {
   handleSearchInputChange: (e: ChangeEvent<HTMLInputElement>) => void;
 };
 
-const InputSearch: React.FC<InputSearchProps> = ({ searchInput, handleSearchInputChange }) => {
+const InputSearch: React.FC<InputSearchProps> = ({
+  searchInput,
+  handleSearchInputChange,
+}) => {
   return (
     <>
       <section>
@@ -14,8 +17,14 @@ const InputSearch: React.FC<InputSearchProps> = ({ searchInput, handleSearchInpu
             Search
           </label>
           <div className="relative w-full">
-            <div className="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
-              <svg className="w-4 h-4 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 20">
+            <div className="pointer-events-none absolute inset-y-0 start-0 flex items-center ps-3">
+              <svg
+                className="h-4 w-4 text-gray-500 dark:text-gray-400"
+                aria-hidden="true"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 18 20"
+              >
                 <path
                   stroke="currentColor"
                   strokeLinecap="round"
@@ -28,19 +37,12 @@ const InputSearch: React.FC<InputSearchProps> = ({ searchInput, handleSearchInpu
             <input
               type="text"
               id="simple-search"
-              className="bg-white border border-gray-300 text-black text-sm rounded-lg focus:ring-mainBlue focus:border-mainBlue block w-full ps-10 p-2.5"
+              className="block w-full rounded-lg border border-gray-300 bg-white p-2.5 ps-10 text-sm text-black focus:border-mainBlue focus:ring-mainBlue"
               placeholder="Search data"
               value={searchInput}
               onChange={handleSearchInputChange}
             />
           </div>
-          {/* <button type="submit" className="p-2.5 ms-2 text-sm font-medium text-white bg-mainBlue rounded-lg border border-mainBlue hover:bg-sky-400 focus:ring-4 focus:outline-none focus:ring-blue-300 flex">
-            <p className=" font-medium mr-2">Search</p>
-            <svg className="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" stroke="currentColor" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z" />
-            </svg>
-            <span className="sr-only">Search</span>
-          </button> */}
         </div>
       </section>
     </>

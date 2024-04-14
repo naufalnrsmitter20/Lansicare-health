@@ -5,6 +5,8 @@ import SignupImage from "@/public/SignUpImageSide.png";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
+import { Button, Flowbite } from "flowbite-react";
+import ButtonProops from "./buttons/Button";
 
 export default function SignUpUser() {
   const router = useRouter();
@@ -111,39 +113,36 @@ export default function SignUpUser() {
                   required
                 />
               </div>
-              <div>
-                <button
-                  disabled={isLoading}
-                  type={"submit"}
-                  className="w-full max-w-full rounded-lg border-2 border-darkBlue bg-darkBlue px-5 py-2.5 text-sm font-medium text-white transition-all duration-200 hover:bg-white hover:text-base-100 focus:outline-none focus:ring-2 focus:ring-darkBlue"
-                >
-                  <p className="text-center text-[12px] font-medium lg:text-[14px]">
-                    Sign Up
-                  </p>
-                </button>
-
-                <p className="mt-[20px] text-center text-[14px] font-semibold text-base-100 lg:text-[18px]">
-                  Already have an account?
-                </p>
-                <div className="mb-[45px] mt-7 grid grid-cols-2 gap-2">
-                  <button
-                    type="button"
-                    className="mb-2 me-2 rounded-lg border-2 border-darkBlue px-3 py-1 text-sm font-medium text-base-100 transition-all duration-200 hover:bg-darkBlue hover:text-white focus:outline-none focus:ring-2 focus:ring-darkBlue lg:px-5 lg:py-2.5"
-                  >
-                    <p className="text-[12px] font-medium lg:text-[14px]">
-                      Forgot Password?
-                    </p>
-                  </button>
-                  <Link
-                    href={"/signin"}
-                    className="mb-2 me-2 rounded-lg border-2 border-darkBlue bg-darkBlue px-5 py-2.5 text-sm font-medium text-white transition-all duration-200 hover:bg-white hover:text-base-100 focus:outline-none focus:ring-2 focus:ring-darkBlue"
+              <Flowbite theme={{ theme: ButtonProops }}>
+                <div>
+                  <Button
+                    className="w-full"
+                    disabled={isLoading}
+                    type={"submit"}
+                    color="primary"
                   >
                     <p className="text-center text-[12px] font-medium lg:text-[14px]">
-                      Sign In
+                      Sign Up
                     </p>
-                  </Link>
+                  </Button>
+
+                  <p className="mt-[20px] text-center text-[14px] font-semibold text-base-100 lg:text-[18px]">
+                    Already have an account?
+                  </p>
+                  <div className="mb-[45px] mt-7 grid grid-cols-2 gap-2">
+                    <Button type="button" color="secondary">
+                      <p className="text-[12px] font-medium lg:text-[14px]">
+                        Forgot Password?
+                      </p>
+                    </Button>
+                    <Button type="button" color="primary" href="/signin">
+                      <p className="text-center text-[12px] font-medium lg:text-[14px]">
+                        Sign In
+                      </p>
+                    </Button>
+                  </div>
                 </div>
-              </div>
+              </Flowbite>
             </form>
           </main>
         </div>
