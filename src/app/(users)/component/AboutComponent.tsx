@@ -17,7 +17,7 @@ export default function AboutComponent() {
           </h1>
         </div>
 
-        <div className="h-autoplace-items-center mx-[15px] justify-center rounded-[10px] border-gray-200 bg-primary-1000 shadow-md lg:mx-[35px]">
+        <main className="h-autoplace-items-center mx-[15px] justify-center rounded-[10px] border-gray-200 bg-primary-1000 shadow-md lg:mx-[35px]">
           <div className="relative h-full p-[100px]">
             <div className="relative grid h-fit w-full grid-cols-1 gap-y-10 lg:mb-20 lg:mt-[200px] lg:h-20 lg:grid-cols-4">
               <div className="relative flex justify-center">
@@ -78,9 +78,8 @@ export default function AboutComponent() {
               </div>
             </div>
           </div>
-        </div>
+        </main>
 
-        {/* deskripsi */}
         <div className=" mx-[15px] mt-[10px] h-auto place-items-center justify-center rounded-[10px] border-gray-200 bg-primary-1000 shadow-md lg:mx-[35px]">
           <div className="relative mb-20 ml-10 mt-20 h-full">
             <div className="mx-5 mt-10 grid grid-cols-1 pb-10 pt-10 lg:mx-10 lg:flex">

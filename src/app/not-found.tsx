@@ -272,12 +272,12 @@ const NotFound: NextPage = () => (
                 </defs>
               </svg>
             </div>
-            <p className="mb-4 p-2 text-sm text-yellow-300 md:text-base">
+            <p className="mb-4 p-2 text-sm text-mainBlue md:text-base">
               Halaman Tidak Ditemukan
             </p>
             <a
               href="/"
-              className="rounded border border-yellow-300 bg-transparent px-4 py-2 text-yellow-300 shadow hover:border-transparent hover:bg-yellow-300 hover:text-white hover:shadow-lg"
+              className="border-mainBlue-300 rounded-md border border-mainBlue bg-transparent px-4 py-2 text-mainBlue shadow transition-all duration-200 hover:border-transparent hover:bg-mainBlue hover:text-white hover:shadow-lg"
             >
               Kembali Ke Halaman Beranda
             </a>

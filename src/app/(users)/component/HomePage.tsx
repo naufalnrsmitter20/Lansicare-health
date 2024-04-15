@@ -9,6 +9,7 @@ import Regist from "@/public/registrasi.jpg";
 import Forms from "./Forms";
 import Link from "next/link";
 import Footer from "./Footer";
+import { Card } from "flowbite-react";
 
 export default function Homepage() {
   const features = [
@@ -60,19 +61,19 @@ export default function Homepage() {
             <div className="relative">
               <div className="mx-10 mt-5 grid grid-cols-1 content-center gap-4 lg:grid-cols-4">
                 {features.map((feature, i) => (
-                  <Link
+                  <Card
                     key={i}
                     href={feature.link}
                     className="max-h-sm w-fit rounded-lg border border-gray-200 bg-primary-1000 shadow transition-all hover:scale-95 hover:ring-4 hover:ring-mainBlue/20 dark:border-gray-700 dark:bg-gray-800"
-                  >
-                    <div>
+                    renderImage={() => (
                       <Image
                         className="h-[150px] rounded-t-lg object-cover lg:h-[150px]"
                         src={feature.src}
                         alt={feature.alt}
                       />
-                    </div>
-                    <div className="p-5">
+                    )}
+                  >
+                    <div className="">
                       <div>
                         <h5 className="mb-2 text-[18px] font-semibold tracking-tight text-base-100 dark:text-white">
                           {feature.title}
@@ -82,7 +83,7 @@ export default function Homepage() {
                         {feature.description}
                       </p>
                     </div>
-                  </Link>
+                  </Card>
                 ))}
               </div>
             </div>

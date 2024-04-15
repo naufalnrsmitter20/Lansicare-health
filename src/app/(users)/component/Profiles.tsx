@@ -7,8 +7,6 @@ import { useRouter } from "next/navigation";
 import gammbarAsma from "@/public/gambar_Asma.jpg";
 import Footer from "../component/Footer";
 import Link from "next/link";
-import { Button } from "flowbite-react";
-import ButtonProops from "./buttons/Button";
 
 enum PasienStatus {
   rawatInap = "Rawat Inap",
