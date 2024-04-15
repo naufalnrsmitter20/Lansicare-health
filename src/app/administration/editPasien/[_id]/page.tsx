@@ -6,7 +6,7 @@ import EditPatient from "../../components/content/EditPatient";
 import WelcomeBack from "../../components/WelcomeBack";
 
 interface PatientData {
-  _id: string; // Ensure _id is defined as a string
+  _id: string;
   nfcId: number;
   email: string;
   riwayatPenyakit: string;
@@ -56,7 +56,7 @@ const EditDataPages = ({ params }: { params: { _id: any } }) => {
     };
 
     fetchPatientData();
-  }, [patientId]); // Changed _id to patientId
+  }, [patientId]);
 
   if (error) {
     return <div>{error}</div>;
@@ -66,10 +66,9 @@ const EditDataPages = ({ params }: { params: { _id: any } }) => {
     return <div>Loading...</div>;
   }
 
-  // Destructure patientData
   const {
     nfcId,
-    _id, // Keep this _id variable as is if it's required elsewhere
+    _id,
     email,
     riwayatPenyakit,
     pasienStatus,

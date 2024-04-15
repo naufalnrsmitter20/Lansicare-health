@@ -2,11 +2,10 @@
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
 import RemovePatient from "./RemovePatient";
-import AddDataIcons from "@/public/AddDataIcons.svg";
-import Image from "next/image";
-// Import InputSearch if it's available
 import InputSearch from "../utilities/InputSearch";
 import CopyClipboard from "../utilities/CopyClipboard";
+import { Button } from "flowbite-react";
+import ButtonProops from "../utilities/Buttons";
 
 enum PasienStatus {
   rawatInap = "Rawat Inap",
@@ -74,7 +73,6 @@ export default function TableData() {
   }, []);
 
   useEffect(() => {
-    // Filter patients based on searchInput
     const filtered = patients.filter(
       (patient) =>
         patient.nfcId?.toString().includes(searchInput) ||
@@ -91,7 +89,6 @@ export default function TableData() {
     <>
       <section className="container mx-10 mt-7 block w-full max-w-7xl">
         <div className="max-w-2xl">
-          {/* Pass the search input state and change handler to InputSearch */}
           <InputSearch
             searchInput={searchInput}
             handleSearchInputChange={handleSearchInputChange}
@@ -103,15 +100,6 @@ export default function TableData() {
             <CopyClipboard text={textCopy} />
           </div>
         </div>
-        {/* <div>
-          <Link
-            href={"/administration/addPasien"}
-            className="absolute right-28 top-36 mb-2 me-2 flex rounded-lg bg-mainBlue px-3 py-2.5 text-sm font-medium text-white hover:bg-sky-400 focus:outline-none focus:ring-4 focus:ring-blue-300"
-          >
-            <p className="mr-2">Add</p>
-            <Image src={AddDataIcons} alt="Add Icons" width={20} />
-          </Link>
-        </div> */}
         <div className="mb-8 mt-8 max-w-7xl">
           <div className="relative overflow-x-auto">
             <table className="w-full text-left text-sm text-gray-500 dark:text-gray-400 rtl:text-right">
@@ -168,13 +156,14 @@ export default function TableData() {
                       {Data.updatedAt}
                     </td>
 
-                    <td className="flex-1 justify-center border-4 border-white bg-sky-200 px-6 py-2">
-                      <Link
+                    <td className="flex justify-center border-b-4 border-white bg-sky-200 px-6 py-2">
+                      <Button
                         href={`/administration/editPasien/${Data._id}`}
-                        className="mb-2 me-2 rounded-lg bg-green-400 px-5 py-2.5 text-sm font-medium text-white hover:bg-green-500 focus:outline-none focus:ring-4 focus:ring-blue-300 "
+                        theme={ButtonProops.button}
+                        color="success"
                       >
                         Edit & View
-                      </Link>
+                      </Button>
                       <RemovePatient _id={Data._id} />
                     </td>
                   </tr>

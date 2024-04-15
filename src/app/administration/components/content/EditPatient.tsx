@@ -1,7 +1,12 @@
 "use client";
 
+import { Button, Spinner } from "flowbite-react";
 import { useRouter } from "next/navigation";
 import React, { useState } from "react";
+import ButtonProops from "../utilities/Buttons";
+import SpinnerProops from "../utilities/Spinner";
+import Toaster from "../utilities/Toaster";
+import { HiCheck } from "react-icons/hi";
 
 export default function EditPatient({
   _id,
@@ -67,6 +72,7 @@ export default function EditPatient({
   const [newRole, setNewRole] = useState(role ?? "");
   const router = useRouter();
   const [isMutating, setIsMutating] = useState(false);
+  const [isVisible, setIsVisible] = useState(false);
 
   const handleSubmit = async (e: any) => {
     e.preventDefault();
@@ -103,13 +109,12 @@ export default function EditPatient({
         throw new Error("Failed to update Patient");
       }
       console.log(await res.json());
-
+      setIsVisible(true);
       router.refresh();
-      alert(`Data Uppdated!`);
-      router.push("/administration/dataPage");
     } catch (error) {
       console.log(error);
     }
+    setIsMutating(false);
   };
 
   return (
@@ -393,23 +398,47 @@ export default function EditPatient({
             <div></div>
             <div>
               {!isMutating ? (
-                <button
-                  type="submit"
-                  className="mb-2 me-2 w-full rounded-lg bg-mainBlue px-5 py-2.5 text-sm font-medium text-white hover:bg-sky-400 focus:outline-none focus:ring-4 focus:ring-blue-300"
-                >
-                  <p>Edit</p>
-                </button>
+                <>
+                  {!isVisible ? (
+                    <Button
+                      type="submit"
+                      theme={ButtonProops.button}
+                      color="primary"
+                    >
+                      <p>Edit</p>
+                    </Button>
+                  ) : (
+                    <Button
+                      type="button"
+                      theme={ButtonProops.button}
+                      color="primary"
+                      href="/administration/dataPage"
+                    >
+                      <p>Kembali Ke Halaman Data</p>
+                    </Button>
+                  )}
+                </>
               ) : (
-                <button
+                <Button
+                  theme={ButtonProops.button}
+                  color="primary"
                   type="button"
-                  className="mb-2 me-2 w-full rounded-lg bg-mainBlue px-5 py-2.5 text-sm font-medium text-white hover:bg-sky-400 focus:outline-none focus:ring-4 focus:ring-blue-300"
                 >
-                  <p>Saving...</p>
-                </button>
+                  <Spinner theme={SpinnerProops.spinner} color="white" />
+                  <p className="ml-3 pt-0.5 text-[12px] font-semibold lg:text-[14px]">
+                    Loading...
+                  </p>
+                </Button>
               )}
             </div>
           </div>
         </form>
+        {isVisible && (
+          <Toaster
+            type={<HiCheck className="h-5 w-5" />}
+            message="Data Berhasil Diperbarui"
+          />
+        )}
       </section>
     </>
   );
