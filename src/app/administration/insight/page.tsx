@@ -1,12 +1,7 @@
 import React from "react";
 import Sidebar from "../components/content/Sidebar";
 import Headers from "../components/content/Headers";
-import { getServerSession } from "next-auth";
-import { redirect, useRouter } from "next/navigation";
-import Link from "next/link";
-import { useSession } from "next-auth/react";
 import MainDashboard from "../components/content/MainDashboard";
-import Login from "../components/Login";
 import WelcomeBack from "../components/WelcomeBack";
 
 export default function InsightPages() {

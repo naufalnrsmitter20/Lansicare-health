@@ -1,7 +1,12 @@
 "use client";
 
+import { Button, Spinner } from "flowbite-react";
 import { useRouter } from "next/navigation";
 import React, { useState } from "react";
+import ButtonProops from "../utilities/Buttons";
+import SpinnerProops from "../utilities/Spinner";
+import Toaster from "../utilities/Toaster";
+import { HiCheck } from "react-icons/hi";
 
 export default function EditPatient({
   _id,
@@ -67,6 +72,7 @@ export default function EditPatient({
   const [newRole, setNewRole] = useState(role ?? "");
   const router = useRouter();
   const [isMutating, setIsMutating] = useState(false);
+  const [isVisible, setIsVisible] = useState(false);
 
   const handleSubmit = async (e: any) => {
     e.preventDefault();
@@ -103,13 +109,12 @@ export default function EditPatient({
         throw new Error("Failed to update Patient");
       }
       console.log(await res.json());
-
+      setIsVisible(true);
       router.refresh();
-      alert(`Data Uppdated!`);
-      router.push("/administration/dataPage");
     } catch (error) {
       console.log(error);
     }
+    setIsMutating(false);
   };
 
   return (
@@ -131,7 +136,6 @@ export default function EditPatient({
                 value={newNfcId}
                 className="block w-full rounded-lg border border-gray-400 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-mainBlue focus:ring-sky-400 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500"
                 placeholder="Nfc ID (Card Readers)"
-                required
               />
             </div>
             <div>
@@ -148,7 +152,6 @@ export default function EditPatient({
                 value={newFullname}
                 className="block w-full rounded-lg border border-gray-400 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-mainBlue focus:ring-sky-400 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500"
                 placeholder="Nama Lengkap"
-                required
               />
             </div>
             <div>
@@ -165,7 +168,6 @@ export default function EditPatient({
                 value={newNIK}
                 className="block w-full rounded-lg border border-gray-400 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-mainBlue focus:ring-sky-400 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500"
                 placeholder="16 digit"
-                required
               />
             </div>
             <div>
@@ -182,7 +184,6 @@ export default function EditPatient({
                 value={newTTL}
                 className="block w-full rounded-lg border border-gray-400 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-mainBlue focus:ring-sky-400 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500"
                 placeholder="Nama Lengkap"
-                required
               />
             </div>
             <div>
@@ -199,7 +200,6 @@ export default function EditPatient({
                 value={newEmail}
                 className="block w-full rounded-lg border border-gray-400 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-mainBlue focus:ring-sky-400 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500"
                 placeholder="name@example.com"
-                required
               />
             </div>
             <div>
@@ -216,7 +216,6 @@ export default function EditPatient({
                 value={newAlamat}
                 className="block w-full rounded-lg border border-gray-400 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-mainBlue focus:ring-sky-400 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500"
                 placeholder="Alamat Lengkap"
-                required
               />
             </div>
             <div>
@@ -233,7 +232,6 @@ export default function EditPatient({
                 value={newRiwayatPenyakit}
                 className="block w-full rounded-lg border border-gray-400 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-mainBlue focus:ring-sky-400 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500"
                 placeholder="Riwayat Penyakit"
-                required
               />
             </div>
             <div>
@@ -250,7 +248,6 @@ export default function EditPatient({
                 value={newRT}
                 className="block w-full rounded-lg border border-gray-400 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-mainBlue focus:ring-sky-400 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500"
                 placeholder="RT"
-                required
               />
             </div>
             <div>
@@ -267,7 +264,6 @@ export default function EditPatient({
                 value={newJenisKelamin}
                 className="block w-full rounded-lg border border-gray-400 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-mainBlue focus:ring-sky-400 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500"
                 placeholder="Jenis Kelamin"
-                required
               />
             </div>
 
@@ -285,7 +281,6 @@ export default function EditPatient({
                 value={newRW}
                 className="block w-full rounded-lg border border-gray-400 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-mainBlue focus:ring-sky-400 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500"
                 placeholder="RW"
-                required
               />
             </div>
             <div>
@@ -302,7 +297,6 @@ export default function EditPatient({
                 value={newAgama}
                 className="block w-full rounded-lg border border-gray-400 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-mainBlue focus:ring-sky-400 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500"
                 placeholder="Agama"
-                required
               />
             </div>
             <div>
@@ -319,7 +313,6 @@ export default function EditPatient({
                 value={newKelurahanDesa}
                 className="block w-full rounded-lg border border-gray-400 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-mainBlue focus:ring-sky-400 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500"
                 placeholder="Kelurahan/Desa"
-                required
               />
             </div>
             <div>
@@ -336,7 +329,6 @@ export default function EditPatient({
                 value={newKewarganegaraan}
                 className="block w-full rounded-lg border border-gray-400 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-mainBlue focus:ring-sky-400 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500"
                 placeholder="Indonesia"
-                required
               />
             </div>
             <div>
@@ -353,7 +345,6 @@ export default function EditPatient({
                 value={newKecamatan}
                 className="block w-full rounded-lg border border-gray-400 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-mainBlue focus:ring-sky-400 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500"
                 placeholder="Kecamatan"
-                required
               />
             </div>
             <div>
@@ -370,7 +361,6 @@ export default function EditPatient({
                 value={newPekerjaan}
                 className="block w-full rounded-lg border border-gray-400 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-mainBlue focus:ring-sky-400 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500"
                 placeholder="Pekerjaan"
-                required
               />
             </div>
             <div>
@@ -387,7 +377,6 @@ export default function EditPatient({
                 value={newPasienStatus}
                 placeholder="Rawat Inap / Rawat Jalan"
                 className="block w-full rounded-lg border border-gray-400 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-mainBlue focus:ring-sky-400 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500"
-                required
               />
             </div>
             <div>
@@ -404,29 +393,52 @@ export default function EditPatient({
                 value={newRole}
                 placeholder="user / admin"
                 className="block w-full rounded-lg border border-gray-400 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-mainBlue focus:ring-sky-400 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500"
-                required
               />
             </div>
             <div></div>
             <div>
               {!isMutating ? (
-                <button
-                  type="submit"
-                  className="mb-2 me-2 w-full rounded-lg bg-mainBlue px-5 py-2.5 text-sm font-medium text-white hover:bg-sky-400 focus:outline-none focus:ring-4 focus:ring-blue-300"
-                >
-                  <p>Edit</p>
-                </button>
+                <>
+                  {!isVisible ? (
+                    <Button
+                      type="submit"
+                      theme={ButtonProops.button}
+                      color="primary"
+                    >
+                      <p>Edit</p>
+                    </Button>
+                  ) : (
+                    <Button
+                      type="button"
+                      theme={ButtonProops.button}
+                      color="primary"
+                      href="/administration/dataPage"
+                    >
+                      <p>Kembali Ke Halaman Data</p>
+                    </Button>
+                  )}
+                </>
               ) : (
-                <button
+                <Button
+                  theme={ButtonProops.button}
+                  color="primary"
                   type="button"
-                  className="mb-2 me-2 w-full rounded-lg bg-mainBlue px-5 py-2.5 text-sm font-medium text-white hover:bg-sky-400 focus:outline-none focus:ring-4 focus:ring-blue-300"
                 >
-                  <p>Saving...</p>
-                </button>
+                  <Spinner theme={SpinnerProops.spinner} color="white" />
+                  <p className="ml-3 pt-0.5 text-[12px] font-semibold lg:text-[14px]">
+                    Loading...
+                  </p>
+                </Button>
               )}
             </div>
           </div>
         </form>
+        {isVisible && (
+          <Toaster
+            type={<HiCheck className="h-5 w-5" />}
+            message="Data Berhasil Diperbarui"
+          />
+        )}
       </section>
     </>
   );

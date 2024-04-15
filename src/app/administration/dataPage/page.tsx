@@ -1,10 +1,7 @@
 import React from "react";
 import Sidebar from "../components/content/Sidebar";
 import Headers from "../components/content/Headers";
-import Link from "next/link";
 import TableData from "../components/content/TableData";
-import Login from "../components/Login";
-import { useSession } from "next-auth/react";
 import WelcomeBack from "../components/WelcomeBack";
 
 export default function DatasPage() {
