@@ -1,36 +1,80 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# LansiCare
 
-## Getting Started
+## How to Run
 
-First, run the development server:
+```sh
+npm install
+```
 
-```bash
+#### Run Development
+
+```sh
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+```
+
+#### Run Production
+
+```sh
+npm run build
+```
+
+```sh
+npm start
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Guru Pembina
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+- Muhammad Chusni Agus, M. Pd., Gr.
 
-## Learn More
+## Our Team
 
-To learn more about Next.js, take a look at the following resources:
+- Raisya Ramadhani Achmad (Hustler)
+- Rakha Adrian Nur Tanaya (Hipster)
+- Naufal Nabil Ramadhan (Hacker)
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## TechStack
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+- [Figmma](https://figma.com/) - Aplikasi untuk desain mockup dan prototype website ini.
+- [Typescript](https://www.typescriptlang.org/docs/) - Bahasa yang digunakan pada projek ini.
+- [Nodejs](https://nodejs.org/) - Untuk menjalankan projek ini.
+- [Next.js](https://nextjs.org/) - Framework utama yang digunakan untuk frontend dan backend.
+- [Tailwind CSS](https://tailwindcss.com/) - CSS Framework yang digunakan pada frontend.
+- [MongoDB](https://www.mongodb.com/) - Projek ini menggunakan database NoSQL yaitu MongoDB.
+- [NextAuth](https://next-auth.js.org/) - Library untuk sistem Authentication.
+- [Vercel](https://vercel.com) - Deployment serverless untuk mendeploy website ini.
 
-## Deploy on Vercel
+<a href="https://www.figma.com/" target="_blank" rel="noreferrer"> <img src="https://www.vectorlogo.zone/logos/figma/figma-icon.svg" alt="figma" width="40" height="40"/> </a> <a href="https://git-scm.com/" target="_blank" rel="noreferrer"> <img src="https://www.vectorlogo.zone/logos/git-scm/git-scm-icon.svg" alt="git" width="40" height="40"/> </a> <a href="https://jestjs.io" target="_blank" rel="noreferrer"> <img src="https://www.vectorlogo.zone/logos/jestjsio/jestjsio-icon.svg" alt="jest" width="40" height="40"/> </a> <a href="https://www.mongodb.com/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/mongodb/mongodb-original-wordmark.svg" alt="mongodb" width="40" height="40"/> </a> <a href="https://nextjs.org/" target="_blank" rel="noreferrer"> <img src="https://cdn.worldvectorlogo.com/logos/nextjs-2.svg" alt="nextjs" width="40" height="40"/> </a> <a href="https://nodejs.org" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/nodejs/nodejs-original-wordmark.svg" alt="nodejs" width="40" height="40"/> </a> <a href="https://www.php.net" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/php/php-original.svg" alt="php" width="40" height="40"/> </a> <a href="https://postman.com" target="_blank" rel="noreferrer"> <img src="https://www.vectorlogo.zone/logos/getpostman/getpostman-icon.svg" alt="postman" width="40" height="40"/> </a> <a href="https://tailwindcss.com/" target="_blank" rel="noreferrer"> <img src="https://www.vectorlogo.zone/logos/tailwindcss/tailwindcss-icon.svg" alt="tailwind" width="40" height="40"/> </a> <a href="https://www.typescriptlang.org/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/typescript/typescript-original.svg" alt="typescript" width="40" height="40"/> </a> </p>
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Features
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+-
+
+## Pages
+
+### Admin
+
+[/administration](https://lansicare-health.vercel.app/administration) - Halaman Admin
+
+- Dashboard
+- Data
+- Apotek
+
+### User
+
+[/homepage](lansicare-health.vercel.app) - Halaman User
+
+- Home
+- About
+- Profile
+- SignIn
+- SignUp
+
+## Description
+
+-
+
+## Slogan
+
+### CheckUp Kesehatan Ga Pake Lansicare? Rugi Dong !
