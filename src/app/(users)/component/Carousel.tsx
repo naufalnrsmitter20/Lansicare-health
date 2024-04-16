@@ -50,7 +50,7 @@ export default function Carousel() {
                   Welcome to LansiCare
                 </h1>
                 <p className="mb-2 text-ellipsis pl-10 text-[12px] font-normal text-gray-300 lg:mb-7 lg:px-48 lg:text-lg">
-                  Selamat datang {session ? `${session.user?.name}` : "Guest"}!{" "}
+                  Selamat datang {session ? `${session.user?.name}` : "Guest"}!
                   Website ini dirancang khusus untuk membantu Anda dalam
                   melakukan registrasi check-up kesehatan
                   <span className="hidden md:inline">
