@@ -1,7 +1,6 @@
 # LansiCare
 
-<div align="center"><img src="https://lansicare-health.vercel.app/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Flogo-baru.0897d1c0.png&w=256&q=75
-"></div>
+![Lansicare Logo](https://github.com/naufalnrsmitter20/lansicare-health/blob/Production/public/logo-baru.png?raw=true)
 
 ### Socials
 
