@@ -1,7 +1,6 @@
 # LansiCare
 
-<div align="center"><img src="https://raw.githubusercontent.com/lansicare-health/public/logo-baru.png
-"></div>
+![Lansicare Logo](https://github.com/naufalnrsmitter20/lansicare-health/blob/Production/public/logo-baru.png?raw=true)
 
 ### Socials
 
