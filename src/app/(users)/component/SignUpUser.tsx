@@ -52,8 +52,8 @@ export default function SignUpUser() {
             <Image
               className="hidden md:block"
               src={SignupImage}
-              width={397.22}
-              height={305.61}
+              width={397}
+              height={305}
               alt="SignUp Image"
             />
           </main>
