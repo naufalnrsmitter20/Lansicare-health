@@ -43,7 +43,7 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 
 ## TechStack
 
-- [Figmma](https://figma.com/) - Aplikasi untuk desain mockup dan prototype website ini.
+- [Figma](https://figma.com/) - Aplikasi untuk desain mockup dan prototype website ini.
 - [Typescript](https://www.typescriptlang.org/docs/) - Bahasa yang digunakan pada projek ini.
 - [Nodejs](https://nodejs.org/) - Untuk menjalankan projek ini.
 - [Next.js](https://nextjs.org/) - Framework utama yang digunakan untuk frontend dan backend.
