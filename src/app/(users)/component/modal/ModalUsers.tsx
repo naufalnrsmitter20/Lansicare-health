@@ -1,14 +1,15 @@
 "use client";
+import { Spinner, TextInput } from "flowbite-react";
 import { useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import React, { useEffect, useState } from "react";
-enum PasienStatus {
-  rawatInap = "Rawat Inap",
-  rawatJalan = "Rawat Jalan",
-}
+import { CarouselButton, LoadingButton } from "../buttons/Button";
+import SpinnerProops from "../spinners/Spinner";
+import Toaster from "@/src/app/administration/components/utilities/Toaster";
+import { FaTelegramPlane } from "react-icons/fa";
 
 type Patient = {
-  _id: number;
+  _id: string;
   nfcId: number;
   email: string;
   riwayatPenyakit: string;
@@ -48,7 +49,7 @@ export default function ModalUsers({
   Pekerjaan,
   Kewarganegaraan,
 }: {
-  _id: number;
+  _id: string;
   nfcId: number;
   email: string;
   riwayatPenyakit: string;
@@ -68,11 +69,12 @@ export default function ModalUsers({
 }) {
   const { data: session } = useSession();
   const [isMutating, setIsMutating] = useState(false);
-  const [IsVisible, setIsVisible] = useState(false);
+  const [isVisible, setIsVisible] = useState(false);
   const [patient, setPatient] = useState<Patient | null>(null);
   const router = useRouter();
   // State Edit Profile
   const [newNfcId, setNewNfcId] = useState(nfcId);
+  const [newFulllname, setNewFullname] = useState(fullname);
   const [newTTL, setNewTTL] = useState(TTL);
   const [newAlamat, setNewAlamat] = useState(Alamat);
   const [newRT, setNewRT] = useState(RT);
@@ -90,6 +92,7 @@ export default function ModalUsers({
   const handleSubmit = async (e: any) => {
     e.preventDefault();
     setIsMutating(true);
+    setIsVisible(false);
 
     try {
       const res = await fetch(`/api/topics/${_id}`, {
@@ -99,6 +102,7 @@ export default function ModalUsers({
         },
         body: JSON.stringify({
           newNfcId,
+          newFulllname,
           newTTL,
           newAlamat,
           newRT,
@@ -119,11 +123,12 @@ export default function ModalUsers({
         throw new Error("Failed to update Patient");
       }
       console.log(await res.json());
-
-      alert(`Data Uppdated!`);
-      router.refresh();
-      window.location.reload();
-      router.back();
+      setIsMutating(false);
+      setIsVisible(true);
+      setTimeout(() => {
+        router.refresh();
+        router.back();
+      }, 2000);
     } catch (error) {
       console.log(error);
     }
@@ -166,12 +171,13 @@ export default function ModalUsers({
               >
                 Nama
               </label>
-              <div
+              <TextInput
                 id="fullname"
-                className="block w-full rounded-lg border border-gray-300 bg-slate-200 p-2.5 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500"
-              >
-                {patient.fullname}
-              </div>
+                type="text"
+                placeholder="fullnane"
+                value={newFulllname}
+                onChange={(e) => setNewFullname(e.target.value)}
+              />
             </div>
             <div>
               <label
@@ -194,12 +200,11 @@ export default function ModalUsers({
               >
                 NIK
               </label>
-              <input
+              <TextInput
                 value={newNIK}
                 onChange={(e) => setNewNIK(parseInt(e.target.value))}
                 type="number"
                 id="NIK"
-                className="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500"
                 placeholder="NIK"
                 required
               />
@@ -211,13 +216,12 @@ export default function ModalUsers({
               >
                 TTL
               </label>
-              <input
+              <TextInput
                 value={newTTL}
                 onChange={(e) => setNewTTL(e.target.value)}
-                type="date"
-                id="Create At"
-                className="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500"
-                placeholder="Create At"
+                type="text"
+                id="TTL"
+                placeholder="TTL"
                 required
               />
             </div>
@@ -228,12 +232,11 @@ export default function ModalUsers({
               >
                 Jenis Kelamin
               </label>
-              <input
+              <TextInput
                 value={newJenisKelamin}
                 onChange={(e) => setNewJenisKelamin(e.target.value)}
                 type="text"
                 id="jeniskelamin"
-                className="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500"
                 placeholder="Jenis Kelamin"
                 required
               />
@@ -245,12 +248,11 @@ export default function ModalUsers({
               >
                 Alamat
               </label>
-              <input
+              <TextInput
                 value={newAlamat}
                 onChange={(e) => setNewAlamat(e.target.value)}
                 type="text"
                 id="alamat"
-                className="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500"
                 placeholder="Alamat"
                 required
               />
@@ -262,12 +264,11 @@ export default function ModalUsers({
               >
                 RT
               </label>
-              <input
+              <TextInput
                 value={newRT}
                 onChange={(e) => setNewRT(parseInt(e.target.value))}
                 type="number"
                 id="RT"
-                className="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500"
                 placeholder="RT"
                 required
               />
@@ -279,12 +280,11 @@ export default function ModalUsers({
               >
                 RW
               </label>
-              <input
+              <TextInput
                 value={newRW}
                 onChange={(e) => setNewRW(parseInt(e.target.value))}
                 type="number"
                 id="RW"
-                className="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500"
                 placeholder="RW"
                 required
               />
@@ -296,12 +296,11 @@ export default function ModalUsers({
               >
                 Kelurahan/Desa
               </label>
-              <input
+              <TextInput
                 value={newKelurahanDesa}
                 onChange={(e) => setNewKelurahan_desa(e.target.value)}
                 type="text"
                 id="kelurahandesa"
-                className="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500"
                 placeholder="Kelurahan/Desa"
                 required
               />
@@ -313,12 +312,11 @@ export default function ModalUsers({
               >
                 Kecamatan
               </label>
-              <input
+              <TextInput
                 type="text"
                 id="kecamatan"
                 value={newKecamatan}
                 onChange={(e) => setNewKecamatan(e.target.value)}
-                className="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500"
                 placeholder="Kecamatan"
                 required
               />
@@ -330,12 +328,11 @@ export default function ModalUsers({
               >
                 Agama
               </label>
-              <input
+              <TextInput
                 type="text"
                 id="agama"
                 value={newAgama}
                 onChange={(e) => setNewAgama(e.target.value)}
-                className="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500"
                 placeholder="agama"
                 required
               />
@@ -347,12 +344,11 @@ export default function ModalUsers({
               >
                 Riwayat Penyakit
               </label>
-              <input
+              <TextInput
                 type="text"
                 id="RiwayatPenyakit"
                 value={newRiwayatPenyakit}
                 onChange={(e) => setNewRiwayatPenyakit(e.target.value)}
-                className="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500"
                 placeholder="Pekerjaan"
                 required
               />
@@ -364,12 +360,11 @@ export default function ModalUsers({
               >
                 Kewarganegaraan
               </label>
-              <input
+              <TextInput
                 type="text"
                 id="kewarganegaraan"
                 value={newKewarganegaraan}
                 onChange={(e) => setNewKewarganegaraan(e.target.value)}
-                className="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500"
                 placeholder="Kewarganegaraan"
                 required
               />
@@ -378,22 +373,15 @@ export default function ModalUsers({
         ) : null}
         <div className="flex">
           {!isMutating ? (
-            <>
-              <button
-                type="submit"
-                className="mt-4 rounded-lg bg-sky-600 px-5  py-2.5 text-center text-sm font-medium text-white hover:bg-sky-700 focus:outline-none focus:ring-4 focus:ring-sky-200"
-              >
-                Edit Profile
-              </button>
-            </>
+            <CarouselButton className="mt-4" type="submit">
+              Edit Profile
+            </CarouselButton>
           ) : (
             <>
-              <button
-                type="button"
-                className="btn loading rounded-lg  bg-sky-600 px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-sky-700 focus:outline-none focus:ring-4 focus:ring-sky-200"
-              >
-                Updating...
-              </button>
+              <LoadingButton className="mt-4" type="button">
+                <Spinner theme={SpinnerProops.spinner} color="white" />
+                <p className="ml-3 pt-0.5">Updating...</p>
+              </LoadingButton>
             </>
           )}
           <button
@@ -405,6 +393,12 @@ export default function ModalUsers({
             Close
           </button>
         </div>
+        {isVisible && (
+          <Toaster
+            type={<FaTelegramPlane className="h5 w-5" />}
+            message="Data Berhasil Diperbarui!"
+          />
+        )}
       </form>
     </>
   );

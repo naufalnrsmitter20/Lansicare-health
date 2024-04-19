@@ -7,6 +7,7 @@ import { useRouter } from "next/navigation";
 import gammbarAsma from "@/public/gambar_Asma.jpg";
 import Footer from "../component/Footer";
 import Link from "next/link";
+import { TertiaryButton } from "./buttons/Button";
 
 enum PasienStatus {
   rawatInap = "Rawat Inap",
@@ -106,36 +107,42 @@ export default function Profiles() {
                         <div className=" relative w-[1346.55px] pl-[47.48px] pt-[450px] lg:pt-[500px]">
                           <div className="flex justify-between">
                             <div>
-                              {!session ? (
+                              {!patient ? (
                                 <div className="mb-4 text-[32px] font-semibold leading-10 tracking-wider text-black">
-                                  Undefined User
+                                  User
                                 </div>
                               ) : (
                                 <div className="mb-4 truncate text-[32px] font-semibold leading-10 tracking-wider text-black">
-                                  {session.user?.name}
+                                  {patient.fullname}
                                 </div>
                               )}
                             </div>
                           </div>
 
                           <div>
-                            {patient ? (
-                              <Link
-                                href={`/profile/detail/${patient._id}`}
-                                type="button"
-                                className="right-0 top-5 mb-2 me-2 rounded-lg border-2 border-black bg-white px-5 py-2 text-sm font-medium text-black transition-all duration-300 hover:bg-black hover:text-white focus:ring-4 focus:ring-blue-300"
-                              >
-                                Edit Profil
-                              </Link>
-                            ) : null}
+                            <div className="grid max-w-sm grid-cols-2">
+                              {patient ? (
+                                <TertiaryButton
+                                  onClick={() =>
+                                    router.push(
+                                      `/profile/detail/${patient._id}`,
+                                    )
+                                  }
+                                  type="button"
+                                >
+                                  Edit Profile
+                                </TertiaryButton>
+                              ) : (
+                                <></>
+                              )}
 
-                            <button
-                              type="button"
-                              onClick={HandleToggle}
-                              className="right-0 top-5 mb-2 me-2 rounded-lg border-2 border-black bg-white px-5 py-2 text-sm font-medium text-black transition-all duration-300 hover:bg-black hover:text-white focus:ring-4 focus:ring-blue-300"
-                            >
-                              See Details
-                            </button>
+                              <TertiaryButton
+                                type="button"
+                                onClick={HandleToggle}
+                              >
+                                See Details
+                              </TertiaryButton>
+                            </div>
                             {patient ? (
                               <>
                                 <div className="mt-10 grid max-w-sm gap-6 pr-7 md:grid-cols-1 lg:max-w-5xl lg:pr-0 ">

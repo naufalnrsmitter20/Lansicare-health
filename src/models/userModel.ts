@@ -10,7 +10,7 @@ interface UserDocument extends Document {
   riwayatPenyakit: string;
   pasienStatus: string;
   NIK: number;
-  TTL: Date;
+  TTL: string;
   JenisKelamin: string;
   Alamat: string;
   RT: number;
@@ -55,7 +55,7 @@ const userSchema = new Schema<UserDocument>(
       type: Number,
     },
     TTL: {
-      type: Date,
+      type: String,
     },
     JenisKelamin: {
       type: String,

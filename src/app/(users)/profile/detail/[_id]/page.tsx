@@ -3,7 +3,7 @@ import ModalUsers from "../../../component/modal/ModalUsers";
 
 interface Patient {
   nfcId: number;
-  _id: number;
+  _id: string;
   riwayatPenyakit: string;
   pasienStatus: string;
   NIK: number;
@@ -18,12 +18,11 @@ interface Patient {
   StatusPerkawinan: boolean;
   Pekerjaan: string;
   Kewarganegaraan: string;
-  // Add the missing properties
   email: string;
   fullname: string;
 }
 
-const getTopicById = async (_id: number): Promise<Patient> => {
+const getTopicById = async (_id: string): Promise<Patient> => {
   const res = await fetch(`${process.env.NEXTAUTH_URL}/api/topics/${_id}`, {
     cache: "no-store",
   });
@@ -38,24 +37,19 @@ const getTopicById = async (_id: number): Promise<Patient> => {
 export default async function addDetailProfile(props: any) {
   const { params } = props;
 
-  // Initialize outside to widen their scope
   let patientData: Patient | null = null;
 
   try {
-    // Correct the function call to pass the _id correctly
     patientData = await getTopicById(params._id);
   } catch (error: any) {
     console.error(error.message);
-    // Handle your error state appropriately (e.g., return an error message, set an error state, etc.)
     return <div>Error loading patient data.</div>;
   }
 
   if (!patientData) {
-    // Handle the case where patientData is null
     return <div>No patient data found.</div>;
   }
 
-  // Destructure after checking patientData is not null
   const {
     nfcId,
     _id,
@@ -77,9 +71,8 @@ export default async function addDetailProfile(props: any) {
   } = patientData;
 
   return (
-    <>
+    <div className="mt-28">
       <ModalUsers
-        // Now pass all required props, including the newly added ones
         nfcId={nfcId}
         _id={_id}
         email={email}
@@ -98,6 +91,6 @@ export default async function addDetailProfile(props: any) {
         Pekerjaan={Pekerjaan}
         Kewarganegaraan={Kewarganegaraan}
       />
-    </>
+    </div>
   );
 }
