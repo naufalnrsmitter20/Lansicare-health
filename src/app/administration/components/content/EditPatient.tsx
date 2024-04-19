@@ -1,6 +1,6 @@
 "use client";
 
-import { Button, Spinner } from "flowbite-react";
+import { Select, Spinner, TextInput } from "flowbite-react";
 import { useRouter } from "next/navigation";
 import React, { useState } from "react";
 import SpinnerProops from "../utilities/Spinner";
@@ -69,7 +69,7 @@ export default function EditPatient({
     Kewarganegaraan ?? "",
   );
   const [newPekerjaan, setNewPekerjaan] = useState(Pekerjaan ?? "");
-  const [newRole, setNewRole] = useState(role ?? "");
+  const [newRole, setNewRole] = useState(role ?? "admin" ?? "user");
   const router = useRouter();
   const [isMutating, setIsMutating] = useState(false);
   const [isVisible, setIsVisible] = useState(false);
@@ -129,12 +129,11 @@ export default function EditPatient({
               >
                 NFC ID
               </label>
-              <input
+              <TextInput
                 type="number"
                 id="NFCID"
                 onChange={(e) => setNewNfcId(parseInt(e.target.value))}
                 value={newNfcId}
-                className="block w-full rounded-lg border border-gray-400 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-mainBlue focus:ring-sky-400 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500"
                 placeholder="Nfc ID (Card Readers)"
               />
             </div>
@@ -145,12 +144,11 @@ export default function EditPatient({
               >
                 Nama
               </label>
-              <input
+              <TextInput
                 type="text"
                 id="fullname"
                 onChange={(e) => setNewNama(e.target.value)}
                 value={newFullname}
-                className="block w-full rounded-lg border border-gray-400 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-mainBlue focus:ring-sky-400 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500"
                 placeholder="Nama Lengkap"
               />
             </div>
@@ -161,12 +159,11 @@ export default function EditPatient({
               >
                 NIK
               </label>
-              <input
+              <TextInput
                 type="number"
                 id="NIK"
                 onChange={(e) => setNewNIK(parseInt(e.target.value))}
                 value={newNIK}
-                className="block w-full rounded-lg border border-gray-400 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-mainBlue focus:ring-sky-400 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500"
                 placeholder="16 digit"
               />
             </div>
@@ -177,13 +174,12 @@ export default function EditPatient({
               >
                 TTL
               </label>
-              <input
-                type="date"
+              <TextInput
+                type="text"
                 id="TTL"
                 onChange={(e) => setNewTTL(e.target.value)}
                 value={newTTL}
-                className="block w-full rounded-lg border border-gray-400 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-mainBlue focus:ring-sky-400 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500"
-                placeholder="Nama Lengkap"
+                placeholder="Tempat Tanggal Lahir"
               />
             </div>
             <div>
@@ -193,12 +189,11 @@ export default function EditPatient({
               >
                 email
               </label>
-              <input
+              <TextInput
                 type="email"
                 id="email"
                 onChange={(e) => setNewEmail(e.target.value)}
                 value={newEmail}
-                className="block w-full rounded-lg border border-gray-400 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-mainBlue focus:ring-sky-400 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500"
                 placeholder="name@example.com"
               />
             </div>
@@ -209,12 +204,11 @@ export default function EditPatient({
               >
                 Alamat
               </label>
-              <input
+              <TextInput
                 type="text"
                 id="alamat"
                 onChange={(e) => setNewAlamat(e.target.value)}
                 value={newAlamat}
-                className="block w-full rounded-lg border border-gray-400 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-mainBlue focus:ring-sky-400 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500"
                 placeholder="Alamat Lengkap"
               />
             </div>
@@ -225,12 +219,11 @@ export default function EditPatient({
               >
                 Riwayat Penyakit
               </label>
-              <input
+              <TextInput
                 type="text"
                 id="riwayatPenyakit"
                 onChange={(e) => setNewRiwayatPenyakit(e.target.value)}
                 value={newRiwayatPenyakit}
-                className="block w-full rounded-lg border border-gray-400 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-mainBlue focus:ring-sky-400 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500"
                 placeholder="Riwayat Penyakit"
               />
             </div>
@@ -241,12 +234,11 @@ export default function EditPatient({
               >
                 RT
               </label>
-              <input
+              <TextInput
                 type="number"
                 id="rt"
                 onChange={(e) => setNewRT(parseInt(e.target.value))}
                 value={newRT}
-                className="block w-full rounded-lg border border-gray-400 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-mainBlue focus:ring-sky-400 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500"
                 placeholder="RT"
               />
             </div>
@@ -257,12 +249,11 @@ export default function EditPatient({
               >
                 Jenis Kelamin
               </label>
-              <input
+              <TextInput
                 type="text"
                 id="jenisKelamin"
                 onChange={(e) => setNewJenisKelamin(e.target.value)}
                 value={newJenisKelamin}
-                className="block w-full rounded-lg border border-gray-400 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-mainBlue focus:ring-sky-400 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500"
                 placeholder="Jenis Kelamin"
               />
             </div>
@@ -274,12 +265,11 @@ export default function EditPatient({
               >
                 RW
               </label>
-              <input
+              <TextInput
                 type="number"
                 id="rw"
                 onChange={(e) => setNewRW(parseInt(e.target.value))}
                 value={newRW}
-                className="block w-full rounded-lg border border-gray-400 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-mainBlue focus:ring-sky-400 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500"
                 placeholder="RW"
               />
             </div>
@@ -290,12 +280,11 @@ export default function EditPatient({
               >
                 Agama
               </label>
-              <input
+              <TextInput
                 type="text"
                 id="agama"
                 onChange={(e) => setNewAgama(e.target.value)}
                 value={newAgama}
-                className="block w-full rounded-lg border border-gray-400 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-mainBlue focus:ring-sky-400 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500"
                 placeholder="Agama"
               />
             </div>
@@ -306,12 +295,11 @@ export default function EditPatient({
               >
                 Kelurahan/Desa
               </label>
-              <input
+              <TextInput
                 type="text"
                 id="kelurahan_desa"
                 onChange={(e) => setNewKelurahan_desa(e.target.value)}
                 value={newKelurahanDesa}
-                className="block w-full rounded-lg border border-gray-400 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-mainBlue focus:ring-sky-400 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500"
                 placeholder="Kelurahan/Desa"
               />
             </div>
@@ -322,12 +310,11 @@ export default function EditPatient({
               >
                 Kewarganegaraan
               </label>
-              <input
+              <TextInput
                 type="text"
                 id="kewarganegaraan"
                 onChange={(e) => setNewKewarganegaraan(e.target.value)}
                 value={newKewarganegaraan}
-                className="block w-full rounded-lg border border-gray-400 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-mainBlue focus:ring-sky-400 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500"
                 placeholder="Indonesia"
               />
             </div>
@@ -338,12 +325,11 @@ export default function EditPatient({
               >
                 Kecamatan
               </label>
-              <input
+              <TextInput
                 type="text"
                 id="kecamatan"
                 onChange={(e) => setNewKecamatan(e.target.value)}
                 value={newKecamatan}
-                className="block w-full rounded-lg border border-gray-400 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-mainBlue focus:ring-sky-400 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500"
                 placeholder="Kecamatan"
               />
             </div>
@@ -354,12 +340,11 @@ export default function EditPatient({
               >
                 Pekerjaan
               </label>
-              <input
+              <TextInput
                 type="text"
                 id="pekerjaan"
                 onChange={(e) => setNewPekerjaan(e.target.value)}
                 value={newPekerjaan}
-                className="block w-full rounded-lg border border-gray-400 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-mainBlue focus:ring-sky-400 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500"
                 placeholder="Pekerjaan"
               />
             </div>
@@ -370,30 +355,30 @@ export default function EditPatient({
               >
                 Status
               </label>
-              <input
+              <TextInput
                 type="text"
                 id="status"
                 onChange={(e) => setNewStatus(e.target.value)}
                 value={newPasienStatus}
                 placeholder="Rawat Inap / Rawat Jalan"
-                className="block w-full rounded-lg border border-gray-400 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-mainBlue focus:ring-sky-400 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500"
               />
             </div>
             <div>
               <label
-                htmlFor="status"
-                className="mb-2 block text-sm font-medium text-gray-900 dark:text-white"
+                htmlFor="role"
+                className="mb-2 block w-full text-sm font-medium text-gray-900 dark:text-white"
               >
                 Role
               </label>
-              <input
-                type="text"
+              <Select
+                className="bg-white"
                 id="role"
-                onChange={(e) => setNewRole(e.target.value)}
                 value={newRole}
-                placeholder="user / admin"
-                className="block w-full rounded-lg border border-gray-400 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-mainBlue focus:ring-sky-400 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500"
-              />
+                onChange={(e) => setNewRole(e.target.value)}
+              >
+                <option value="user">User</option>
+                <option value="admin">Admin</option>
+              </Select>
             </div>
             <div></div>
             <div>

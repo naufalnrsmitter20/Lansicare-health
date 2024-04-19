@@ -1,4 +1,4 @@
-import { Button, Spinner } from "flowbite-react";
+import { Button, Spinner, Textarea, TextInput } from "flowbite-react";
 import { useRouter } from "next/navigation";
 import React, { useState } from "react";
 import { CarouselButton, LoadingButton } from "./buttons/Button";
@@ -45,13 +45,12 @@ const Forms: React.FC = () => {
           >
             Nama{" "}
           </label>
-          <input
+          <TextInput
             type="text"
             id="nama"
             name="nama"
             value={nama}
             onChange={(e) => setNama(e.target.value)}
-            className="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-mainBlue focus:ring-mainBlue"
             placeholder="Masukkan Nama"
             disabled={isVisible}
             required
@@ -64,13 +63,12 @@ const Forms: React.FC = () => {
           >
             Email{" "}
           </label>
-          <input
+          <TextInput
             type="email"
             id="email"
             name="email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
-            className="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-mainBlue focus:ring-mainBlue"
             placeholder="Masukkan Email"
             disabled={isVisible}
             required
@@ -83,12 +81,11 @@ const Forms: React.FC = () => {
           >
             Komentar{" "}
           </label>
-          <textarea
+          <Textarea
             id="Komentar"
             name="komentar"
             value={komentar}
             onChange={(e) => setKomentar(e.target.value)}
-            className="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-mainBlue focus:ring-mainBlue"
             placeholder="Komentar Anda"
             disabled={isVisible}
             required
