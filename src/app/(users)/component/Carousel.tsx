@@ -6,10 +6,10 @@ import lansia from "@/public/lansia.jpg";
 import checkUp from "@/public/pexels-pixabay-40568.jpg";
 import { useSession } from "next-auth/react";
 import { Button } from "flowbite-react";
-import ButtonProops from "./buttons/Button";
 import RightArrow from "./svg/RightArrow";
 import Prev from "./svg/Prev";
 import Next from "./svg/Next";
+import { CarouselButton } from "./buttons/Button";
 
 export default function Carousel() {
   const { data: session } = useSession();
@@ -50,7 +50,7 @@ export default function Carousel() {
                   Welcome to LansiCare
                 </h1>
                 <p className="mb-2 text-ellipsis pl-10 text-[12px] font-normal text-gray-300 lg:mb-7 lg:px-48 lg:text-lg">
-                  Selamat datang {session ? `${session.user?.name}` : "Guest"}!{" "}
+                  Selamat datang {session ? `${session.user?.name}` : "Guest"}!
                   Website ini dirancang khusus untuk membantu Anda dalam
                   melakukan registrasi check-up kesehatan
                   <span className="hidden md:inline">
@@ -62,14 +62,10 @@ export default function Carousel() {
                   </span>
                 </p>
                 <div className="mb-10 ml-10 flex flex-col space-y-4 sm:flex-row sm:justify-start sm:space-y-0 lg:ml-48">
-                  <Button
-                    theme={ButtonProops.button}
-                    color="carousel"
-                    href="/checkup"
-                  >
+                  <CarouselButton type="button" href="/checkup">
                     Daftar Check Up
                     <RightArrow />
-                  </Button>
+                  </CarouselButton>
                 </div>
               </div>
               <div className="mx-auto max-w-screen-xl px-4 py-24 text-center lg:py-20"></div>
@@ -90,10 +86,10 @@ export default function Carousel() {
                 alt="background Image"
               />
               <div className=" max-w-sm px-4 py-5 text-end lg:max-w-screen-xl lg:py-20">
-                <h1 className="my-5 text-4xl font-extrabold leading-none tracking-tight text-white md:text-5xl lg:mr-10 lg:text-6xl">
+                <h1 className="my-5 text-4xl font-extrabold leading-none tracking-tight text-white md:text-5xl lg:mr-5 lg:text-6xl">
                   LansiCare{" "}
                 </h1>
-                <p className="mb-3 ml-8 text-end text-[12px] font-normal text-gray-300 lg:ml-24 lg:mr-10 lg:text-lg">
+                <p className="mb-5 ml-8 text-end text-[12px] font-normal text-gray-300 lg:ml-48 lg:mr-5 lg:text-lg">
                   Website ini membantu Anda dalam melakukan registrasi check-up
                   secara online. Anda bisa melakukan registrasi check-up dengan
                   memilih dokter yang sesuai.
@@ -107,14 +103,10 @@ export default function Carousel() {
                   </span>
                 </p>
                 <div className="mb-10 ml-10 flex flex-row justify-end space-y-0 lg:mr-10 lg:space-y-4">
-                  <Button
-                    theme={ButtonProops.button}
-                    color="carousel"
-                    href="/about"
-                  >
+                  <CarouselButton type="button" href="/about">
                     Explore more
                     <RightArrow />
-                  </Button>
+                  </CarouselButton>
                 </div>
               </div>
             </main>

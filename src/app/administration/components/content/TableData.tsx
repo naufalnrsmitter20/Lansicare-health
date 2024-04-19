@@ -5,7 +5,7 @@ import RemovePatient from "./RemovePatient";
 import InputSearch from "../utilities/InputSearch";
 import CopyClipboard from "../utilities/CopyClipboard";
 import { Button } from "flowbite-react";
-import ButtonProops from "../utilities/Buttons";
+import { SuccessButton } from "../utilities/Buttons";
 
 type Patient = {
   _id: number;
@@ -152,13 +152,12 @@ export default function TableData() {
                     </td>
 
                     <td className="flex justify-center border-b-4 border-white bg-sky-200 px-6 py-2">
-                      <Button
+                      <SuccessButton
+                        type="button"
                         href={`/administration/editPasien/${Data._id}`}
-                        theme={ButtonProops.button}
-                        color="success"
                       >
                         Edit & View
-                      </Button>
+                      </SuccessButton>
                       <RemovePatient _id={Data._id} />
                     </td>
                   </tr>

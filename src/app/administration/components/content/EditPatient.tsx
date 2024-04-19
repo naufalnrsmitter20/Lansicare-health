@@ -3,10 +3,10 @@
 import { Button, Spinner } from "flowbite-react";
 import { useRouter } from "next/navigation";
 import React, { useState } from "react";
-import ButtonProops from "../utilities/Buttons";
 import SpinnerProops from "../utilities/Spinner";
 import Toaster from "../utilities/Toaster";
 import { HiCheck } from "react-icons/hi";
+import { LoadingButton, PrimaryButton } from "../utilities/Buttons";
 
 export default function EditPatient({
   _id,
@@ -400,35 +400,25 @@ export default function EditPatient({
               {!isMutating ? (
                 <>
                   {!isVisible ? (
-                    <Button
-                      type="submit"
-                      theme={ButtonProops.button}
-                      color="primary"
-                    >
+                    <PrimaryButton type="submit">
                       <p>Edit</p>
-                    </Button>
+                    </PrimaryButton>
                   ) : (
-                    <Button
+                    <PrimaryButton
                       type="button"
-                      theme={ButtonProops.button}
-                      color="primary"
                       href="/administration/dataPage"
                     >
                       <p>Kembali Ke Halaman Data</p>
-                    </Button>
+                    </PrimaryButton>
                   )}
                 </>
               ) : (
-                <Button
-                  theme={ButtonProops.button}
-                  color="primary"
-                  type="button"
-                >
+                <LoadingButton type="button" className="w-full">
                   <Spinner theme={SpinnerProops.spinner} color="white" />
                   <p className="ml-3 pt-0.5 text-[12px] font-semibold lg:text-[14px]">
                     Loading...
                   </p>
-                </Button>
+                </LoadingButton>
               )}
             </div>
           </div>

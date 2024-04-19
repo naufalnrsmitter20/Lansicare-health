@@ -3,7 +3,7 @@
 import { Button } from "flowbite-react";
 import { useRouter } from "next/navigation";
 import React, { useState } from "react";
-import ButtonProops from "../utilities/Buttons";
+import { DangerButton } from "../utilities/Buttons";
 
 export default function RemovePatient({ _id }: { _id: any }) {
   const router = useRouter();
@@ -22,14 +22,9 @@ export default function RemovePatient({ _id }: { _id: any }) {
     }
   };
   return (
-    <Button
-      onClick={removePatient}
-      type="button"
-      theme={ButtonProops.button}
-      color="danger"
-    >
+    <DangerButton onClick={removePatient} type="button">
       Delete
-    </Button>
+    </DangerButton>
   );
 }
 // `http://localhost:3000/api/topics?id=${_id}`

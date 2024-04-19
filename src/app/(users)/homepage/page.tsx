@@ -6,7 +6,7 @@ import Carousel from "../component/Carousel";
 export default function HomepagePages() {
   return (
     <>
-      <div className="">
+      <div>
         <Carousel />
         <Homepage />
       </div>
