@@ -9,6 +9,8 @@ import dokter1 from "@/public/drg_haryo.jpg";
 import dokter2 from "@/public/drg_Gina.jpg";
 import dokter3 from "@/public/drg_safira.jpg";
 import dokter4 from "@/public/drg_rano.jpg";
+import { CarouselButton } from "../buttons/Button";
+import RightArrow from "../svg/RightArrow";
 
 export default function PilihanDokter({ children }: any) {
   return (
@@ -56,7 +58,7 @@ export default function PilihanDokter({ children }: any) {
               </button>
             </form>
           </div>
-          <div className="mt-8 grid grid-cols-1 gap-5 lg:grid-cols-4">
+          <div className="mb-6 mt-8 grid grid-cols-1 gap-5 lg:grid-cols-4">
             <div className="max-w-sm rounded-lg border border-gray-200 bg-white shadow dark:border-gray-700 dark:bg-gray-800">
               <Link href="#">
                 <Image
@@ -76,31 +78,12 @@ export default function PilihanDokter({ children }: any) {
                   Yogyakarta. Dokter gigi yang dikenal ramah dan baik ini
                   menyelesaikan Pendidikan pada Program Studi Kedokteran Gigi
                   pada Fakultas Kedokteran Gigi Universitas Prof. Dr. Moestopo
-                  (Beragama) Jakarta <br />
-                  <br />
-                  <br />
+                  (Beragama) Jakarta
                 </p>
-                <Link
-                  href={"#"}
-                  className="inline-flex items-center rounded-lg bg-darkBlue px-3 py-2 text-center align-bottom text-sm font-medium text-white hover:bg-mainBlue focus:outline-none focus:ring-4 focus:ring-mainBlue/30 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
-                >
+                <CarouselButton href={"#"} type="button">
                   Lihat Profil
-                  <svg
-                    className="ms-2 h-3.5 w-3.5 rtl:rotate-180"
-                    aria-hidden="true"
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 14 10"
-                  >
-                    <path
-                      stroke="currentColor"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                      d="M1 5h12m0 0L9 1m4 4L9 9"
-                    />
-                  </svg>
-                </Link>
+                  <RightArrow />
+                </CarouselButton>
               </div>
             </div>
             <div className="max-w-sm rounded-lg border border-gray-200 bg-white shadow dark:border-gray-700 dark:bg-gray-800">
@@ -123,31 +106,12 @@ export default function PilihanDokter({ children }: any) {
                   Brawijaya dan memperoleh gelar Sarjana Kedokteran Gigi pada
                   tanggal 18 April 2013 dan dari Fakultas Kedokteran Gigi
                   Universitas Brawijaya Malang pada Program Studi Profesi Dokter
-                  Gigi tanggal 30 Desember 2016. <br />
-                  <br />
-                  <br />
+                  Gigi tanggal 30 Desember 2016.
                 </p>
-                <Link
-                  href={"#"}
-                  className=" inline-flex items-center rounded-lg bg-darkBlue px-3 py-2 text-center align-bottom text-sm font-medium text-white hover:bg-mainBlue focus:outline-none focus:ring-4 focus:ring-mainBlue/30 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
-                >
+                <CarouselButton href={"#"} type="button">
                   Lihat Profil
-                  <svg
-                    className="ms-2 h-3.5 w-3.5 rtl:rotate-180"
-                    aria-hidden="true"
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 14 10"
-                  >
-                    <path
-                      stroke="currentColor"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                      d="M1 5h12m0 0L9 1m4 4L9 9"
-                    />
-                  </svg>
-                </Link>
+                  <RightArrow />
+                </CarouselButton>
               </div>
             </div>
             <div className="max-w-sm rounded-lg border border-gray-200 bg-white shadow dark:border-gray-700 dark:bg-gray-800">
@@ -168,31 +132,11 @@ export default function PilihanDokter({ children }: any) {
                   drg. Shafira N. Irsan merupakan Dokter Gigi Umum. Beliau
                   menempuh pendidikan dokter gigi umum di Universitas Brawijaya
                   Malang dan mendapatkan gelar dokter gigi pada tahun 2020.{" "}
-                  <br />
-                  <br />
-                  <br />
                 </p>
-                <Link
-                  href={"#"}
-                  className=" inline-flex items-center rounded-lg bg-darkBlue px-3 py-2 text-center align-bottom text-sm font-medium text-white hover:bg-mainBlue focus:outline-none focus:ring-4 focus:ring-mainBlue/30 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
-                >
+                <CarouselButton href={"#"} type="button">
                   Lihat Profil
-                  <svg
-                    className="ms-2 h-3.5 w-3.5 rtl:rotate-180"
-                    aria-hidden="true"
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 14 10"
-                  >
-                    <path
-                      stroke="currentColor"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                      d="M1 5h12m0 0L9 1m4 4L9 9"
-                    />
-                  </svg>
-                </Link>
+                  <RightArrow />
+                </CarouselButton>
               </div>
             </div>
             <div className="max-w-sm rounded-lg border border-gray-200 bg-white shadow dark:border-gray-700 dark:bg-gray-800">
@@ -214,31 +158,12 @@ export default function PilihanDokter({ children }: any) {
                   tanggal 20 Juli 1983. Sebagai Dokter Gigi Spesialis Konservasi
                   Gigi beliau menangani perawatan gigi serta mempertahankan gigi
                   selama mungkin di dalam rongga mulut, sehingga estetika dan
-                  fungsi kunyah gigi dapat kembali normal. <br />
-                  <br />
-                  <br />
+                  fungsi kunyah gigi dapat kembali normal.
                 </p>
-                <Link
-                  href={"#"}
-                  className=" inline-flex items-center rounded-lg bg-darkBlue px-3 py-2 text-center align-bottom text-sm font-medium text-white hover:bg-mainBlue focus:outline-none focus:ring-4 focus:ring-mainBlue/30 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
-                >
+                <CarouselButton href={"#"} type="button">
                   Lihat Profil
-                  <svg
-                    className="ms-2 h-3.5 w-3.5 rtl:rotate-180"
-                    aria-hidden="true"
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 14 10"
-                  >
-                    <path
-                      stroke="currentColor"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                      d="M1 5h12m0 0L9 1m4 4L9 9"
-                    />
-                  </svg>
-                </Link>
+                  <RightArrow />
+                </CarouselButton>
               </div>
             </div>
           </div>

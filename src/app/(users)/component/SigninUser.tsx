@@ -1,3 +1,4 @@
+// TODO: update button
 "use client";
 
 import React, { useState } from "react";
@@ -6,7 +7,11 @@ import Image from "next/image";
 import { signIn, useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import { Button, Flowbite } from "flowbite-react";
-import ButtonProops from "./buttons/Button";
+import {
+  PrimaryButton,
+  SecondaryButton,
+  TertiaryButton,
+} from "./buttons/Button";
 
 export default function SigninUser() {
   const { data: session, status } = useSession();
@@ -89,43 +94,40 @@ export default function SigninUser() {
                   required
                 />
               </div>
-              <Flowbite theme={{ theme: ButtonProops }}>
-                <div className="mb-[70px] mt-[20px]">
-                  <div className="mt-7 grid grid-cols-1 gap-2">
-                    <Button disabled={IsLoading} type="submit" color="primary">
-                      <p className="text-[12px] font-medium lg:text-[14px]">
-                        {IsLoading ? "Loading..." : "Sign In"}
-                      </p>
-                    </Button>
-                  </div>
-                  <div className="mt-[20px] grid grid-cols-2 gap-2">
-                    <Button type="button" color="secondary">
-                      <p className="text-[12px] font-medium lg:text-[14px]">
-                        Forgot Password?
-                      </p>
-                    </Button>
-                    <Button type="button" href="/signup" color="primary">
-                      <p className="text-[12px] font-medium lg:text-[14px]">
-                        Sign Up
-                      </p>
-                    </Button>
-                  </div>
-                  <hr className="mt-4" />
-                  <Button
-                    type="button"
-                    className="w-full"
-                    onClick={() => signIn("google")}
-                    color="tertiary"
-                  >
+              <div className="mb-[70px] mt-[20px]">
+                <div className="mt-7 grid grid-cols-1 gap-2">
+                  <PrimaryButton disabled={IsLoading} type="submit">
                     <p className="text-[12px] font-medium lg:text-[14px]">
-                      Sign In with Google
+                      {IsLoading ? "Loading..." : "Sign In"}
                     </p>
-                  </Button>
-                  {error ? (
-                    <p className="mb-4 text-sm text-red-600">{error}</p>
-                  ) : null}
+                  </PrimaryButton>
                 </div>
-              </Flowbite>
+                <div className="mt-[20px] grid grid-cols-2 gap-2">
+                  <SecondaryButton type="button">
+                    <p className="text-[12px] font-medium lg:text-[14px]">
+                      Forgot Password?
+                    </p>
+                  </SecondaryButton>
+                  <PrimaryButton type="button" href="/signup">
+                    <p className="text-[12px] font-medium lg:text-[14px]">
+                      Sign Up
+                    </p>
+                  </PrimaryButton>
+                </div>
+                <hr className="mt-4" />
+                <TertiaryButton
+                  type="button"
+                  className="w-full"
+                  onClick={() => signIn("google")}
+                >
+                  <p className="text-[12px] font-medium lg:text-[14px]">
+                    Sign In with Google
+                  </p>
+                </TertiaryButton>
+                {error ? (
+                  <p className="mb-4 text-sm text-red-600">{error}</p>
+                ) : null}
+              </div>
             </form>
           </main>
         </div>

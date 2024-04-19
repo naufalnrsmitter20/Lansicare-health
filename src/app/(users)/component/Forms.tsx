@@ -1,7 +1,7 @@
 import { Button, Spinner } from "flowbite-react";
 import { useRouter } from "next/navigation";
 import React, { useState } from "react";
-import ButtonProops from "./buttons/Button";
+import { CarouselButton, LoadingButton } from "./buttons/Button";
 import SpinnerProops from "./spinners/Spinner";
 import Toaster from "../../administration/components/utilities/Toaster";
 import { FaTelegramPlane } from "react-icons/fa";
@@ -97,31 +97,20 @@ const Forms: React.FC = () => {
         {!isMutating ? (
           <>
             {!isVisible ? (
-              <Button
-                theme={ButtonProops.button}
-                color="carousel"
-                type="submit"
-              >
-                Submit
-              </Button>
+              <CarouselButton type="submit">Submit</CarouselButton>
             ) : (
-              <Button
-                theme={ButtonProops.button}
-                color="carousel"
-                disabled={true}
-                type="button"
-              >
+              <CarouselButton disabled={true} type="button">
                 Pesan Terkirim
-              </Button>
+              </CarouselButton>
             )}
           </>
         ) : (
-          <Button theme={ButtonProops.button} color="loading" type="button">
+          <LoadingButton type="button">
             <Spinner theme={SpinnerProops.spinner} color="white" />
             <p className="ml-3 pt-0.5 text-[12px] font-semibold lg:text-[14px]">
               Loading...
             </p>
-          </Button>
+          </LoadingButton>
         )}
       </div>
       {isVisible && (

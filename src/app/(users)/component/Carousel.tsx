@@ -6,10 +6,10 @@ import lansia from "@/public/lansia.jpg";
 import checkUp from "@/public/pexels-pixabay-40568.jpg";
 import { useSession } from "next-auth/react";
 import { Button } from "flowbite-react";
-import ButtonProops from "./buttons/Button";
 import RightArrow from "./svg/RightArrow";
 import Prev from "./svg/Prev";
 import Next from "./svg/Next";
+import { CarouselButton } from "./buttons/Button";
 
 export default function Carousel() {
   const { data: session } = useSession();
@@ -62,14 +62,10 @@ export default function Carousel() {
                   </span>
                 </p>
                 <div className="mb-10 ml-10 flex flex-col space-y-4 sm:flex-row sm:justify-start sm:space-y-0 lg:ml-48">
-                  <Button
-                    theme={ButtonProops.button}
-                    color="carousel"
-                    href="/checkup"
-                  >
+                  <CarouselButton type="button" href="/checkup">
                     Daftar Check Up
                     <RightArrow />
-                  </Button>
+                  </CarouselButton>
                 </div>
               </div>
               <div className="mx-auto max-w-screen-xl px-4 py-24 text-center lg:py-20"></div>
@@ -107,14 +103,10 @@ export default function Carousel() {
                   </span>
                 </p>
                 <div className="mb-10 ml-10 flex flex-row justify-end space-y-0 lg:mr-10 lg:space-y-4">
-                  <Button
-                    theme={ButtonProops.button}
-                    color="carousel"
-                    href="/about"
-                  >
+                  <CarouselButton type="button" href="/about">
                     Explore more
                     <RightArrow />
-                  </Button>
+                  </CarouselButton>
                 </div>
               </div>
             </main>

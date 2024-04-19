@@ -5,14 +5,11 @@ import Lokasi from "./utilities/Lokasi";
 import Spesialis from "./utilities/Spesialis";
 import PilihanDokter from "./utilities/PilihanDokter";
 import JadwalCheckUp from "./utilities/JadwalCheckUp";
-import { redirect, useRouter } from "next/navigation";
+import { useRouter } from "next/navigation";
 import RumahSakit from "./utilities/RumahSakit";
+import { CarouselButton } from "./buttons/Button";
 
 export default function CheckupComp() {
-  const handleSubmit = () => {
-    alert("Berhasil Daftar Check up! Cek email untuk detailnya");
-    window.location.reload();
-  };
   const router = useRouter();
   const [rumahSakitv, setRumahSakitv] = useState(false);
   const [spesialisv, setSpesialisv] = useState(false);
@@ -50,56 +47,44 @@ export default function CheckupComp() {
           </div>
           <div>
             <Lokasi>
-              <button
-                type="button"
-                onClick={handleRumahSakit}
-                className="mb-2 me-2 rounded-lg bg-darkBlue px-5 py-2.5 text-sm font-semibold text-white hover:bg-mainBlue focus:outline-none focus:ring-4 focus:ring-mainBlue/50 "
-              >
+              <CarouselButton type="button" onClick={handleRumahSakit}>
                 Cari Rumah Sakit
-              </button>
+              </CarouselButton>
             </Lokasi>
             {rumahSakitv && (
               <RumahSakit>
-                <button
+                <CarouselButton
                   type="button"
                   onClick={handleSpesialis}
-                  className="mb-2 me-2 mt-8 max-w-sm rounded-lg bg-darkBlue px-5 py-2.5 text-sm font-semibold text-white hover:bg-mainBlue focus:outline-none focus:ring-4 focus:ring-mainBlue/50 "
+                  className="max-w-sm"
                 >
                   Cari Spesialis
-                </button>
+                </CarouselButton>
               </RumahSakit>
             )}
             {spesialisv && (
               <Spesialis>
-                <button
+                <CarouselButton
                   type="button"
                   onClick={handleDokter}
-                  className="mb-2 me-2 mt-8 rounded-lg bg-darkBlue px-5 py-2.5 text-sm font-semibold text-white hover:bg-mainBlue focus:outline-none focus:ring-4 focus:ring-mainBlue/50 "
+                  className="max-w-sm"
                 >
                   Cari Dokter
-                </button>
+                </CarouselButton>
               </Spesialis>
             )}
             {dokterv && (
               <PilihanDokter>
-                <button
-                  type="button"
-                  onClick={handleJadwal}
-                  className="mb-2 me-2 mt-8 rounded-lg bg-darkBlue px-5 py-2.5 text-sm font-semibold text-white hover:bg-mainBlue focus:outline-none focus:ring-4 focus:ring-mainBlue/50 "
-                >
+                <CarouselButton type="button" onClick={handleJadwal}>
                   Jadwalkan
-                </button>
+                </CarouselButton>
               </PilihanDokter>
             )}
             {jadwalkan && (
               <JadwalCheckUp>
-                <button
-                  type="button"
-                  onClick={handleClick}
-                  className="mb-2 me-2 mt-8 rounded-lg bg-darkBlue px-5 py-2.5 text-sm font-semibold text-white hover:bg-mainBlue focus:outline-none focus:ring-4 focus:ring-mainBlue/50 "
-                >
+                <CarouselButton type="button" onClick={handleClick}>
                   Buat Jadwal
-                </button>
+                </CarouselButton>
               </JadwalCheckUp>
             )}
           </div>

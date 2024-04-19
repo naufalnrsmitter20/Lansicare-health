@@ -6,7 +6,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { Button, Flowbite } from "flowbite-react";
-import ButtonProops from "./buttons/Button";
+import { PrimaryButton, SecondaryButton } from "./buttons/Button";
 
 export default function SignUpUser() {
   const router = useRouter();
@@ -113,36 +113,33 @@ export default function SignUpUser() {
                   required
                 />
               </div>
-              <Flowbite theme={{ theme: ButtonProops }}>
-                <div>
-                  <Button
-                    className="w-full"
-                    disabled={isLoading}
-                    type={"submit"}
-                    color="primary"
-                  >
-                    <p className="text-center text-[12px] font-medium lg:text-[14px]">
-                      Sign Up
-                    </p>
-                  </Button>
-
-                  <p className="mt-[20px] text-center text-[14px] font-semibold text-base-100 lg:text-[18px]">
-                    Already have an account?
+              <div>
+                <PrimaryButton
+                  className="w-full"
+                  disabled={isLoading}
+                  type={"submit"}
+                >
+                  <p className="text-center text-[12px] font-medium lg:text-[14px]">
+                    Sign Up
                   </p>
-                  <div className="mb-[45px] mt-7 grid grid-cols-2 gap-2">
-                    <Button type="button" color="secondary">
-                      <p className="text-[12px] font-medium lg:text-[14px]">
-                        Forgot Password?
-                      </p>
-                    </Button>
-                    <Button type="button" color="primary" href="/signin">
-                      <p className="text-center text-[12px] font-medium lg:text-[14px]">
-                        Sign In
-                      </p>
-                    </Button>
-                  </div>
+                </PrimaryButton>
+
+                <p className="mt-[20px] text-center text-[14px] font-semibold text-base-100 lg:text-[18px]">
+                  Already have an account?
+                </p>
+                <div className="mb-[45px] mt-7 grid grid-cols-2 gap-2">
+                  <SecondaryButton type="button">
+                    <p className="text-[12px] font-medium lg:text-[14px]">
+                      Forgot Password?
+                    </p>
+                  </SecondaryButton>
+                  <PrimaryButton type="button" href="/signin">
+                    <p className="text-center text-[12px] font-medium lg:text-[14px]">
+                      Sign In
+                    </p>
+                  </PrimaryButton>
                 </div>
-              </Flowbite>
+              </div>
             </form>
           </main>
         </div>
