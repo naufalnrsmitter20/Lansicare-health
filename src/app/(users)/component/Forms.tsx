@@ -37,7 +37,7 @@ const Forms: React.FC = () => {
 
   return (
     <form name="form-komentar" onSubmit={handleSubmit}>
-      <div className="relative my-8  px-10">
+      <div className="relative mx-10 my-8">
         <div className="mb-4">
           <label
             htmlFor="nama"

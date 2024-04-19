@@ -52,8 +52,8 @@ export default function SigninUser() {
             <Image
               className="hidden items-center md:block"
               src={SigninImage}
-              width={560.63}
-              height={392.28}
+              width={560}
+              height={392}
               alt="SignIn Image"
             />
           </main>

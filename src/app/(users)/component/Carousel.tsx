@@ -50,7 +50,7 @@ export default function Carousel() {
                   Welcome to LansiCare
                 </h1>
                 <p className="mb-2 text-ellipsis pl-10 text-[12px] font-normal text-gray-300 lg:mb-7 lg:px-48 lg:text-lg">
-                  Selamat datang {session ? `${session.user?.name}` : "Guest"}!{" "}
+                  Selamat datang {session ? `${session.user?.name}` : "Guest"}!
                   Website ini dirancang khusus untuk membantu Anda dalam
                   melakukan registrasi check-up kesehatan
                   <span className="hidden md:inline">
@@ -86,10 +86,10 @@ export default function Carousel() {
                 alt="background Image"
               />
               <div className=" max-w-sm px-4 py-5 text-end lg:max-w-screen-xl lg:py-20">
-                <h1 className="my-5 text-4xl font-extrabold leading-none tracking-tight text-white md:text-5xl lg:mr-10 lg:text-6xl">
+                <h1 className="my-5 text-4xl font-extrabold leading-none tracking-tight text-white md:text-5xl lg:mr-5 lg:text-6xl">
                   LansiCare{" "}
                 </h1>
-                <p className="mb-3 ml-8 text-end text-[12px] font-normal text-gray-300 lg:ml-24 lg:mr-10 lg:text-lg">
+                <p className="mb-5 ml-8 text-end text-[12px] font-normal text-gray-300 lg:ml-48 lg:mr-5 lg:text-lg">
                   Website ini membantu Anda dalam melakukan registrasi check-up
                   secara online. Anda bisa melakukan registrasi check-up dengan
                   memilih dokter yang sesuai.
