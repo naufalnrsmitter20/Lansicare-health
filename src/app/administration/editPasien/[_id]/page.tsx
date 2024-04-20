@@ -25,6 +25,11 @@ interface PatientData {
   Pekerjaan: string;
   Kewarganegaraan: string;
   role: string;
+  tanggalCheckup: string;
+  rumah_sakit: string;
+  nama_dokter: string;
+  spesialis: string;
+  penyakit: string;
 }
 
 const getTopicById = async (_id: any): Promise<PatientData> => {
@@ -85,6 +90,11 @@ const EditDataPages = ({ params }: { params: { _id: any } }) => {
     Pekerjaan,
     Kewarganegaraan,
     role,
+    tanggalCheckup,
+    rumah_sakit,
+    nama_dokter,
+    spesialis,
+    penyakit,
   } = patientData;
 
   return (
@@ -92,7 +102,8 @@ const EditDataPages = ({ params }: { params: { _id: any } }) => {
       <div>
         <Sidebar />
         <div className="ml-64 w-3/4 max-w-full">
-          <Headers name="EDIT PATIENT" />
+          {role === "user" && <Headers name="EDIT PATIENT" />}
+          {role === "admin" && <Headers name="EDIT ADMIN" />}
           <div className="absolute right-0 top-0 mx-4 max-w-lg">
             <WelcomeBack />
           </div>
@@ -115,6 +126,11 @@ const EditDataPages = ({ params }: { params: { _id: any } }) => {
             Pekerjaan={Pekerjaan}
             Kewarganegaraan={Kewarganegaraan}
             role={role}
+            tanggalCheckup={tanggalCheckup}
+            rumah_sakit={rumah_sakit}
+            nama_dokter={nama_dokter}
+            spesialis={spesialis}
+            penyakit={penyakit}
           />
         </div>
       </div>

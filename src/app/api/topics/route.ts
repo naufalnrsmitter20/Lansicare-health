@@ -22,6 +22,12 @@ export async function POST(request: any): Promise<NextResponse> {
     Pekerjaan,
     Kewarganegaraan,
     BerlakuHingga,
+    role,
+    tanggalCheckup,
+    rumah_sakit,
+    nama_dokter,
+    spesialis,
+    penyakit,
   } = await request.json();
   await connect();
   await User.create({
@@ -43,6 +49,12 @@ export async function POST(request: any): Promise<NextResponse> {
     Pekerjaan,
     Kewarganegaraan,
     BerlakuHingga,
+    role,
+    tanggalCheckup,
+    rumah_sakit,
+    nama_dokter,
+    spesialis,
+    penyakit,
   });
   return NextResponse.json(
     { message: "New Patient Success to Created" },

@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import TotalView from "@/public/TotalView.png";
 import TotalUser from "@/public/TotalUser.png";
 import Female from "@/public/Female.png";
@@ -10,12 +10,54 @@ import Registered from "@/public/Registered.png";
 import InProgress from "@/public/InProgress.png";
 import Verify from "@/public/Verify.png";
 import Done from "@/public/Done.png";
+import { SuccessButton } from "../utilities/Buttons";
+import RemovePatient from "./RemovePatient";
 
+type Users = {
+  _id: number;
+  nfcId: number;
+  email: string;
+  fullname: string;
+  role: string;
+};
+
+export const getData = async () => {
+  try {
+    const res = await fetch(`/api/topics/`, {
+      cache: "no-store",
+    });
+    const data = await res.json();
+
+    if (!res.ok) {
+      throw new Error("Failed to fetch topics");
+    }
+    return data;
+  } catch (error) {
+    console.log("Error loading topics: ", error);
+  }
+};
 export default function MainDashboard() {
+  const [admindoctor, setAdminDoctor] = useState<Users[]>([]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const data = await getData();
+        const allAdmin = data.patients || [];
+        const userAdmin = allAdmin.filter(
+          (admins: any) => admins.role === "admin",
+        );
+        setAdminDoctor(userAdmin);
+      } catch (error) {
+        console.log("Error loading data: ", error);
+      }
+    };
+    fetchData();
+  }, []);
   return (
     <>
-      <section className=" font-inter">
-        <section className=" inset-6 mx-10 mt-7 grid w-full max-w-7xl grid-cols-4 gap-4 rounded-lg bg-white p-6 shadow-md shadow-slate-300 hover:bg-gray-100">
+      <section className=" ml-10 font-inter">
+        {/* <section className=" inset-6 mx-10 mt-7 grid w-full max-w-7xl grid-cols-4 gap-4 rounded-lg bg-white p-6 shadow-md shadow-slate-300 hover:bg-gray-100">
           <div className="inset-2 block max-w-sm rounded-lg border border-slate-500 bg-white p-6 shadow-sm shadow-slate-700 hover:bg-gray-100 ">
             <Image
               src={TotalView}
@@ -80,14 +122,14 @@ export default function MainDashboard() {
               Female
             </h1>
           </div>
-        </section>
-        <section className=" mt-14">
+        </section> */}
+        <section className="mt-14">
           <div className=" container">
-            <h3 className=" mb-5 ml-10 font-inter text-2xl font-bold">
+            <h3 className=" mb-5  font-inter text-2xl font-bold">
               Ringkasan Data
             </h3>
           </div>
-          <section className=" inset-6 mx-10 grid w-full max-w-7xl grid-cols-4 gap-4">
+          <section className=" inset-6  grid w-full max-w-7xl grid-cols-4 gap-4">
             <div className="inset-2 flex max-w-sm justify-between rounded-md bg-orange-400 p-3 shadow-sm ring-4 ring-orange-300">
               <div className="block">
                 <p className="text-5xl font-medium tracking-wide text-gray-800">
@@ -170,6 +212,73 @@ export default function MainDashboard() {
             </div>
           </section>
           <hr className="w-full" />
+        </section>
+        <section className="mt-10">
+          <div className="mb-8 mt-8 max-w-7xl">
+            <h3 className="mb-5 font-inter text-2xl font-bold">Data Admin</h3>
+            <div className="relative overflow-x-auto">
+              <table className="w-full text-left text-sm text-gray-500 dark:text-gray-400 rtl:text-right">
+                <thead className="bg-gray-50 text-xs uppercase text-gray-700 dark:bg-gray-700 dark:text-gray-400">
+                  <tr className=" border-4 border-white bg-mainBlue text-center text-white">
+                    <th scope="col" className="border-4 border-white px-6 py-3">
+                      No
+                    </th>
+                    <th scope="col" className="border-4 border-white px-6 py-3">
+                      Admin ID
+                    </th>
+                    <th scope="col" className="border-4 border-white px-6 py-3">
+                      Name
+                    </th>
+                    <th scope="col" className="border-4 border-white px-6 py-3">
+                      Email
+                    </th>
+                    <th scope="col" className="border-4 border-white px-6 py-3">
+                      Role
+                    </th>
+                    <th scope="col" className="border-4 border-white px-6 py-3">
+                      Action
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {admindoctor.map((data, index) => (
+                    <tr
+                      key={data._id}
+                      className="border-b bg-white dark:border-gray-700 dark:bg-gray-800"
+                    >
+                      <td
+                        scope="row"
+                        className="border-4 border-white bg-sky-200 px-6 py-4 text-center text-xs font-medium text-gray-900 dark:text-white"
+                      >
+                        {index + 1}
+                      </td>
+                      <td className="border-4 border-white bg-sky-200 px-6 py-4 text-center text-xs font-semibold">
+                        {data._id}
+                      </td>
+                      <td className="border-4 border-white bg-sky-200 px-6 py-4 text-center text-xs font-semibold">
+                        {data.fullname}
+                      </td>
+                      <td className="border-4 border-white bg-sky-200 px-6 py-4 text-center text-xs font-semibold">
+                        {data.email}
+                      </td>
+                      <td className="border-4 border-white bg-sky-200 px-6 py-4 text-center text-xs font-semibold">
+                        {data.role}
+                      </td>
+                      <td className="flex justify-center border-b-4 border-white bg-sky-200 px-6 py-2">
+                        <SuccessButton
+                          type="button"
+                          href={`/administration/editPasien/${data._id}`}
+                        >
+                          Edit & View
+                        </SuccessButton>
+                        <RemovePatient _id={data._id} />
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </div>
         </section>
       </section>
     </>
