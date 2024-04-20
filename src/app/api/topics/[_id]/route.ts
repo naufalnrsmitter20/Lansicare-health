@@ -22,6 +22,11 @@ interface NewUserResponse {
   StatusPerkawinan: boolean;
   nfcId: number;
   pasienStatus: string;
+  tanggalCheckup: string;
+  rumah_sakit: string;
+  nama_dokter: string;
+  spesialis: string;
+  penyakit: string;
 }
 
 export async function PUT(
@@ -48,6 +53,12 @@ export async function PUT(
     newPekerjaan: Pekerjaan,
     newKewarganegaraan: Kewarganegaraan,
     newBerlakuHingga: BerlakuHingga,
+    newRole: role,
+    newTanggalCheckup: tanggalCheckup,
+    newRumahSakit: rumah_sakit,
+    newNamaDokter: nama_dokter,
+    newSpesialis: spesialis,
+    newPenyakit: penyakit,
   } = await request.json();
   await connect();
   await User.findByIdAndUpdate(
@@ -71,6 +82,12 @@ export async function PUT(
       Pekerjaan,
       Kewarganegaraan,
       BerlakuHingga,
+      role,
+      tanggalCheckup,
+      rumah_sakit,
+      nama_dokter,
+      spesialis,
+      penyakit,
     },
     { new: true, runValidators: true },
   );

@@ -7,26 +7,12 @@ import CopyClipboard from "../utilities/CopyClipboard";
 import { Button } from "flowbite-react";
 import { SuccessButton } from "../utilities/Buttons";
 
-type Patient = {
+type Users = {
   _id: number;
   nfcId: number;
-  email: string;
   riwayatPenyakit: string;
   pasienStatus: string;
   fullname: string;
-  NIK: number;
-  TTL: string;
-  JenisKelamin: string;
-  _Alamat: string;
-  RT: number;
-  RW: number;
-  Kelurahan_Desa: string;
-  Kecamatan: string;
-  Agama: string;
-  StatusPerkawinan: boolean;
-  Pekerjaan: string;
-  Kewarganegaraan: string;
-  BerlakuHingga: Date;
   updatedAt: string;
   role: string;
 };
@@ -49,16 +35,19 @@ export const getData = async () => {
 
 export default function TableData() {
   const [searchInput, setSearchInput] = useState<string>("");
-  const [patients, setPatients] = useState<Patient[]>([]);
-  const [filteredPatients, setFilteredPatients] = useState<Patient[]>([]);
+  const [patients, setPatients] = useState<Users[]>([]);
+  const [filteredPatients, setFilteredPatients] = useState<Users[]>([]);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
         const data = await getData();
-        const patients = data.patients || [];
-        setPatients(patients);
-        setFilteredPatients(patients);
+        const allPatients = data.patients || [];
+        const userPatients = allPatients.filter(
+          (patient: any) => patient.role === "user",
+        );
+        setPatients(userPatients);
+        setFilteredPatients(userPatients);
       } catch (error) {
         console.log("Error loading data: ", error);
       }

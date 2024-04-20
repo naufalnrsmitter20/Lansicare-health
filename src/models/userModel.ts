@@ -23,6 +23,11 @@ interface UserDocument extends Document {
   Kewarganegaraan: string;
   BerlakuHingga: Date;
   nfcId: number;
+  tanggalCheckup: string;
+  rumah_sakit: string;
+  nama_dokter: string;
+  spesialis: string;
+  penyakit: string;
 }
 
 const userSchema = new Schema<UserDocument>(
@@ -89,6 +94,21 @@ const userSchema = new Schema<UserDocument>(
       type: Number,
     },
     Kewarganegaraan: {
+      type: String,
+    },
+    tanggalCheckup: {
+      type: String,
+    },
+    rumah_sakit: {
+      type: String,
+    },
+    nama_dokter: {
+      type: String,
+    },
+    spesialis: {
+      type: String,
+    },
+    penyakit: {
       type: String,
     },
   },
