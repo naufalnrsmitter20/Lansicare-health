@@ -364,7 +364,8 @@ export default function Profiles() {
                               Riwayat Penyakit
                             </h3>
                             <div className="mt-4 px-12 pb-5">
-                              {patient.riwayatPenyakit !== null ? (
+                              {patient.riwayatPenyakit &&
+                              patient.riwayatPenyakit.length !== 0 ? (
                                 <div className=" max-w-[240px] rounded-[10px] border border-gray-200 bg-white shadow dark:border-gray-700 dark:bg-gray-800">
                                   <a href="#">
                                     <Image
@@ -400,7 +401,8 @@ export default function Profiles() {
                         <div className="lg:grid ">
                           {patient && (
                             <>
-                              {patient.nama_dokter !== null ? (
+                              {patient.nama_dokter &&
+                              patient.nama_dokter.length !== 0 ? (
                                 <div className="block max-w-sm rounded-lg border border-gray-200 bg-white p-6 shadow hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700">
                                   <h5 className="mb-2 text-sm font-bold tracking-tight text-gray-900 dark:text-white">
                                     {patient?.tanggalCheckup}
