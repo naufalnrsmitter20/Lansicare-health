@@ -16,7 +16,7 @@ import RemovePatient from "./RemovePatient";
 type Users = {
   _id: number;
   nfcId: number;
-  email: string;
+  status_dokter: "online" | "offline";
   fullname: string;
   role: string;
 };
@@ -230,7 +230,7 @@ export default function MainDashboard() {
                       Name
                     </th>
                     <th scope="col" className="border-4 border-white px-6 py-3">
-                      Email
+                      Status
                     </th>
                     <th scope="col" className="border-4 border-white px-6 py-3">
                       Role
@@ -259,7 +259,7 @@ export default function MainDashboard() {
                         {data.fullname}
                       </td>
                       <td className="border-4 border-white bg-sky-200 px-6 py-4 text-center text-xs font-semibold">
-                        {data.email}
+                        {data.status_dokter}
                       </td>
                       <td className="border-4 border-white bg-sky-200 px-6 py-4 text-center text-xs font-semibold">
                         {data.role}

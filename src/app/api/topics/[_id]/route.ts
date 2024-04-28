@@ -25,6 +25,7 @@ interface NewUserResponse {
   tanggalCheckup: string;
   rumah_sakit: string;
   nama_dokter: string;
+  status_dokter: string;
   spesialis: string;
   penyakit: string;
 }
@@ -57,6 +58,7 @@ export async function PUT(
     newTanggalCheckup: tanggalCheckup,
     newRumahSakit: rumah_sakit,
     newNamaDokter: nama_dokter,
+    newStatusDokter: status_dokter,
     newSpesialis: spesialis,
     newPenyakit: penyakit,
   } = await request.json();
@@ -86,6 +88,7 @@ export async function PUT(
       tanggalCheckup,
       rumah_sakit,
       nama_dokter,
+      status_dokter,
       spesialis,
       penyakit,
     },

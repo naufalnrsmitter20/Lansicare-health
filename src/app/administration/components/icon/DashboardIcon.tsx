@@ -8,7 +8,7 @@ function DashboardIcon() {
       className="group flex items-center rounded-lg p-2 py-3 text-white hover:bg-darkBlue"
     >
       <svg
-        className="h-5 w-5  text-gray-400 transition duration-75 group-hover:text-white"
+        className="h-5 w-5 text-gray-400 transition duration-75 group-hover:text-white"
         aria-hidden="true"
         xmlns="http://www.w3.org/2000/svg"
         fill="currentColor"

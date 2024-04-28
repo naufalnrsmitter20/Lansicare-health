@@ -10,10 +10,11 @@ const onlyAdminPage = [
   "/administration/insight",
   "/administration/dataPage",
   "/administration/apotek",
-  "/administration/addPasien",
+  "/administration/editPasien/*",
 ];
 
 const authPage = ["/signin", "/signup"];
+const authAdmin = ["/administration/login"];
 
 export default function withAuth(
   middleware: NextMiddleware,
@@ -31,6 +32,14 @@ export default function withAuth(
         const url = new URL("/signin" || "/administration/login", req.url);
         url.searchParams.set("callbackUrl", encodeURI(req.url));
         return NextResponse.redirect(url);
+      }
+
+      if (token) {
+        if (authAdmin.includes(pathName)) {
+          return NextResponse.redirect(
+            new URL("/administration/insight", req.url),
+          );
+        }
       }
 
       if (token) {

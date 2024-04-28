@@ -26,6 +26,7 @@ export async function POST(request: any): Promise<NextResponse> {
     tanggalCheckup,
     rumah_sakit,
     nama_dokter,
+    status_dokter,
     spesialis,
     penyakit,
   } = await request.json();
@@ -53,6 +54,7 @@ export async function POST(request: any): Promise<NextResponse> {
     tanggalCheckup,
     rumah_sakit,
     nama_dokter,
+    status_dokter,
     spesialis,
     penyakit,
   });

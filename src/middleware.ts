@@ -13,4 +13,5 @@ export default withAuth(mainMiddleware, [
   "/administration/apotek",
   "/signin",
   "/signup",
+  "/administration/editPasien/*",
 ]);
