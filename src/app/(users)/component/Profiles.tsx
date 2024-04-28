@@ -7,7 +7,7 @@ import { useRouter } from "next/navigation";
 import gammbarAsma from "@/public/gambar_Asma.jpg";
 import Footer from "../component/Footer";
 import Link from "next/link";
-import { TertiaryButton } from "./buttons/Button";
+import { SecondaryButton } from "./buttons/Button";
 
 enum PasienStatus {
   rawatInap = "Rawat Inap",
@@ -127,7 +127,8 @@ export default function Profiles() {
                           <div>
                             <div className="grid max-w-sm grid-cols-2">
                               {patient ? (
-                                <TertiaryButton
+                                <SecondaryButton
+                                  className="mt-4"
                                   onClick={() =>
                                     router.push(
                                       `/profile/detail/${patient._id}`,
@@ -136,17 +137,18 @@ export default function Profiles() {
                                   type="button"
                                 >
                                   Edit Profile
-                                </TertiaryButton>
+                                </SecondaryButton>
                               ) : (
                                 <></>
                               )}
 
-                              <TertiaryButton
+                              <SecondaryButton
+                                className="mt-4"
                                 type="button"
                                 onClick={HandleToggle}
                               >
                                 See Details
-                              </TertiaryButton>
+                              </SecondaryButton>
                             </div>
                             {patient ? (
                               <>
