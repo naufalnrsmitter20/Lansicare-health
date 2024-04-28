@@ -6,7 +6,7 @@ import Image from "next/image";
 import { useRouter } from "next/navigation";
 import gammbarAsma from "@/public/gambar_Asma.jpg";
 import Footer from "../component/Footer";
-import { TertiaryButton } from "./buttons/Button";
+import { SecondaryButton, TertiaryButton } from "./buttons/Button";
 
 type Patient = {
   _id: number;
@@ -121,7 +121,8 @@ export default function Profiles() {
                           <div>
                             <div className="grid max-w-sm grid-cols-2">
                               {patient ? (
-                                <TertiaryButton
+                                <SecondaryButton
+                                  className="mt-4"
                                   onClick={() =>
                                     router.push(
                                       `/profile/detail/${patient._id}`,
@@ -130,7 +131,7 @@ export default function Profiles() {
                                   type="button"
                                 >
                                   Edit Profile
-                                </TertiaryButton>
+                                </SecondaryButton>
                               ) : (
                                 <></>
                               )}

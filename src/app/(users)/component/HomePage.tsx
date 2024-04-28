@@ -48,6 +48,11 @@ export default function Homepage() {
     <>
       <section className="scroll-smooths text-base-100">
         <div className="flex h-full flex-col place-items-center justify-center bg-base-50 pt-[30px] align-middle font-inter">
+          <div className="mx-[15px] h-auto rounded-[10px] bg-primary-1000 pb-10 shadow-md lg:mx-[35px]">
+            
+          </div>
+        </div>
+        <div className="flex h-full flex-col place-items-center justify-center bg-base-50 pt-[30px] align-middle font-inter">
           <div
             id="main"
             className="mx-[15px] h-auto rounded-[10px] bg-primary-1000 pb-10 shadow-md lg:mx-[35px]"

@@ -42,7 +42,7 @@ export default function Carousel() {
             >
               <Image
                 src={hospitals}
-                className="absolute -z-20 w-screen bg-center bg-no-repeat"
+                className="absolute -z-20 w-screen bg-cover"
                 alt="background Image"
               />
               <div className="max-w-sm px-4 py-5 text-start lg:max-w-screen-xl lg:py-[72px]">
@@ -82,7 +82,7 @@ export default function Carousel() {
             >
               <Image
                 src={lansia}
-                className="absolute -z-20 w-screen bg-center bg-no-repeat object-right-top"
+                className="absolute -z-20 w-screen bg-top"
                 alt="background Image"
               />
               <div className=" max-w-sm px-4 py-5 text-end lg:max-w-screen-xl lg:py-20">
@@ -122,7 +122,7 @@ export default function Carousel() {
             >
               <Image
                 src={checkUp}
-                className="absolute -z-20 w-screen bg-center bg-no-repeat bg-blend-multiply"
+                className="absolute -z-20 w-screen bg-top bg-blend-multiply"
                 alt="background Image"
               />
               <div className="mx-auto max-w-screen-xl px-4 py-1 text-center lg:py-[85px]">
