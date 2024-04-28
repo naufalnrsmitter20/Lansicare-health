@@ -13,6 +13,7 @@ interface DokterProfile {
   fullname: string;
   email: string;
   status_dokter: "online" | "offline";
+  JenisKelamin: "Belum-teridentifikasi" | "Laki-Laki" | "Perempuan";
   spesialis: string;
 }
 export default function DataAdmin() {
@@ -135,10 +136,37 @@ export default function DataAdmin() {
                 htmlFor="status"
                 className="mb-2 block text-base font-medium text-gray-900 dark:text-white"
               >
-                Status :
+                Jenis Kelamin :
               </label>
               <div
                 id="status"
+                className="block w-full rounded-lg border border-gray-300 bg-gray-200 p-2.5 text-sm text-gray-900 placeholder:font-medium placeholder:text-black focus:border-blue-500 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500"
+              >
+                {dataAdmin?.JenisKelamin &&
+                dataAdmin.JenisKelamin.length > 0 ? (
+                  <>{dataAdmin?.JenisKelamin}</>
+                ) : (
+                  <>
+                    {status === "loading" ? (
+                      <>Loading...</>
+                    ) : (
+                      <p className="text-slate-500">
+                        <i className="tracking-wide">Data Belum Diisi</i>
+                      </p>
+                    )}
+                  </>
+                )}
+              </div>
+            </div>
+            <div>
+              <label
+                htmlFor="spesialis"
+                className="mb-2 block text-base font-medium text-gray-900 dark:text-white"
+              >
+                Status :
+              </label>
+              <div
+                id="spesialis"
                 className="block w-full rounded-lg border border-gray-300 bg-gray-200 p-2.5 text-sm text-gray-900 placeholder:font-medium placeholder:text-black focus:border-blue-500 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500"
               >
                 {dataAdmin?.status_dokter &&
@@ -183,7 +211,7 @@ export default function DataAdmin() {
                 )}
               </div>
             </div>
-            <div></div>
+
             {!isMutating ? (
               <PrimaryButton type="button" onClick={redirectToEdit}>
                 Edit Profil

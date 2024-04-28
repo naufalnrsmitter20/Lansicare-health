@@ -2,13 +2,12 @@ import { getData } from "@/services/profiles";
 import ModalUsers from "../../../component/modal/ModalUsers";
 
 interface Patient {
-  nfcId: number;
   _id: string;
   riwayatPenyakit: string;
-  pasienStatus: string;
+  pasienStatus: "Rawat-inap" | "Rawat-jalan";
   NIK: number;
   TTL: string;
-  JenisKelamin: string;
+  JenisKelamin: "Belum-teridentifikasi" | "Laki-Laki" | "Perempuan";
   Alamat: string;
   RT: number;
   RW: number;
@@ -18,7 +17,6 @@ interface Patient {
   StatusPerkawinan: boolean;
   Pekerjaan: string;
   Kewarganegaraan: string;
-  email: string;
   fullname: string;
 }
 
@@ -51,7 +49,6 @@ export default async function addDetailProfile(props: any) {
   }
 
   const {
-    nfcId,
     _id,
     riwayatPenyakit,
     pasienStatus,
@@ -66,16 +63,13 @@ export default async function addDetailProfile(props: any) {
     Agama,
     Pekerjaan,
     Kewarganegaraan,
-    email,
     fullname,
   } = patientData;
 
   return (
     <div className="mt-28">
       <ModalUsers
-        nfcId={nfcId}
         _id={_id}
-        email={email}
         fullname={fullname}
         riwayatPenyakit={riwayatPenyakit}
         pasienStatus={pasienStatus}

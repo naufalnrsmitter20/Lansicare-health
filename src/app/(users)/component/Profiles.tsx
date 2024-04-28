@@ -13,11 +13,11 @@ type Patient = {
   nfcId: number;
   email: string;
   riwayatPenyakit: string;
-  pasienStatus: string;
+  pasienStatus: "Rawat-inap" | "Rawat-jalan";
   fullname: string;
   NIK: number;
   TTL: string;
-  JenisKelamin: string;
+  JenisKelamin: "Belum-teridentifikasi" | "Laki-Laki" | "Perempuan";
   Alamat: string;
   RT: number;
   RW: number;
