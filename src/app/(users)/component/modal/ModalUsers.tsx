@@ -349,7 +349,7 @@ export default function ModalUsers({
                 id="RiwayatPenyakit"
                 value={newRiwayatPenyakit}
                 onChange={(e) => setNewRiwayatPenyakit(e.target.value)}
-                placeholder="Pekerjaan"
+                placeholder="Riwayat Penyakit"
                 required
               />
             </div>
@@ -366,6 +366,22 @@ export default function ModalUsers({
                 value={newKewarganegaraan}
                 onChange={(e) => setNewKewarganegaraan(e.target.value)}
                 placeholder="Kewarganegaraan"
+                required
+              />
+            </div>
+            <div>
+              <label
+                htmlFor="kewarganegaraan"
+                className="mb-2 block text-sm font-medium text-gray-900 dark:text-white"
+              >
+                Pekerjaan
+              </label>
+              <TextInput
+                type="text"
+                id="pekerjaan"
+                value={newPekerjaan}
+                onChange={(e) => setNewPekerjaan(e.target.value)}
+                placeholder="pekerjaan"
                 required
               />
             </div>

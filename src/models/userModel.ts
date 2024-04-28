@@ -26,6 +26,7 @@ interface UserDocument extends Document {
   tanggalCheckup: string;
   rumah_sakit: string;
   nama_dokter: string;
+  status_dokter: "online" | "offline";
   spesialis: string;
   penyakit: string;
 }
@@ -86,7 +87,6 @@ const userSchema = new Schema<UserDocument>(
     StatusPerkawinan: {
       type: Boolean,
     },
-
     Pekerjaan: {
       type: String,
     },
@@ -104,6 +104,11 @@ const userSchema = new Schema<UserDocument>(
     },
     nama_dokter: {
       type: String,
+    },
+    status_dokter: {
+      type: String,
+      enum: ["online", "offline"],
+      default: "online",
     },
     spesialis: {
       type: String,

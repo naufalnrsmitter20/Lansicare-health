@@ -6,13 +6,7 @@ import Image from "next/image";
 import { useRouter } from "next/navigation";
 import gammbarAsma from "@/public/gambar_Asma.jpg";
 import Footer from "../component/Footer";
-import Link from "next/link";
 import { TertiaryButton } from "./buttons/Button";
-
-enum PasienStatus {
-  rawatInap = "Rawat Inap",
-  rawatJalan = "Rawat Jalan",
-}
 
 type Patient = {
   _id: number;
@@ -114,7 +108,7 @@ export default function Profiles() {
                             <div>
                               {!patient ? (
                                 <div className="mb-4 text-[32px] font-semibold leading-10 tracking-wider text-black">
-                                  User
+                                  Loading...
                                 </div>
                               ) : (
                                 <div className="mb-4 truncate text-[32px] font-semibold leading-10 tracking-wider text-black">
@@ -140,29 +134,47 @@ export default function Profiles() {
                               ) : (
                                 <></>
                               )}
-
-                              <TertiaryButton
-                                type="button"
-                                onClick={HandleToggle}
-                              >
-                                See Details
-                              </TertiaryButton>
+                              {patient ? (
+                                <TertiaryButton
+                                  type="button"
+                                  onClick={HandleToggle}
+                                >
+                                  See Details
+                                </TertiaryButton>
+                              ) : (
+                                <></>
+                              )}
                             </div>
                             {patient ? (
                               <>
                                 <div className="mt-10 grid max-w-sm gap-6 pr-7 md:grid-cols-1 lg:max-w-5xl lg:pr-0 ">
                                   <div>
                                     <label
-                                      htmlFor="nama"
+                                      htmlFor="email"
                                       className="mb-2 block text-base font-medium text-gray-900 dark:text-white"
                                     >
                                       Email :
                                     </label>
                                     <div
-                                      id="nama"
+                                      id="email"
                                       className="block w-full rounded-lg border border-gray-300 bg-gray-200 p-2.5 text-sm text-gray-900 placeholder:font-medium placeholder:text-black focus:border-blue-500 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500"
                                     >
-                                      {patient.email}
+                                      {patient?.email &&
+                                      patient.email.length > 0 ? (
+                                        <>{patient?.email}</>
+                                      ) : (
+                                        <>
+                                          {status === "loading" ? (
+                                            <>Loading...</>
+                                          ) : (
+                                            <p className="text-slate-500">
+                                              <i className="tracking-wide">
+                                                Data Belum Diisi
+                                              </i>
+                                            </p>
+                                          )}
+                                        </>
+                                      )}
                                     </div>
                                   </div>
                                   <div>
@@ -176,7 +188,22 @@ export default function Profiles() {
                                       id="nama"
                                       className="block w-full rounded-lg border border-gray-300 bg-gray-200 p-2.5 text-sm text-gray-900 placeholder:font-medium placeholder:text-black focus:border-blue-500 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500"
                                     >
-                                      {patient.nfcId}
+                                      {patient?.nfcId &&
+                                      patient.nfcId.toString.length > 0 ? (
+                                        <>{patient?.nfcId}</>
+                                      ) : (
+                                        <>
+                                          {status === "loading" ? (
+                                            <>Loading...</>
+                                          ) : (
+                                            <p className="text-slate-500">
+                                              <i className="tracking-wide">
+                                                Data Belum Diisi
+                                              </i>
+                                            </p>
+                                          )}
+                                        </>
+                                      )}
                                     </div>
                                   </div>
                                   {IsVisible && (
@@ -192,7 +219,22 @@ export default function Profiles() {
                                           id="NIK"
                                           className="block w-full rounded-lg border border-gray-300 bg-gray-200 p-2.5 text-sm text-gray-900 placeholder:font-medium placeholder:text-black focus:border-blue-500 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500"
                                         >
-                                          {patient.NIK}
+                                          {patient?.NIK &&
+                                          patient.NIK.toString.length > 0 ? (
+                                            <>{patient?.NIK}</>
+                                          ) : (
+                                            <>
+                                              {status === "loading" ? (
+                                                <>Loading...</>
+                                              ) : (
+                                                <p className="text-slate-500">
+                                                  <i className="tracking-wide">
+                                                    Data Belum Diisi
+                                                  </i>
+                                                </p>
+                                              )}
+                                            </>
+                                          )}
                                         </div>
                                       </div>
                                       <div>
@@ -206,7 +248,22 @@ export default function Profiles() {
                                           id="TTL"
                                           className="block w-full rounded-lg border border-gray-300 bg-gray-200 p-2.5 text-sm text-gray-900 placeholder:font-medium placeholder:text-black focus:border-blue-500 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500"
                                         >
-                                          {patient.TTL}
+                                          {patient?.TTL &&
+                                          patient.TTL.toString.length > 0 ? (
+                                            <>{patient?.TTL}</>
+                                          ) : (
+                                            <>
+                                              {status === "loading" ? (
+                                                <>Loading...</>
+                                              ) : (
+                                                <p className="text-slate-500">
+                                                  <i className="tracking-wide">
+                                                    Data Belum Diisi
+                                                  </i>
+                                                </p>
+                                              )}
+                                            </>
+                                          )}
                                         </div>
                                       </div>
                                       <div>
@@ -220,7 +277,22 @@ export default function Profiles() {
                                           id="jk"
                                           className="block w-full rounded-lg border border-gray-300 bg-gray-200 p-2.5 text-sm text-gray-900 placeholder:font-medium placeholder:text-black focus:border-blue-500 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500"
                                         >
-                                          {patient.JenisKelamin}
+                                          {patient?.JenisKelamin &&
+                                          patient.JenisKelamin.length > 0 ? (
+                                            <>{patient?.JenisKelamin}</>
+                                          ) : (
+                                            <>
+                                              {status === "loading" ? (
+                                                <>Loading...</>
+                                              ) : (
+                                                <p className="text-slate-500">
+                                                  <i className="tracking-wide">
+                                                    Data Belum Diisi
+                                                  </i>
+                                                </p>
+                                              )}
+                                            </>
+                                          )}
                                         </div>
                                       </div>
                                       <div>
@@ -234,7 +306,22 @@ export default function Profiles() {
                                           id="status"
                                           className="block w-full rounded-lg border border-gray-300 bg-gray-200 p-2.5 text-sm text-gray-900 placeholder:font-medium placeholder:text-black focus:border-blue-500 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500"
                                         >
-                                          {patient.pasienStatus}
+                                          {patient?.pasienStatus &&
+                                          patient.pasienStatus.length > 0 ? (
+                                            <>{patient?.pasienStatus}</>
+                                          ) : (
+                                            <>
+                                              {status === "loading" ? (
+                                                <>Loading...</>
+                                              ) : (
+                                                <p className="text-slate-500">
+                                                  <i className="tracking-wide">
+                                                    Data Belum Diisi
+                                                  </i>
+                                                </p>
+                                              )}
+                                            </>
+                                          )}
                                         </div>
                                       </div>
                                       <div>
@@ -248,7 +335,22 @@ export default function Profiles() {
                                           id="alamat"
                                           className="block w-full rounded-lg border border-gray-300 bg-gray-200 p-2.5 text-sm text-gray-900 placeholder:font-medium placeholder:text-black focus:border-blue-500 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500"
                                         >
-                                          {patient.Alamat}
+                                          {patient?.Alamat &&
+                                          patient.Alamat.toString.length > 0 ? (
+                                            <>{patient?.Alamat}</>
+                                          ) : (
+                                            <>
+                                              {status === "loading" ? (
+                                                <>Loading...</>
+                                              ) : (
+                                                <p className="text-slate-500">
+                                                  <i className="tracking-wide">
+                                                    Data Belum Diisi
+                                                  </i>
+                                                </p>
+                                              )}
+                                            </>
+                                          )}
                                         </div>
                                       </div>
                                       <div>
@@ -262,7 +364,22 @@ export default function Profiles() {
                                           id="rt"
                                           className="block w-full rounded-lg border border-gray-300 bg-gray-200 p-2.5 text-sm text-gray-900 placeholder:font-medium placeholder:text-black focus:border-blue-500 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500"
                                         >
-                                          {patient.RT}
+                                          {patient?.RT &&
+                                          patient.RT.toString.length > 0 ? (
+                                            <>{patient?.RT}</>
+                                          ) : (
+                                            <>
+                                              {status === "loading" ? (
+                                                <>Loading...</>
+                                              ) : (
+                                                <p className="text-slate-500">
+                                                  <i className="tracking-wide">
+                                                    Data Belum Diisi
+                                                  </i>
+                                                </p>
+                                              )}
+                                            </>
+                                          )}
                                         </div>
                                       </div>
                                       <div>
@@ -276,7 +393,22 @@ export default function Profiles() {
                                           id="rw"
                                           className="block w-full rounded-lg border border-gray-300 bg-gray-200 p-2.5 text-sm text-gray-900 placeholder:font-medium placeholder:text-black focus:border-blue-500 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500"
                                         >
-                                          {patient.RW}
+                                          {patient?.RW &&
+                                          patient.RW.toString.length > 0 ? (
+                                            <>{patient?.RW}</>
+                                          ) : (
+                                            <>
+                                              {status === "loading" ? (
+                                                <>Loading...</>
+                                              ) : (
+                                                <p className="text-slate-500">
+                                                  <i className="tracking-wide">
+                                                    Data Belum Diisi
+                                                  </i>
+                                                </p>
+                                              )}
+                                            </>
+                                          )}
                                         </div>
                                       </div>
                                       <div>
@@ -290,7 +422,22 @@ export default function Profiles() {
                                           id="kelurahan_desa"
                                           className="block w-full rounded-lg border border-gray-300 bg-gray-200 p-2.5 text-sm text-gray-900 placeholder:font-medium placeholder:text-black focus:border-blue-500 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500"
                                         >
-                                          {patient.KelurahanDesa}
+                                          {patient?.KelurahanDesa &&
+                                          patient.KelurahanDesa.length > 0 ? (
+                                            <>{patient?.KelurahanDesa}</>
+                                          ) : (
+                                            <>
+                                              {status === "loading" ? (
+                                                <>Loading...</>
+                                              ) : (
+                                                <p className="text-slate-500">
+                                                  <i className="tracking-wide">
+                                                    Data Belum Diisi
+                                                  </i>
+                                                </p>
+                                              )}
+                                            </>
+                                          )}
                                         </div>
                                       </div>
                                       <div>
@@ -304,7 +451,22 @@ export default function Profiles() {
                                           id="kecamatan"
                                           className="block w-full rounded-lg border border-gray-300 bg-gray-200 p-2.5 text-sm text-gray-900 placeholder:font-medium placeholder:text-black focus:border-blue-500 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500"
                                         >
-                                          {patient.Kecamatan}
+                                          {patient?.Kecamatan &&
+                                          patient.Kecamatan.length > 0 ? (
+                                            <>{patient?.Kecamatan}</>
+                                          ) : (
+                                            <>
+                                              {status === "loading" ? (
+                                                <>Loading...</>
+                                              ) : (
+                                                <p className="text-slate-500">
+                                                  <i className="tracking-wide">
+                                                    Data Belum Diisi
+                                                  </i>
+                                                </p>
+                                              )}
+                                            </>
+                                          )}
                                         </div>
                                       </div>
                                       <div>
@@ -318,7 +480,22 @@ export default function Profiles() {
                                           id="agama"
                                           className="block w-full rounded-lg border border-gray-300 bg-gray-200 p-2.5 text-sm text-gray-900 placeholder:font-medium placeholder:text-black focus:border-blue-500 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500"
                                         >
-                                          {patient.Agama}
+                                          {patient?.Agama &&
+                                          patient.Agama.length > 0 ? (
+                                            <>{patient?.Agama}</>
+                                          ) : (
+                                            <>
+                                              {status === "loading" ? (
+                                                <>Loading...</>
+                                              ) : (
+                                                <p className="text-slate-500">
+                                                  <i className="tracking-wide">
+                                                    Data Belum Diisi
+                                                  </i>
+                                                </p>
+                                              )}
+                                            </>
+                                          )}
                                         </div>
                                       </div>
                                       <div>
@@ -332,7 +509,22 @@ export default function Profiles() {
                                           id="pekerjaan"
                                           className="block w-full rounded-lg border border-gray-300 bg-gray-200 p-2.5 text-sm text-gray-900 placeholder:font-medium placeholder:text-black focus:border-blue-500 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500"
                                         >
-                                          {patient.Pekerjaan}
+                                          {patient?.Pekerjaan &&
+                                          patient.Pekerjaan.length > 0 ? (
+                                            <>{patient?.Pekerjaan}</>
+                                          ) : (
+                                            <>
+                                              {status === "loading" ? (
+                                                <>Loading...</>
+                                              ) : (
+                                                <p className="text-slate-500">
+                                                  <i className="tracking-wide">
+                                                    Data Belum Diisi
+                                                  </i>
+                                                </p>
+                                              )}
+                                            </>
+                                          )}
                                         </div>
                                       </div>
                                       <div>
@@ -346,7 +538,22 @@ export default function Profiles() {
                                           id="kewarganegaraan"
                                           className="block w-full rounded-lg border border-gray-300 bg-gray-200 p-2.5 text-sm text-gray-900 placeholder:font-medium placeholder:text-black focus:border-blue-500 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500"
                                         >
-                                          {patient.Kewarganegaraan}
+                                          {patient?.Kewarganegaraan &&
+                                          patient.Kewarganegaraan.length > 0 ? (
+                                            <>{patient?.Kewarganegaraan}</>
+                                          ) : (
+                                            <>
+                                              {status === "loading" ? (
+                                                <>Loading...</>
+                                              ) : (
+                                                <p className="text-slate-500">
+                                                  <i className="tracking-wide">
+                                                    Data Belum Diisi
+                                                  </i>
+                                                </p>
+                                              )}
+                                            </>
+                                          )}
                                         </div>
                                       </div>
                                     </div>
@@ -394,12 +601,12 @@ export default function Profiles() {
                         </>
                       ) : null}
 
-                      <div className="mb-10 mt-10 w-screen max-w-full gap-6 rounded-md bg-primary-1000 px-12 pb-5 shadow-md md:grid-cols-1 lg:w-full">
-                        <h3 className=" pb-4 pt-5 font-inter text-2xl font-medium text-black">
-                          Riwayat Check Up
-                        </h3>
-                        <div className="lg:grid ">
-                          {patient && (
+                      {patient && (
+                        <div className="mb-10 mt-10 w-screen max-w-full gap-6 rounded-md bg-primary-1000 px-12 pb-5 shadow-md md:grid-cols-1 lg:w-full">
+                          <h3 className=" pb-4 pt-5 font-inter text-2xl font-medium text-black">
+                            Riwayat Check Up
+                          </h3>
+                          <div className="lg:grid ">
                             <>
                               {patient.nama_dokter &&
                               patient.nama_dokter.length !== 0 ? (
@@ -428,9 +635,9 @@ export default function Profiles() {
                                 </h3>
                               )}
                             </>
-                          )}
+                          </div>
                         </div>
-                      </div>
+                      )}
                     </div>
                   </div>
                 </div>
