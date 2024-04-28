@@ -3,7 +3,6 @@ import ModalUsers from "@/src/app/(users)/component/modal/ModalUsers";
 import ModalEditProfile from "@/src/app/(users)/component/ModalEditProfile";
 
 interface Patient {
-  nfcId: number;
   _id: string;
   riwayatPenyakit: string;
   pasienStatus: string;
@@ -19,7 +18,6 @@ interface Patient {
   StatusPerkawinan: boolean;
   Pekerjaan: string;
   Kewarganegaraan: string;
-  email: string;
   fullname: string;
 }
 
@@ -52,7 +50,6 @@ export default async function addDetailsProfile(props: any) {
   }
 
   const {
-    nfcId,
     _id,
     riwayatPenyakit,
     pasienStatus,
@@ -67,7 +64,6 @@ export default async function addDetailsProfile(props: any) {
     Agama,
     Pekerjaan,
     Kewarganegaraan,
-    email,
     fullname,
   } = patientData;
 
@@ -75,9 +71,7 @@ export default async function addDetailsProfile(props: any) {
     <>
       <ModalEditProfile>
         <ModalUsers
-          nfcId={nfcId}
           _id={_id}
-          email={email}
           fullname={fullname}
           riwayatPenyakit={riwayatPenyakit}
           pasienStatus={pasienStatus}
