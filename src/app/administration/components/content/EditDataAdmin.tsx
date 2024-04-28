@@ -1,5 +1,5 @@
 "use client";
-import { Label, Select, Spinner, TextInput } from "flowbite-react";
+import { Select, Spinner, TextInput } from "flowbite-react";
 import { useRouter } from "next/navigation";
 import React, { useState } from "react";
 import Toaster from "../utilities/Toaster";
@@ -12,18 +12,21 @@ export default function EditDataAdmins({
   fullname,
   email,
   status_dokter,
+  JenisKelamin,
   spesialis,
 }: {
   _id?: string;
   fullname?: string;
   email?: string;
   nama_dokter?: string;
-  status_dokter?: "online" | "offline";
+  status_dokter?: string;
+  JenisKelamin?: string;
   spesialis?: string;
 }): React.ReactElement {
   const [newFullname, setNewNama] = useState(fullname ?? "");
   const [newEmail, setNewEmail] = useState(email ?? "");
   const [newStatusDokter, setNewStatusDokter] = useState(status_dokter ?? "");
+  const [newJenisKelamin, setNewJenisKelamin] = useState(JenisKelamin ?? "");
   const [newSpesialis, setNewSpesialis] = useState(spesialis ?? "");
 
   const router = useRouter();
@@ -44,6 +47,7 @@ export default function EditDataAdmins({
           newFullname,
           newEmail,
           newStatusDokter,
+          newJenisKelamin,
           newSpesialis,
         }),
       });
@@ -117,6 +121,24 @@ export default function EditDataAdmins({
               </div>
               <div>
                 <label
+                  htmlFor="jenisKelamin"
+                  className="mb-2 block text-sm font-medium text-gray-900 dark:text-white"
+                >
+                  Jenis Kelamin
+                </label>
+                <Select
+                  className="bg-white"
+                  id="jeniskelamin"
+                  value={newJenisKelamin}
+                  onChange={(e) => setNewJenisKelamin(e.target.value)}
+                >
+                  <option value="Belum-teridentifikasi">Pilih</option>
+                  <option value="Laki-Laki">Laki-Laki</option>
+                  <option value="Perempuan">Perempuan</option>
+                </Select>
+              </div>
+              <div>
+                <label
                   htmlFor="spesialis"
                   className="mb-2 block text-sm font-medium text-gray-900 dark:text-white"
                 >
@@ -130,6 +152,7 @@ export default function EditDataAdmins({
                   placeholder="Spesialis"
                 />
               </div>
+              <div></div>
 
               <div>
                 {!isMutating ? (

@@ -2,7 +2,7 @@
 
 import { Label, Select, Spinner, TextInput } from "flowbite-react";
 import { useRouter } from "next/navigation";
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import SpinnerProops from "../utilities/Spinner";
 import Toaster from "../utilities/Toaster";
 import { HiCheck } from "react-icons/hi";
@@ -393,13 +393,16 @@ export default function EditPatient({
                   >
                     Jenis Kelamin
                   </label>
-                  <TextInput
-                    type="text"
-                    id="jenisKelamin"
-                    onChange={(e) => setNewJenisKelamin(e.target.value)}
+                  <Select
+                    className="bg-white"
+                    id="jeniskelamin"
                     value={newJenisKelamin}
-                    placeholder="Jenis Kelamin"
-                  />
+                    onChange={(e) => setNewJenisKelamin(e.target.value)}
+                  >
+                    <option value="Belum-teridentifikasi">Pilih</option>
+                    <option value="Laki-Laki">Laki-Laki</option>
+                    <option value="Perempuan">Perempuan</option>
+                  </Select>
                 </div>
 
                 <div>
@@ -499,13 +502,15 @@ export default function EditPatient({
                   >
                     Status
                   </label>
-                  <TextInput
-                    type="text"
+                  <Select
+                    className="bg-white"
                     id="status"
-                    onChange={(e) => setNewStatus(e.target.value)}
                     value={newPasienStatus}
-                    placeholder="Rawat Inap / Rawat Jalan"
-                  />
+                    onChange={(e) => setNewStatus(e.target.value)}
+                  >
+                    <option value="Rawat-inap">Rawat Inap</option>
+                    <option value="Rawat-jalan">Rawat Jalan</option>
+                  </Select>
                 </div>
                 <div>
                   <label
