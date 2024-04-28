@@ -6,7 +6,7 @@ import Image from "next/image";
 import { useRouter } from "next/navigation";
 import gammbarAsma from "@/public/gambar_Asma.jpg";
 import Footer from "../component/Footer";
-import { TertiaryButton } from "./buttons/Button";
+import { SecondaryButton, TertiaryButton } from "./buttons/Button";
 
 type Patient = {
   _id: number;
