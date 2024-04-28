@@ -7,6 +7,7 @@ import LogoutIcon from "../icon/LogoutIcon";
 import DashboardIcon from "../icon/DashboardIcon";
 import DataIcon from "../icon/DataIcon";
 import ApotekIcon from "../icon/ApotekIcon";
+import ProfileIcon from "../icon/ProfileIcon";
 
 export default function Sidebar() {
   return (
@@ -30,6 +31,9 @@ export default function Sidebar() {
               </li>
               <li>
                 <ApotekIcon />
+              </li>
+              <li>
+                <ProfileIcon />
               </li>
               <li>
                 <LogoutIcon />

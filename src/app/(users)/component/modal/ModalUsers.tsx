@@ -1,5 +1,5 @@
 "use client";
-import { Spinner, TextInput } from "flowbite-react";
+import { Select, Spinner, TextInput } from "flowbite-react";
 import { useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import React, { useEffect, useState } from "react";
@@ -13,11 +13,11 @@ type Patient = {
   nfcId: number;
   email: string;
   riwayatPenyakit: string;
-  pasienStatus: string;
+  pasienStatus: "Rawat-inap" | "Rawat-jalan";
   fullname: string;
   NIK: number;
   TTL: string;
-  JenisKelamin: string;
+  JenisKelamin: "Belum-teridentifikasi" | "Laki-Laki" | "Perempuan";
   Alamat: string;
   RT: number;
   RW: number;
@@ -32,8 +32,6 @@ type Patient = {
 };
 export default function ModalUsers({
   _id,
-  nfcId,
-  email,
   riwayatPenyakit,
   pasienStatus,
   fullname,
@@ -50,8 +48,6 @@ export default function ModalUsers({
   Kewarganegaraan,
 }: {
   _id: string;
-  nfcId: number;
-  email: string;
   riwayatPenyakit: string;
   pasienStatus: string;
   fullname: string;
@@ -73,7 +69,6 @@ export default function ModalUsers({
   const [patient, setPatient] = useState<Patient | null>(null);
   const router = useRouter();
   // State Edit Profile
-  const [newNfcId, setNewNfcId] = useState(nfcId);
   const [newFulllname, setNewFullname] = useState(fullname);
   const [newTTL, setNewTTL] = useState(TTL);
   const [newAlamat, setNewAlamat] = useState(Alamat);
@@ -101,7 +96,6 @@ export default function ModalUsers({
           "Content-type": "application/json",
         },
         body: JSON.stringify({
-          newNfcId,
           newFulllname,
           newTTL,
           newAlamat,
@@ -206,7 +200,6 @@ export default function ModalUsers({
                 type="number"
                 id="NIK"
                 placeholder="NIK"
-                required
               />
             </div>
             <div>
@@ -222,7 +215,6 @@ export default function ModalUsers({
                 type="text"
                 id="TTL"
                 placeholder="TTL"
-                required
               />
             </div>
             <div>
@@ -232,14 +224,16 @@ export default function ModalUsers({
               >
                 Jenis Kelamin
               </label>
-              <TextInput
+              <Select
+                className="bg-white"
+                id="jeniskelamin"
                 value={newJenisKelamin}
                 onChange={(e) => setNewJenisKelamin(e.target.value)}
-                type="text"
-                id="jeniskelamin"
-                placeholder="Jenis Kelamin"
-                required
-              />
+              >
+                <option value="Belum-teridentifikasi">Pilih</option>
+                <option value="Laki-Laki">Laki-Laki</option>
+                <option value="Perempuan">Perempuan</option>
+              </Select>
             </div>
             <div>
               <label
@@ -254,7 +248,6 @@ export default function ModalUsers({
                 type="text"
                 id="alamat"
                 placeholder="Alamat"
-                required
               />
             </div>
             <div>
@@ -270,7 +263,6 @@ export default function ModalUsers({
                 type="number"
                 id="RT"
                 placeholder="RT"
-                required
               />
             </div>
             <div>
@@ -286,7 +278,6 @@ export default function ModalUsers({
                 type="number"
                 id="RW"
                 placeholder="RW"
-                required
               />
             </div>
             <div>
@@ -302,7 +293,6 @@ export default function ModalUsers({
                 type="text"
                 id="kelurahandesa"
                 placeholder="Kelurahan/Desa"
-                required
               />
             </div>
             <div>
@@ -318,7 +308,6 @@ export default function ModalUsers({
                 value={newKecamatan}
                 onChange={(e) => setNewKecamatan(e.target.value)}
                 placeholder="Kecamatan"
-                required
               />
             </div>
             <div>
@@ -334,7 +323,6 @@ export default function ModalUsers({
                 value={newAgama}
                 onChange={(e) => setNewAgama(e.target.value)}
                 placeholder="agama"
-                required
               />
             </div>
             <div>
@@ -349,8 +337,7 @@ export default function ModalUsers({
                 id="RiwayatPenyakit"
                 value={newRiwayatPenyakit}
                 onChange={(e) => setNewRiwayatPenyakit(e.target.value)}
-                placeholder="Pekerjaan"
-                required
+                placeholder="Riwayat Penyakit"
               />
             </div>
             <div>
@@ -366,7 +353,21 @@ export default function ModalUsers({
                 value={newKewarganegaraan}
                 onChange={(e) => setNewKewarganegaraan(e.target.value)}
                 placeholder="Kewarganegaraan"
-                required
+              />
+            </div>
+            <div>
+              <label
+                htmlFor="kewarganegaraan"
+                className="mb-2 block text-sm font-medium text-gray-900 dark:text-white"
+              >
+                Pekerjaan
+              </label>
+              <TextInput
+                type="text"
+                id="pekerjaan"
+                value={newPekerjaan}
+                onChange={(e) => setNewPekerjaan(e.target.value)}
+                placeholder="pekerjaan"
               />
             </div>
           </div>

@@ -101,7 +101,7 @@ const EditDataPages = ({ params }: { params: { _id: any } }) => {
     <>
       <div>
         <Sidebar />
-        <div className="ml-64 w-3/4 max-w-full">
+        <div className="ml-64 mt-6 w-3/4 max-w-full">
           {role === "user" && <Headers name="EDIT PATIENT" />}
           {role === "admin" && <Headers name="EDIT ADMIN" />}
           <div className="absolute right-0 top-0 mx-4 max-w-lg">

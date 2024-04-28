@@ -1,14 +1,18 @@
+"use client";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import React from "react";
 
 function DataIcon() {
+  const UsePathnames = usePathname();
+
   return (
     <Link
       href="/administration/dataPage"
-      className="group flex items-center  rounded-lg p-2 py-3 text-white hover:bg-darkBlue"
+      className={` ${UsePathnames === "/administration/dataPage" ? "bg-darkBlue text-white" : "text-white "} group flex items-center rounded-lg p-2 py-3 hover:bg-darkBlue`}
     >
       <svg
-        className="group-hover: h-5 w-5  flex-shrink-0 text-gray-400 transition duration-75 group-hover:text-white"
+        className={`h-5 w-5  transition duration-75 group-hover:text-white ${UsePathnames === "/administration/dataPage" ? "text-white" : "text-gray-400"}`}
         aria-hidden="true"
         xmlns="http://www.w3.org/2000/svg"
         fill="currentColor"
