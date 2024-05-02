@@ -9,7 +9,7 @@ function ApotekIcon() {
   return (
     <Link
       rel="links"
-      href="https://apotek-amanah.000webhostapp.com/"
+      href=""
       className={` ${UsePathnames === "/administration/apotek" ? "bg-darkBlue text-white" : "text-white "} group flex items-center rounded-lg p-2 py-3 hover:bg-darkBlue`}
     >
       <svg
