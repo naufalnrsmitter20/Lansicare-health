@@ -89,7 +89,7 @@ export default function Carousel() {
                 <h1 className="my-5 text-4xl font-extrabold leading-none tracking-tight text-white md:text-5xl lg:mr-5 lg:text-6xl">
                   LansiCare{" "}
                 </h1>
-                <p className="mb-5 ml-8 text-end text-[12px] font-normal text-gray-300 lg:ml-48 lg:mr-5 lg:text-lg">
+                <p className="mx-10 mb-5 text-ellipsis text-end text-[12px] font-normal text-gray-300 lg:mx-32 lg:mr-5 lg:text-lg">
                   Website ini membantu Anda dalam melakukan registrasi check-up
                   secara online. Anda bisa melakukan registrasi check-up dengan
                   memilih dokter yang sesuai.
