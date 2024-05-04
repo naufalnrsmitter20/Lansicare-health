@@ -82,7 +82,7 @@ export default function Carousel() {
             >
               <Image
                 src={lansia}
-                className="absolute -z-20 w-screen bg-top"
+                className="absolute -z-20 w-screen bg-bottom"
                 alt="background Image"
               />
               <div className=" max-w-sm px-4 py-5 text-end lg:max-w-screen-xl lg:py-20">
