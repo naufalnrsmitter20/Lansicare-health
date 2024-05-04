@@ -47,12 +47,10 @@ export default function Homepage() {
   return (
     <>
       <section className="scroll-smooths text-base-100">
-        <div className="flex h-full flex-col place-items-center justify-center bg-base-50 pt-[30px] align-middle font-inter">
-          <div className="mx-[15px] h-auto rounded-[10px] bg-primary-1000 pb-10 shadow-md lg:mx-[35px]">
-            
-          </div>
+        <div className="flex h-full flex-col place-items-center justify-center bg-base-50 align-middle font-inter">
+          <div className="mx-[15px] h-auto rounded-[10px] bg-primary-1000 pb-10 shadow-md lg:mx-[35px]"></div>
         </div>
-        <div className="flex h-full flex-col place-items-center justify-center bg-base-50 pt-[30px] align-middle font-inter">
+        <div className="flex h-full flex-col place-items-center justify-center bg-base-50 align-middle font-inter">
           <div
             id="main"
             className="mx-[15px] h-auto rounded-[10px] bg-primary-1000 pb-10 shadow-md lg:mx-[35px]"
@@ -93,7 +91,7 @@ export default function Homepage() {
               </div>
             </div>
           </div>
-          <div className="mb-[30px] mt-[30px] rounded-[10px] bg-primary-1000 shadow-md lg:min-w-[1000px] ">
+          <div className="mb-[30px] mt-[30px] min-w-[350px] rounded-[10px] bg-primary-1000 shadow-md lg:min-w-[1200px] ">
             <div className="mt-[30px] inline-flex h-6 flex-col items-start justify-start px-10">
               <div className="self-stretch text-2xl font-semibold leading-normal text-neutral-800">
                 Komentar

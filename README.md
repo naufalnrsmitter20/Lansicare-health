@@ -12,10 +12,18 @@ LansiCare, ide ini mengacu pada poin SDGs nomer 3 yaitu Kesehatan yang Baik dan 
 
 ### Untuk Pengguna
 
-- Register dan Login untuk Authentikasi Pengguna
+- Register dan Login untuk Authentikasi Pengguna/pasien
 - Registrasi & CheckUp Kesehatan
 - Track Kesehatan berupa Riwayat Penyakit dan Riwayat CheckUp pada halaman Profil
 - Komentar yang dapat diisi sebagai feedback
+
+### Untuk Dokter
+
+- Login untuk Authentikasi dokter
+- Dashboard untuk monitoring pengguna/pasien
+- View, Edit, dan Delete data pengguna/pasien
+- Form CheckUp kesehatan di halaman Edit Profile
+- Profil Dokter
 
 ### Socials
 
