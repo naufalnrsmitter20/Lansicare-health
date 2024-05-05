@@ -1,12 +1,16 @@
 "use client";
 import { Select, Spinner, TextInput } from "flowbite-react";
 import { useRouter } from "next/navigation";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Toaster from "../utilities/Toaster";
 import { HiCheck } from "react-icons/hi";
 import { LoadingButton, PrimaryButton } from "../utilities/Buttons";
 import SpinnerProops from "../utilities/Spinner";
+import { useSession } from "next-auth/react";
 
+interface dataRole {
+  role: "pasien" | "dokter" | "superadmin";
+}
 export default function EditDataAdmins({
   _id,
   fullname,
@@ -14,6 +18,7 @@ export default function EditDataAdmins({
   status_dokter,
   JenisKelamin,
   spesialis,
+  role,
 }: {
   _id?: string;
   fullname?: string;
@@ -22,16 +27,20 @@ export default function EditDataAdmins({
   status_dokter?: string;
   JenisKelamin?: string;
   spesialis?: string;
+  role?: "pasien" | "dokter" | "superadmin";
 }): React.ReactElement {
   const [newFullname, setNewNama] = useState(fullname ?? "");
   const [newEmail, setNewEmail] = useState(email ?? "");
   const [newStatusDokter, setNewStatusDokter] = useState(status_dokter ?? "");
   const [newJenisKelamin, setNewJenisKelamin] = useState(JenisKelamin ?? "");
   const [newSpesialis, setNewSpesialis] = useState(spesialis ?? "");
+  const [newRole, setNewRole] = useState(role ?? "");
 
   const router = useRouter();
   const [isMutating, setIsMutating] = useState(false);
   const [isVisible, setIsVisible] = useState(false);
+  const [users, setUsers] = useState<dataRole | null>(null);
+  const { data: session } = useSession();
 
   const handleSubmit = async (e: any) => {
     e.preventDefault();
@@ -49,6 +58,7 @@ export default function EditDataAdmins({
           newStatusDokter,
           newJenisKelamin,
           newSpesialis,
+          newRole,
         }),
       });
 
@@ -63,6 +73,26 @@ export default function EditDataAdmins({
     }
     setIsMutating(false);
   };
+
+  useEffect(() => {
+    const fetchProfile = async () => {
+      if (session) {
+        try {
+          const response = await fetch(`/api/topics/`);
+          const data = await response.json();
+          const dataAdmin = data.patients || [];
+          const loggedInUser = dataAdmin.find(
+            (admins: any) => admins.email === session.user?.email,
+          );
+          setUsers(loggedInUser || null);
+        } catch (error) {
+          console.error("Error fetching profile:", error);
+        }
+      }
+    };
+
+    fetchProfile();
+  }, [session]);
 
   return (
     <>
@@ -132,7 +162,7 @@ export default function EditDataAdmins({
                   value={newJenisKelamin}
                   onChange={(e) => setNewJenisKelamin(e.target.value)}
                 >
-                  <option value="Belum-teridentifikasi">Pilih</option>
+                  <option value="">Pilih</option>
                   <option value="Laki-Laki">Laki-Laki</option>
                   <option value="Perempuan">Perempuan</option>
                 </Select>
@@ -152,8 +182,45 @@ export default function EditDataAdmins({
                   placeholder="Spesialis"
                 />
               </div>
-              <div></div>
+              <div>
+                <label
+                  htmlFor="role"
+                  className="mb-2 block w-full text-sm font-medium text-gray-900 dark:text-white"
+                >
+                  Role
+                </label>
+                {users?.role !== "superadmin" ? (
+                  <>
+                    <Select
+                      className="bg-white"
+                      id="role"
+                      value={newRole}
+                      onChange={(e) => setNewRole(e.target.value)}
+                      disabled
+                    >
+                      <option value="pasien">Pasien</option>
+                      <option value="dokter">Dokter</option>
+                      <option value="superadmin">Superadmin</option>
+                    </Select>
 
+                    <p className="mt-1 text-xs">
+                      Only Superadmin can change this field!
+                    </p>
+                  </>
+                ) : (
+                  <>
+                    <Select
+                      className="bg-white"
+                      id="role"
+                      value={newRole}
+                      onChange={(e) => setNewRole(e.target.value)}
+                    >
+                      <option value="dokter">Dokter</option>
+                      <option value="superadmin">Superadmin</option>
+                    </Select>
+                  </>
+                )}
+              </div>
               <div>
                 {!isMutating ? (
                   <>

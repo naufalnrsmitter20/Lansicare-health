@@ -5,7 +5,7 @@ interface UserDocument extends Document {
   email: string;
   fullname: string;
   password: string;
-  role: "admin" | "user";
+  role: "pasien" | "dokter" | "superadmin";
   comparePassword(candidatePassword: string): Promise<boolean>;
   riwayatPenyakit: string;
   pasienStatus: string;
@@ -48,8 +48,8 @@ const userSchema = new Schema<UserDocument>(
     },
     role: {
       type: String,
-      enum: ["admin", "user"],
-      default: "user",
+      enum: ["pasien", "dokter", "superadmin"],
+      default: "pasien",
     },
     riwayatPenyakit: {
       type: String,
@@ -67,8 +67,7 @@ const userSchema = new Schema<UserDocument>(
     },
     JenisKelamin: {
       type: String,
-      enum: ["Belum-teridentifikasi", "Laki-Laki", "Perempuan"],
-      default: "Belum-teridentifikasi",
+      enum: ["Laki-Laki", "Perempuan"],
     },
     Alamat: {
       type: String,

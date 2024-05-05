@@ -15,10 +15,10 @@ type Patient = {
   riwayatPenyakit: string;
   pasienStatus: "Rawat-inap" | "Rawat-jalan";
   fullname: string;
-  role: "user" | "admin";
+  role: "pasien" | "dokter" | "superadmin";
   NIK: number;
   TTL: string;
-  JenisKelamin: "Belum-teridentifikasi" | "Laki-Laki" | "Perempuan";
+  JenisKelamin: "Laki-Laki" | "Perempuan";
   Alamat: string;
   RT: number;
   RW: number;
@@ -100,7 +100,7 @@ export default function Profiles() {
                         <div className="absolute top-[120px] mx-[20px] inline-flex h-[250px] w-[350px] items-center gap-[60px] lg:top-[168px] lg:h-[313px] lg:justify-center lg:px-[45px]">
                           <Image
                             src={Imageprofile}
-                            className="h-[150px] w-[150px] rounded-[150px] border-4 border-slate-50 lg:h-[300px] lg:w-[300px]"
+                            className="h-[150px] w-[150px] rounded-[150px] border-4 border-slate-50 lg:h-auto lg:w-[300px]"
                             alt="Image profile"
                           />
                         </div>

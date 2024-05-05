@@ -1,8 +1,6 @@
-import Link from "next/link";
 import React from "react";
 import Image from "next/image";
 import LansicareLogo from "../../../../img/LansicareLogo.png";
-import { signOut } from "next-auth/react";
 import LogoutIcon from "../icon/LogoutIcon";
 import DashboardIcon from "../icon/DashboardIcon";
 import DataIcon from "../icon/DataIcon";

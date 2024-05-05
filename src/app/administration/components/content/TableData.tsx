@@ -4,17 +4,16 @@ import React, { useEffect, useState } from "react";
 import RemovePatient from "./RemovePatient";
 import InputSearch from "../utilities/InputSearch";
 import CopyClipboard from "../utilities/CopyClipboard";
-import { Button } from "flowbite-react";
 import { SuccessButton } from "../utilities/Buttons";
 
 type Users = {
   _id: number;
   nfcId: number;
   riwayatPenyakit: string;
-  pasienStatus: string;
+  pasienStatus: "Rawat-inap" | "Rawat-jalan";
   fullname: string;
   updatedAt: string;
-  role: string;
+  role: "pasien" | "dokter" | "superadmin";
 };
 
 export const getData = async () => {
@@ -44,7 +43,8 @@ export default function TableData() {
         const data = await getData();
         const allPatients = data.patients || [];
         const userPatients = allPatients.filter(
-          (patient: any) => patient.role === "user",
+          (patient: any) =>
+            patient.role === "user" || patient.role === "pasien",
         );
         setPatients(userPatients);
         setFilteredPatients(userPatients);

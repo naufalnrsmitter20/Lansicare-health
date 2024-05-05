@@ -10,11 +10,12 @@ const onlyAdminPage = [
   "/administration/insight",
   "/administration/dataPage",
   "/administration/apotek",
-  "/administration/editPasien/*",
+  "/administration/editPasien",
+  "/administration/profile",
 ];
 
 const authPage = ["/signin", "/signup"];
-const authAdmin = ["/administration/login"];
+const adminRole = ["dokter", "superadmin"];
 
 export default function withAuth(
   middleware: NextMiddleware,
@@ -29,28 +30,26 @@ export default function withAuth(
         secret: process.env.NEXTAUTH_SECRET,
       });
 
-      // If there's no token and the page requires auth, redirect to login
       if (!token && !authPage.includes(pathName)) {
         const url = new URL("/signin", req.url);
         url.searchParams.set("callbackUrl", encodeURI(req.url));
         return NextResponse.redirect(url);
       }
 
-      // Handle redirects for authenticated users
       if (token) {
-        // Redirect to admin insight if logged in at admin login
-        if (pathName === "/administration/login" && token.role === "admin") {
+        if (
+          (pathName === "/administration/login" && token.role === "dokter") ||
+          (pathName === "/administration/login" && token.role === "superadmin")
+        ) {
           return NextResponse.redirect(
             new URL("/administration/insight", req.url),
           );
         }
-        // Redirect to profile if accessing auth pages
         if (authPage.includes(pathName)) {
           return NextResponse.redirect(new URL("/profile", req.url));
         }
-        // Restrict access to admin-only pages if not admin
         if (
-          token.role !== "admin" &&
+          token.role === "pasien" &&
           onlyAdminPage.some((page) => pathName.startsWith(page))
         ) {
           return NextResponse.redirect(new URL("/profile", req.url));

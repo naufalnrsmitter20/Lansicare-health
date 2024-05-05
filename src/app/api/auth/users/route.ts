@@ -12,10 +12,10 @@ interface NewUserResponse {
   id: string;
   fullname: string;
   email: string;
-  role: string;
+  role: "pasien" | "dokter" | "superadmin";
   Agama: string;
   Alamat: string;
-  JenisKelamin: string;
+  JenisKelamin: "Laki-Laki" | "Perempuan";
   Kecamatan: string;
   KelurahanDesa: string;
   Kewarganegaraan: string;
@@ -27,7 +27,7 @@ interface NewUserResponse {
   riwayatPenyakit: string;
   StatusPerkawinan: boolean;
   nfcId: number;
-  pasienStatus: string;
+  pasienStatus: "Rawat-inap" | "Rawat-jalan";
 }
 
 type NewResponse = NextResponse<{ user?: NewUserResponse; error?: string }>;

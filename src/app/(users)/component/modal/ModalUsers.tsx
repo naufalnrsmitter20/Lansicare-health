@@ -17,7 +17,7 @@ type Patient = {
   fullname: string;
   NIK: number;
   TTL: string;
-  JenisKelamin: "Belum-teridentifikasi" | "Laki-Laki" | "Perempuan";
+  JenisKelamin: "Laki-Laki" | "Perempuan";
   Alamat: string;
   RT: number;
   RW: number;
@@ -49,11 +49,11 @@ export default function ModalUsers({
 }: {
   _id: string;
   riwayatPenyakit: string;
-  pasienStatus: string;
+  pasienStatus: "Rawat-inap" | "Rawat-jalan";
   fullname: string;
   NIK: number;
   TTL: string;
-  JenisKelamin: string;
+  JenisKelamin: "Laki-Laki" | "Perempuan";
   Alamat: string;
   RT: number;
   RW: number;
@@ -228,9 +228,9 @@ export default function ModalUsers({
                 className="bg-white"
                 id="jeniskelamin"
                 value={newJenisKelamin}
-                onChange={(e) => setNewJenisKelamin(e.target.value)}
+                onChange={(e) => setNewJenisKelamin(JSON.parse(e.target.value))}
               >
-                <option value="Belum-teridentifikasi">Pilih</option>
+                <option>Pilih</option>
                 <option value="Laki-Laki">Laki-Laki</option>
                 <option value="Perempuan">Perempuan</option>
               </Select>
