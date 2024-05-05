@@ -1,4 +1,3 @@
-import { getData } from "@/services/profiles";
 import ModalUsers from "../../../component/modal/ModalUsers";
 
 interface Patient {
@@ -7,7 +6,7 @@ interface Patient {
   pasienStatus: "Rawat-inap" | "Rawat-jalan";
   NIK: number;
   TTL: string;
-  JenisKelamin: "Belum-teridentifikasi" | "Laki-Laki" | "Perempuan";
+  JenisKelamin: "Laki-Laki" | "Perempuan";
   Alamat: string;
   RT: number;
   RW: number;

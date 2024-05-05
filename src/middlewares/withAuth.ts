@@ -10,11 +10,12 @@ const onlyAdminPage = [
   "/administration/insight",
   "/administration/dataPage",
   "/administration/apotek",
-  "/administration/editPasien/*",
+  "/administration/editPasien",
+  "/administration/profile",
 ];
 
 const authPage = ["/signin", "/signup"];
-const authAdmin = ["/administration/login"];
+const adminRole = ["dokter", "superadmin"];
 
 export default function withAuth(
   middleware: NextMiddleware,
@@ -28,29 +29,34 @@ export default function withAuth(
         req,
         secret: process.env.NEXTAUTH_SECRET,
       });
+
       if (!token && !authPage.includes(pathName)) {
-        const url = new URL("/signin" || "/administration/login", req.url);
+        const url = new URL("/signin", req.url);
         url.searchParams.set("callbackUrl", encodeURI(req.url));
         return NextResponse.redirect(url);
       }
 
       if (token) {
-        if (authAdmin.includes(pathName)) {
+        if (
+          (pathName === "/administration/login" && token.role === "dokter") ||
+          (pathName === "/administration/login" && token.role === "superadmin")
+        ) {
           return NextResponse.redirect(
             new URL("/administration/insight", req.url),
           );
         }
-      }
-
-      if (token) {
         if (authPage.includes(pathName)) {
           return NextResponse.redirect(new URL("/profile", req.url));
         }
-        if (token.role !== "admin" && onlyAdminPage.includes(pathName)) {
+        if (
+          token.role === "pasien" &&
+          onlyAdminPage.some((page) => pathName.startsWith(page))
+        ) {
           return NextResponse.redirect(new URL("/profile", req.url));
         }
       }
     }
+
     return middleware(req, next);
   };
 }

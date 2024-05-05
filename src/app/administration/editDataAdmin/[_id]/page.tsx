@@ -11,7 +11,9 @@ interface DataAdmin {
   email?: string;
   nama_dokter?: string;
   status_dokter?: "online" | "offline";
+  JenisKelamin?: "Laki-Laki" | "Perempuan" | undefined;
   spesialis?: string;
+  role?: "pasien" | "dokter" | "superadmin";
 }
 const getTopicById = async (_id: any): Promise<DataAdmin> => {
   const res = await fetch(`/api/topics/${_id}`, {
@@ -52,15 +54,28 @@ const EditDataAdmin = ({ params }: { params: { _id: any } }) => {
     return <div>Loading...</div>;
   }
 
-  const { _id, fullname, email, nama_dokter, status_dokter, spesialis } =
-    dataAdmin;
+  const {
+    _id,
+    fullname,
+    email,
+    nama_dokter,
+    status_dokter,
+    spesialis,
+    JenisKelamin,
+    role,
+  } = dataAdmin;
 
   return (
     <>
       <div>
         <Sidebar />
         <div className="ml-64 mt-6 w-3/4 max-w-full">
-          <Headers name="EDIT PROFILE (Dokter)" />
+          {dataAdmin.role === "dokter" ? (
+            <Headers name="EDIT PROFILE (Dokter)" />
+          ) : (
+            <Headers name="EDIT PROFILE (Superadmin)" />
+          )}
+
           <div className="absolute right-0 top-0 mx-4 max-w-lg">
             <WelcomeBack />
           </div>
@@ -71,6 +86,8 @@ const EditDataAdmin = ({ params }: { params: { _id: any } }) => {
             nama_dokter={nama_dokter}
             status_dokter={status_dokter}
             spesialis={spesialis}
+            JenisKelamin={JenisKelamin}
+            role={role}
           />
         </div>
       </div>

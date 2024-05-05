@@ -6,7 +6,6 @@ import { useRouter } from "next/navigation";
 export default function Login() {
   const router = useRouter();
   const [error, setError] = useState("");
-  // const session = useSession();
   const { data: session, status: sessionStatus } = useSession();
 
   useEffect(() => {
@@ -128,7 +127,6 @@ export default function Login() {
                 <div>
                   <button
                     type="submit"
-                    onClick={handleReload}
                     className="mb-4 flex w-full cursor-pointer justify-center rounded-md bg-indigo-700 px-3 py-2.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-600 focus:ring-4 focus:ring-indigo-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
                   >
                     Login
@@ -137,12 +135,6 @@ export default function Login() {
                   {error !== "" && (
                     <p className="mb-4 text-sm text-red-600">{error}</p>
                   )}
-                  <Link
-                    className="font-inter text-sm text-white hover:text-blue-300"
-                    href="/admin/dashboard/register"
-                  >
-                    Register to create account
-                  </Link>
                 </div>
               </div>
             </form>

@@ -5,10 +5,10 @@ import ModalEditProfile from "@/src/app/(users)/component/ModalEditProfile";
 interface Patient {
   _id: string;
   riwayatPenyakit: string;
-  pasienStatus: string;
+  pasienStatus: "Rawat-inap" | "Rawat-jalan";
   NIK: number;
   TTL: string;
-  JenisKelamin: string;
+  JenisKelamin: "Laki-Laki" | "Perempuan";
   Alamat: string;
   RT: number;
   RW: number;

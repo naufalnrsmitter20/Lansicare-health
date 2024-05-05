@@ -1,4 +1,3 @@
-// TODO: update button
 "use client";
 
 import React, { useState } from "react";
@@ -6,7 +5,6 @@ import SigninImage from "@/public/SignInImageSide.png";
 import Image from "next/image";
 import { signIn, useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
-import { Button, Flowbite } from "flowbite-react";
 import {
   PrimaryButton,
   SecondaryButton,
@@ -42,7 +40,9 @@ export default function SigninUser() {
     }
   };
   if (status === "authenticated") {
-    window.location.reload();
+    {
+      push("/profile");
+    }
   }
   return (
     <>

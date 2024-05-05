@@ -36,7 +36,7 @@ export default function Homepage() {
       description: "Sekarang registrasi kesehatan tidak perlu ribet",
     },
     {
-      link: "/checkup",
+      link: "/",
       title: "Check Up Kesehatan",
       src: CheckUp,
       alt: "Check Up Kesehatan",
