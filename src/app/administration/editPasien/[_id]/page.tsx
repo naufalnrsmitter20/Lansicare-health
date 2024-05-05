@@ -10,11 +10,11 @@ interface PatientData {
   nfcId: number;
   email: string;
   riwayatPenyakit: string;
-  pasienStatus: string;
+  pasienStatus: "Rawat-inap" | "Rawat-jalan";
   fullname: string;
   NIK: number;
   TTL: string;
-  JenisKelamin: string;
+  JenisKelamin: "Laki-Laki" | "Perempuan" | undefined;
   Alamat: string;
   RT: number;
   RW: number;
@@ -24,7 +24,7 @@ interface PatientData {
   StatusPerkawinan: boolean;
   Pekerjaan: string;
   Kewarganegaraan: string;
-  role: string;
+  role: "admin" | "user";
   tanggalCheckup: string;
   rumah_sakit: string;
   nama_dokter: string;

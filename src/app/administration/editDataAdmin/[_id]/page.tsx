@@ -11,6 +11,7 @@ interface DataAdmin {
   email?: string;
   nama_dokter?: string;
   status_dokter?: "online" | "offline";
+  JenisKelamin?: "Laki-Laki" | "Perempuan" | undefined;
   spesialis?: string;
 }
 const getTopicById = async (_id: any): Promise<DataAdmin> => {
@@ -52,8 +53,15 @@ const EditDataAdmin = ({ params }: { params: { _id: any } }) => {
     return <div>Loading...</div>;
   }
 
-  const { _id, fullname, email, nama_dokter, status_dokter, spesialis } =
-    dataAdmin;
+  const {
+    _id,
+    fullname,
+    email,
+    nama_dokter,
+    status_dokter,
+    spesialis,
+    JenisKelamin,
+  } = dataAdmin;
 
   return (
     <>
@@ -71,6 +79,7 @@ const EditDataAdmin = ({ params }: { params: { _id: any } }) => {
             nama_dokter={nama_dokter}
             status_dokter={status_dokter}
             spesialis={spesialis}
+            JenisKelamin={JenisKelamin}
           />
         </div>
       </div>

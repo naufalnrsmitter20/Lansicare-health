@@ -57,7 +57,6 @@ const userSchema = new Schema<UserDocument>(
     pasienStatus: {
       type: String,
       enum: ["Rawat-inap", "Rawat-jalan"],
-      default: "Rawat-jalan",
     },
     NIK: {
       type: Number,
@@ -67,8 +66,7 @@ const userSchema = new Schema<UserDocument>(
     },
     JenisKelamin: {
       type: String,
-      enum: ["Belum-teridentifikasi", "Laki-Laki", "Perempuan"],
-      default: "Belum-teridentifikasi",
+      enum: ["Laki-Laki", "Perempuan"],
     },
     Alamat: {
       type: String,

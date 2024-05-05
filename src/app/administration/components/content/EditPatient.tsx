@@ -38,11 +38,11 @@ export default function EditPatient({
   nfcId?: number;
   email?: string;
   riwayatPenyakit?: string;
-  pasienStatus?: string;
+  pasienStatus?: "Rawat-inap" | "Rawat-jalan";
   fullname?: string;
   NIK?: number;
   TTL?: string;
-  JenisKelamin?: string;
+  JenisKelamin?: "Laki-Laki" | "Perempuan";
   Alamat?: string;
   RT?: number;
   RW?: number;
@@ -51,7 +51,7 @@ export default function EditPatient({
   Agama?: string;
   Pekerjaan?: string;
   Kewarganegaraan?: string;
-  role?: string;
+  role?: "admin" | "user";
   tanggalCheckup: string;
   rumah_sakit: string;
   nama_dokter: string;
@@ -399,7 +399,7 @@ export default function EditPatient({
                     value={newJenisKelamin}
                     onChange={(e) => setNewJenisKelamin(e.target.value)}
                   >
-                    <option value="Belum-teridentifikasi">Pilih</option>
+                    <option value="">Pilih</option>
                     <option value="Laki-Laki">Laki-Laki</option>
                     <option value="Perempuan">Perempuan</option>
                   </Select>
@@ -523,7 +523,7 @@ export default function EditPatient({
                     className="bg-white"
                     id="role"
                     value={newRole}
-                    onChange={(e) => setNewRole(e.target.value)}
+                    onChange={(e) => setNewRole(JSON.parse(e.target.value))}
                   >
                     <option value="user">User</option>
                     <option value="admin">Admin</option>
@@ -611,7 +611,7 @@ export default function EditPatient({
                     className="bg-white"
                     id="role"
                     value={newRole}
-                    onChange={(e) => setNewRole(e.target.value)}
+                    onChange={(e) => setNewRole(JSON.parse(e.target.value))}
                   >
                     <option value="user">User</option>
                     <option value="admin">Admin</option>
