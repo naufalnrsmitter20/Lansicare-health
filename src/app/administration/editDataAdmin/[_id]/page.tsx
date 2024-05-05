@@ -13,6 +13,7 @@ interface DataAdmin {
   status_dokter?: "online" | "offline";
   JenisKelamin?: "Laki-Laki" | "Perempuan" | undefined;
   spesialis?: string;
+  role?: "pasien" | "dokter" | "superadmin";
 }
 const getTopicById = async (_id: any): Promise<DataAdmin> => {
   const res = await fetch(`/api/topics/${_id}`, {
@@ -61,6 +62,7 @@ const EditDataAdmin = ({ params }: { params: { _id: any } }) => {
     status_dokter,
     spesialis,
     JenisKelamin,
+    role,
   } = dataAdmin;
 
   return (
@@ -68,7 +70,12 @@ const EditDataAdmin = ({ params }: { params: { _id: any } }) => {
       <div>
         <Sidebar />
         <div className="ml-64 mt-6 w-3/4 max-w-full">
-          <Headers name="EDIT PROFILE (Dokter)" />
+          {dataAdmin.role === "dokter" ? (
+            <Headers name="EDIT PROFILE (Dokter)" />
+          ) : (
+            <Headers name="EDIT PROFILE (Superadmin)" />
+          )}
+
           <div className="absolute right-0 top-0 mx-4 max-w-lg">
             <WelcomeBack />
           </div>
@@ -80,6 +87,7 @@ const EditDataAdmin = ({ params }: { params: { _id: any } }) => {
             status_dokter={status_dokter}
             spesialis={spesialis}
             JenisKelamin={JenisKelamin}
+            role={role}
           />
         </div>
       </div>

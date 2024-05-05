@@ -17,7 +17,7 @@ type Patient = {
   fullname: string;
   NIK: number;
   TTL: string;
-  JenisKelamin: "Belum-teridentifikasi" | "Laki-Laki" | "Perempuan";
+  JenisKelamin: "Laki-Laki" | "Perempuan";
   Alamat: string;
   RT: number;
   RW: number;

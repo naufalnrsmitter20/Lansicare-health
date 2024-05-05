@@ -13,8 +13,9 @@ interface DokterProfile {
   fullname: string;
   email: string;
   status_dokter: "online" | "offline";
-  JenisKelamin: "Belum-teridentifikasi" | "Laki-Laki" | "Perempuan";
+  JenisKelamin: "Laki-Laki" | "Perempuan";
   spesialis: string;
+  role: "pasien" | "dokter" | "superadmin";
 }
 export default function DataAdmin() {
   const { data: session, status } = useSession();
@@ -211,6 +212,33 @@ export default function DataAdmin() {
                 )}
               </div>
             </div>
+            <div>
+              <label
+                htmlFor="role"
+                className="mb-2 block text-base font-medium text-gray-900 dark:text-white"
+              >
+                Role :
+              </label>
+              <div
+                id="role"
+                className="block w-full rounded-lg border border-gray-300 bg-gray-200 p-2.5 text-sm text-gray-900 placeholder:font-medium placeholder:text-black focus:border-blue-500 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500"
+              >
+                {dataAdmin?.role && dataAdmin.role.length > 0 ? (
+                  <>{dataAdmin?.role}</>
+                ) : (
+                  <>
+                    {status === "loading" ? (
+                      <>Loading...</>
+                    ) : (
+                      <p className="text-slate-500">
+                        <i className="tracking-wide">Data Belum Diisi</i>
+                      </p>
+                    )}
+                  </>
+                )}
+              </div>
+            </div>
+            <div></div>
 
             {!isMutating ? (
               <PrimaryButton type="button" onClick={redirectToEdit}>

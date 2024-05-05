@@ -15,7 +15,7 @@ type Patient = {
   riwayatPenyakit: string;
   pasienStatus: "Rawat-inap" | "Rawat-jalan";
   fullname: string;
-  role: "user" | "admin";
+  role: "pasien" | "dokter" | "superadmin";
   NIK: number;
   TTL: string;
   JenisKelamin: "Laki-Laki" | "Perempuan";

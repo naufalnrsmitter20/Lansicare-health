@@ -51,7 +51,7 @@ export default function EditPatient({
   Agama?: string;
   Pekerjaan?: string;
   Kewarganegaraan?: string;
-  role?: "admin" | "user";
+  role?: "pasien" | "dokter" | "superadmin";
   tanggalCheckup: string;
   rumah_sakit: string;
   nama_dokter: string;
@@ -93,7 +93,7 @@ export default function EditPatient({
   const router = useRouter();
   const [isMutating, setIsMutating] = useState(false);
   const [isVisible, setIsVisible] = useState(false);
-  const [modal, setModal] = useState(true);
+  const [modal, setModal] = useState(false);
 
   const handleSubmit = async (e: any) => {
     e.preventDefault();
@@ -149,7 +149,7 @@ export default function EditPatient({
   return (
     <>
       <section className="w-ful container mx-10 mt-7 block max-w-7xl">
-        {role === "user" && (
+        {role === "pasien" && (
           <>
             <div className="mb-10">
               <PrimaryButton
@@ -523,10 +523,10 @@ export default function EditPatient({
                     className="bg-white"
                     id="role"
                     value={newRole}
-                    onChange={(e) => setNewRole(JSON.parse(e.target.value))}
+                    onChange={(e) => setNewRole(e.target.value)}
                   >
-                    <option value="user">User</option>
-                    <option value="admin">Admin</option>
+                    <option value="pasien">Pasien</option>
+                    <option value="dokter">Dokter</option>
                   </Select>
                 </div>
                 <div></div>
@@ -566,7 +566,7 @@ export default function EditPatient({
           </>
         )}
 
-        {role === "admin" && (
+        {role === "dokter" && (
           <>
             <form onSubmit={handleSubmit}>
               <div className="mb-6 grid gap-6 md:grid-cols-2">
@@ -584,6 +584,9 @@ export default function EditPatient({
                     value={newFullname}
                     placeholder="Nama Lengkap"
                   />
+                  <p className="mt-1 text-xs">
+                    Only Superadmin can change this field!
+                  </p>
                 </div>
                 <div>
                   <label
@@ -599,6 +602,9 @@ export default function EditPatient({
                     value={newEmail}
                     placeholder="name@example.com"
                   />
+                  <p className="mt-1 text-xs">
+                    Only Superadmin can change this field!
+                  </p>
                 </div>
                 <div>
                   <label
@@ -611,13 +617,37 @@ export default function EditPatient({
                     className="bg-white"
                     id="role"
                     value={newRole}
-                    onChange={(e) => setNewRole(JSON.parse(e.target.value))}
+                    onChange={(e) => setNewRole(e.target.value)}
                   >
-                    <option value="user">User</option>
-                    <option value="admin">Admin</option>
+                    <option value="pasien">Pasien</option>
+                    <option value="dokter">Dokter</option>
+                    <option value="superadmin">Superadmin</option>
                   </Select>
+                  <p className="mt-1 text-xs">
+                    Only Superadmin can change this field!
+                  </p>
                 </div>
-                <div></div>
+                <div>
+                  <label
+                    htmlFor="jenisKelamin"
+                    className="mb-2 block text-sm font-medium text-gray-900 dark:text-white"
+                  >
+                    Jenis Kelamin
+                  </label>
+                  <Select
+                    className="bg-white"
+                    id="jeniskelamin"
+                    value={newJenisKelamin}
+                    onChange={(e) => setNewJenisKelamin(e.target.value)}
+                  >
+                    <option value="">Pilih</option>
+                    <option value="Laki-Laki">Laki-Laki</option>
+                    <option value="Perempuan">Perempuan</option>
+                  </Select>
+                  <p className="mt-1 text-xs">
+                    Only Superadmin can change this field!
+                  </p>
+                </div>{" "}
                 <div>
                   {!isMutating ? (
                     <>
@@ -628,9 +658,9 @@ export default function EditPatient({
                       ) : (
                         <PrimaryButton
                           type="button"
-                          href="/administration/dataPage"
+                          href="/administration/insight"
                         >
-                          <p>Kembali Ke Halaman Data</p>
+                          <p>Kembali Ke Halaman Insight</p>
                         </PrimaryButton>
                       )}
                     </>

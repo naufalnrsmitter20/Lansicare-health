@@ -24,7 +24,7 @@ interface PatientData {
   StatusPerkawinan: boolean;
   Pekerjaan: string;
   Kewarganegaraan: string;
-  role: "admin" | "user";
+  role: "pasien" | "dokter" | "superadmin";
   tanggalCheckup: string;
   rumah_sakit: string;
   nama_dokter: string;
@@ -102,8 +102,8 @@ const EditDataPages = ({ params }: { params: { _id: any } }) => {
       <div>
         <Sidebar />
         <div className="ml-64 mt-6 w-3/4 max-w-full">
-          {role === "user" && <Headers name="EDIT PATIENT" />}
-          {role === "admin" && <Headers name="EDIT ADMIN" />}
+          {role === "pasien" && <Headers name="EDIT PASIEN" />}
+          {role === "dokter" && <Headers name="EDIT DOKTER" />}
           <div className="absolute right-0 top-0 mx-4 max-w-lg">
             <WelcomeBack />
           </div>
