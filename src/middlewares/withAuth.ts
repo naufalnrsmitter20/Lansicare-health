@@ -28,29 +28,36 @@ export default function withAuth(
         req,
         secret: process.env.NEXTAUTH_SECRET,
       });
+
+      // If there's no token and the page requires auth, redirect to login
       if (!token && !authPage.includes(pathName)) {
-        const url = new URL("/signin" || "/administration/login", req.url);
+        const url = new URL("/signin", req.url);
         url.searchParams.set("callbackUrl", encodeURI(req.url));
         return NextResponse.redirect(url);
       }
 
+      // Handle redirects for authenticated users
       if (token) {
-        if (authAdmin.includes(pathName)) {
+        // Redirect to admin insight if logged in at admin login
+        if (pathName === "/administration/login" && token.role === "admin") {
           return NextResponse.redirect(
             new URL("/administration/insight", req.url),
           );
         }
-      }
-
-      if (token) {
+        // Redirect to profile if accessing auth pages
         if (authPage.includes(pathName)) {
           return NextResponse.redirect(new URL("/profile", req.url));
         }
-        if (token.role !== "admin" && onlyAdminPage.includes(pathName)) {
+        // Restrict access to admin-only pages if not admin
+        if (
+          token.role !== "admin" &&
+          onlyAdminPage.some((page) => pathName.startsWith(page))
+        ) {
           return NextResponse.redirect(new URL("/profile", req.url));
         }
       }
     }
+
     return middleware(req, next);
   };
 }
