@@ -86,25 +86,25 @@ export default function Profiles() {
             <>
               <div className="h-full pt-24 lg:pt-32">
                 <div className="flex flex-1 flex-col justify-center align-middle font-inter lg:max-w-full">
-                  <div className=" place-items-center items-center justify-center">
+                  <div className="place-items-center items-center justify-center">
                     <div className="relative h-auto">
                       <div className="mx-[15px] h-auto rounded-[10px] bg-primary-1000 pb-10 shadow-md lg:mx-[35px]">
                         <div className="left-0 top-0 h-[250px] w-full rounded-tl-[10px] rounded-tr-[10px] bg-gradient-to-r from-blue-200 to-cyan-700 lg:h-[330px]" />
-                        <div className="absolute top-[37.05px] inline-flex w-[1370px] items-center justify-start gap-[23px] px-[20px] pr-3 pt-4 lg:px-[45px]">
-                          <div className="inline-flex shrink grow basis-0 flex-col items-start justify-start">
-                            <div className="self-stretch text-4xl font-bold leading-normal text-black lg:text-5xl">
+                        <div className="absolute top-[37.05px] mx-[20px] mr-3 mt-4 inline-flex w-[1370px] items-center justify-start gap-[23px] lg:mx-[45px]">
+                          <div className="inline-flex shrink grow basis-0 flex-col">
+                            <div className="self-stretch text-3xl font-bold leading-normal text-black lg:text-5xl">
                               Profile
                             </div>
                           </div>
                         </div>
-                        <div className="absolute top-[120px] mx-[20px] inline-flex h-[250px] w-[350px] items-center gap-[60px] lg:top-[168px] lg:h-[313px] lg:justify-center lg:px-[45px]">
+                        <div className="absolute top-[120px] mx-[20px] inline-flex h-[250px] place-items-center items-center lg:top-[168px] lg:mx-[45px] lg:h-[300px]">
                           <Image
                             src={Imageprofile}
                             className="h-[150px] w-[150px] rounded-[150px] border-4 border-slate-50 lg:h-auto lg:w-[300px]"
                             alt="Image profile"
                           />
                         </div>
-                        <div className=" relative mx-[20px] w-[1346.55px] pt-[100px] lg:mx-[45px] lg:pt-[180px]">
+                        <div className=" relative mx-[20px] mt-[90px] w-[1346.55px] lg:mx-[45px] lg:mt-[180px]">
                           <div className="flex justify-between">
                             <div>
                               {!patient ? (
@@ -120,10 +120,10 @@ export default function Profiles() {
                           </div>
 
                           <div>
-                            <div className="grid max-w-[250px] grid-cols-2">
+                            <div className="grid max-w-[250px] grid-cols-2 lg:max-w-sm">
                               {patient ? (
                                 <SecondaryButton
-                                  className="mt-4 max-w-[150px]"
+                                  className="mt-4 max-w-[150px] lg:max-w-sm"
                                   onClick={() =>
                                     router.push(
                                       `/profile/detail/${patient._id}`,
@@ -138,7 +138,7 @@ export default function Profiles() {
                               )}
                               {patient ? (
                                 <TertiaryButton
-                                  className="max-w-[150px]"
+                                  className="max-w-[150px] lg:max-w-sm"
                                   type="button"
                                   onClick={HandleToggle}
                                 >
@@ -150,7 +150,7 @@ export default function Profiles() {
                             </div>
                             {patient ? (
                               <>
-                                <div className="mt-6 grid max-w-sm gap-6 pr-7 md:grid-cols-1 lg:max-w-5xl lg:pr-0 ">
+                                <div className="mt-6 grid max-w-[300px] gap-6 pr-7 md:grid-cols-1 lg:max-w-5xl lg:pr-0 ">
                                   <div>
                                     <label
                                       htmlFor="email"
