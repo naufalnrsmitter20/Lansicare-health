@@ -2,10 +2,6 @@
 
 import Image from "next/image";
 import React, { useEffect, useState } from "react";
-import TotalView from "@/public/TotalView.png";
-import TotalUser from "@/public/TotalUser.png";
-import Female from "@/public/Female.png";
-import Male from "@/public/Male.png";
 import Registered from "@/public/Registered.png";
 import InProgress from "@/public/InProgress.png";
 import Verify from "@/public/Verify.png";
@@ -18,6 +14,7 @@ type Users = {
   nfcId: number;
   status_dokter: "online" | "offline";
   fullname: string;
+  pasienStatus: "Rawat-inap" | "Rawat-jalan";
   role: string;
 };
 
@@ -38,6 +35,9 @@ export const getData = async () => {
 };
 export default function MainDashboard() {
   const [admindoctor, setAdminDoctor] = useState<Users[]>([]);
+  const [patients, setPatients] = useState<Users[]>([]);
+  const [rawatInap, setRawatInap] = useState<Number>(0);
+  const [rawatJalan, setRawatJalan] = useState<Number>(0);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -54,6 +54,33 @@ export default function MainDashboard() {
     };
     fetchData();
   }, []);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const data = await getData();
+        const allPatients = data.patients || [];
+        const userPatients = allPatients.filter(
+          (user: any) => user.role === "user",
+        );
+        setPatients(userPatients);
+
+        const inap = allPatients.filter(
+          (user: any) => user.pasienStatus === "Rawat-inap",
+        );
+
+        const jalan = allPatients.filter(
+          (user: any) => user.pasienStatus === "Rawat-jalan",
+        );
+
+        setRawatInap(inap.length);
+        setRawatJalan(jalan.length);
+      } catch (error) {
+        console.log("Error loading data: ", error);
+      }
+    };
+    fetchData();
+  });
   return (
     <>
       <section className=" ml-10 font-inter">
@@ -132,78 +159,81 @@ export default function MainDashboard() {
           <section className=" inset-6  grid w-full max-w-7xl grid-cols-4 gap-4">
             <div className="inset-2 flex max-w-sm justify-between rounded-md bg-orange-400 p-3 shadow-sm ring-4 ring-orange-300">
               <div className="block">
-                <p className="text-5xl font-medium tracking-wide text-gray-800">
-                  120
-                </p>
+                {patients && (
+                  <p className="text-5xl font-medium tracking-wide text-gray-800">
+                    {patients.length}
+                  </p>
+                )}
                 <p className="text-xs font-normal text-gray-700">Users</p>
                 <p className="relative bottom-0 left-0 mt-10 font-inter text-xl font-semibold text-black">
-                  Registered
+                  Total Patient
                 </p>
               </div>
               <div className=" relative right-0 top-0">
                 <Image
                   src={Registered}
-                  alt="TotalView"
+                  alt="TotalPatient"
                   width={50}
                   height={50}
-                  className=""
                 />
               </div>
             </div>
             <div className="inset-2 flex max-w-sm justify-between rounded-md bg-red-400 p-3 shadow-sm ring-4 ring-red-300">
               <div className="block">
-                <p className="text-5xl font-medium tracking-wide text-gray-800">
-                  100
-                </p>
+                {admindoctor && (
+                  <p className="text-5xl font-medium tracking-wide text-gray-800">
+                    {admindoctor.length}
+                  </p>
+                )}
+
                 <p className="text-xs font-normal text-gray-700">Users</p>
                 <p className="relative bottom-0 left-0 mt-10 font-inter text-xl font-semibold text-black">
-                  In Progress
+                  Total Admin
                 </p>
               </div>
               <div className=" relative right-0 top-0">
                 <Image
                   src={InProgress}
-                  alt="TotalView"
+                  alt="TotalAdmin"
                   width={50}
                   height={50}
-                  className=""
                 />
               </div>
             </div>
             <div className="inset-2 flex max-w-sm justify-between rounded-md bg-indigo-400 p-3 shadow-sm ring-4 ring-indigo-300">
               <div className="block">
-                <p className="text-5xl font-medium tracking-wide text-gray-800">
-                  20
-                </p>
+                {patients && (
+                  <p className="text-5xl font-medium tracking-wide text-gray-800">
+                    {rawatInap.toFixed()}
+                  </p>
+                )}
+
                 <p className="text-xs font-normal text-gray-700">Users</p>
                 <p className="relative bottom-0 left-0 mt-10 font-inter text-xl font-semibold text-black">
-                  Verify
+                  Rawat Inap
                 </p>
               </div>
               <div className=" relative right-0 top-0">
-                <Image
-                  src={Verify}
-                  alt="TotalView"
-                  width={50}
-                  height={50}
-                  className=""
-                />
+                <Image src={Verify} alt="RawatInap" width={50} height={50} />
               </div>
             </div>
             <div className="inset-2 flex max-w-sm justify-between rounded-md bg-green-400 p-3 shadow-sm ring-4 ring-green-300">
               <div className="block">
-                <p className="text-5xl font-medium tracking-wide text-gray-800">
-                  14
-                </p>
+                {patients && (
+                  <p className="text-5xl font-medium tracking-wide text-gray-800">
+                    {rawatJalan.toFixed()}
+                  </p>
+                )}
+
                 <p className="text-xs font-normal text-gray-700">Users</p>
                 <p className="relative bottom-0 left-0 mt-10 font-inter text-xl font-semibold text-black">
-                  Done
+                  Rawat Jalan
                 </p>
               </div>
               <div className=" relative right-0 top-0">
                 <Image
                   src={Done}
-                  alt="TotalView"
+                  alt="RawatJalan"
                   width={50}
                   height={50}
                   className=""
