@@ -84,35 +84,35 @@ export default function Profiles() {
         <section>
           <div className="w-screen overflow-hidden scroll-smooth bg-base-50 lg:overflow-auto">
             <>
-              <div className="h-full pt-16 lg:pt-32">
-                <div className="flex max-w-sm flex-1 flex-col justify-center align-middle font-inter lg:max-w-full lg:px-8">
-                  <div className="mx-auto inline-flex h-auto place-items-center items-center justify-center lg:py-[17px] ">
+              <div className="h-full pt-24 lg:pt-32">
+                <div className="flex flex-1 flex-col justify-center align-middle font-inter lg:max-w-full">
+                  <div className=" place-items-center items-center justify-center">
                     <div className="relative h-auto">
-                      <div className="relative w-screen rounded-[10px] bg-slate-50 pb-8 shadow lg:w-full">
-                        <div className="absolute left-0 top-0 h-[336px] w-full rounded-tl-[10px] rounded-tr-[10px] bg-gradient-to-r from-blue-200 to-cyan-700" />
-                        <div className="absolute left-[47.48px] top-[37.05px] inline-flex w-[1370px] items-center justify-start gap-[23px] pr-3 pt-4">
+                      <div className="mx-[15px] h-auto rounded-[10px] bg-primary-1000 pb-10 shadow-md lg:mx-[35px]">
+                        <div className="left-0 top-0 h-[250px] w-full rounded-tl-[10px] rounded-tr-[10px] bg-gradient-to-r from-blue-200 to-cyan-700 lg:h-[330px]" />
+                        <div className="absolute top-[37.05px] inline-flex w-[1370px] items-center justify-start gap-[23px] px-[20px] pr-3 pt-4 lg:px-[45px]">
                           <div className="inline-flex shrink grow basis-0 flex-col items-start justify-start">
                             <div className="self-stretch text-4xl font-bold leading-normal text-black lg:text-5xl">
                               Profile
                             </div>
                           </div>
                         </div>
-                        <div className="absolute left-10 top-[168.13px] inline-flex h-[313px] w-[300px]  items-center gap-[60px] lg:left-[47.48px] lg:justify-center">
+                        <div className="absolute top-[120px] mx-[20px] inline-flex h-[250px] w-[350px] items-center gap-[60px] lg:top-[168px] lg:h-[313px] lg:justify-center lg:px-[45px]">
                           <Image
                             src={Imageprofile}
                             className="h-[150px] w-[150px] rounded-[150px] border-4 border-slate-50 lg:h-[300px] lg:w-[300px]"
                             alt="Image profile"
                           />
                         </div>
-                        <div className=" relative w-[1346.55px] pl-[47.48px] pt-[450px] lg:pt-[500px]">
+                        <div className=" relative mx-[20px] w-[1346.55px] pt-[100px] lg:mx-[45px] lg:pt-[180px]">
                           <div className="flex justify-between">
                             <div>
                               {!patient ? (
-                                <div className="mb-4 text-[32px] font-semibold leading-10 tracking-wider text-black">
+                                <div className="mb-4 text-[25px] font-semibold leading-10 tracking-wider text-black lg:text-[32px]">
                                   Loading...
                                 </div>
                               ) : (
-                                <div className="mb-4 truncate text-[32px] font-semibold leading-10 tracking-wider text-black">
+                                <div className="mb-4 truncate text-[22px] font-semibold leading-10 tracking-wider text-black lg:text-[32px]">
                                   {patient.fullname}
                                 </div>
                               )}
@@ -120,10 +120,10 @@ export default function Profiles() {
                           </div>
 
                           <div>
-                            <div className="grid max-w-sm grid-cols-2">
+                            <div className="grid max-w-[250px] grid-cols-2">
                               {patient ? (
                                 <SecondaryButton
-                                  className="mt-4"
+                                  className="mt-4 max-w-[150px]"
                                   onClick={() =>
                                     router.push(
                                       `/profile/detail/${patient._id}`,
@@ -138,6 +138,7 @@ export default function Profiles() {
                               )}
                               {patient ? (
                                 <TertiaryButton
+                                  className="max-w-[150px]"
                                   type="button"
                                   onClick={HandleToggle}
                                 >
@@ -149,7 +150,7 @@ export default function Profiles() {
                             </div>
                             {patient ? (
                               <>
-                                <div className="mt-10 grid max-w-sm gap-6 pr-7 md:grid-cols-1 lg:max-w-5xl lg:pr-0 ">
+                                <div className="mt-6 grid max-w-sm gap-6 pr-7 md:grid-cols-1 lg:max-w-5xl lg:pr-0 ">
                                   <div>
                                     <label
                                       htmlFor="email"
@@ -568,14 +569,14 @@ export default function Profiles() {
                       </div>
                       {patient ? (
                         <>
-                          <div className="mt-10 w-screen max-w-full rounded-[10px] border bg-primary-1000 shadow-md lg:w-full">
-                            <h3 className=" px-12 pb-4 pt-5 font-inter text-2xl font-medium text-black">
+                          <div className="mx-[15px] mb-10 mt-10 h-auto rounded-[10px] bg-primary-1000 pb-10 shadow-md lg:mx-[35px]">
+                            <h3 className="px-12 pb-4 pt-5 font-inter text-xl font-medium text-black lg:text-2xl">
                               Riwayat Penyakit
                             </h3>
                             <div className="mt-4 px-12 pb-5">
                               {patient.riwayatPenyakit &&
                               patient.riwayatPenyakit.length !== 0 ? (
-                                <div className=" max-w-[240px] rounded-[10px] border border-gray-200 bg-white shadow dark:border-gray-700 dark:bg-gray-800">
+                                <div className=" bborder-gray-200 max-w-[240px] rounded-[10px] border bg-primary-1000 shadow dark:border-gray-700 dark:bg-gray-800">
                                   <a href="#">
                                     <Image
                                       className="rounded-t-lg"
@@ -604,8 +605,8 @@ export default function Profiles() {
                       ) : null}
 
                       {patient && (
-                        <div className="mb-10 mt-10 w-screen max-w-full gap-6 rounded-md bg-primary-1000 px-12 pb-5 shadow-md md:grid-cols-1 lg:w-full">
-                          <h3 className=" pb-4 pt-5 font-inter text-2xl font-medium text-black">
+                        <div className="mx-[15px] mb-10 mt-10 h-auto rounded-[10px] bg-primary-1000 pb-10 shadow-md lg:mx-[35px]">
+                          <h3 className="px-12 pb-4 pt-5 font-inter text-xl font-medium text-black lg:text-2xl">
                             Riwayat Check Up
                           </h3>
                           <div className="lg:grid ">
@@ -632,7 +633,7 @@ export default function Profiles() {
                                   </p>
                                 </div>
                               ) : (
-                                <h3 className="font-inter text-xl font-normal text-black">
+                                <h3 className="text-md px-12 font-inter font-normal text-black lg:text-xl">
                                   Anda Belum Pernah Checkup Kesehatan
                                 </h3>
                               )}
