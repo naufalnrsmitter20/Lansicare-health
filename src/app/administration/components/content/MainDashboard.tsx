@@ -341,7 +341,7 @@ export default function MainDashboard() {
                             type="button"
                             href={`/administration/editPasien/${data._id}`}
                           >
-                            Edit & View
+                            View
                           </SuccessButton>
                           <RemovePatient _id={data._id} />
                         </td>

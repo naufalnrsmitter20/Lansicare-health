@@ -526,7 +526,6 @@ export default function EditPatient({
                     onChange={(e) => setNewRole(e.target.value)}
                   >
                     <option value="pasien">Pasien</option>
-                    <option value="dokter">Dokter</option>
                   </Select>
                 </div>
                 <div></div>
@@ -583,6 +582,7 @@ export default function EditPatient({
                     onChange={(e) => setNewNama(e.target.value)}
                     value={newFullname}
                     placeholder="Nama Lengkap"
+                    disabled
                   />
                   <p className="mt-1 text-xs">
                     Only Superadmin can change this field!
@@ -601,6 +601,7 @@ export default function EditPatient({
                     onChange={(e) => setNewEmail(e.target.value)}
                     value={newEmail}
                     placeholder="name@example.com"
+                    disabled
                   />
                   <p className="mt-1 text-xs">
                     Only Superadmin can change this field!
@@ -618,8 +619,8 @@ export default function EditPatient({
                     id="role"
                     value={newRole}
                     onChange={(e) => setNewRole(e.target.value)}
+                    disabled
                   >
-                    <option value="pasien">Pasien</option>
                     <option value="dokter">Dokter</option>
                     <option value="superadmin">Superadmin</option>
                   </Select>
@@ -639,6 +640,7 @@ export default function EditPatient({
                     id="jeniskelamin"
                     value={newJenisKelamin}
                     onChange={(e) => setNewJenisKelamin(e.target.value)}
+                    disabled
                   >
                     <option value="">Pilih</option>
                     <option value="Laki-Laki">Laki-Laki</option>
