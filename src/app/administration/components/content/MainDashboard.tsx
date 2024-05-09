@@ -356,7 +356,7 @@ export default function MainDashboard() {
                             }
                             disabled={true}
                           >
-                            Edit & View
+                            Edit
                           </SuccessButton>
                           <DangerButton
                             type="button"
