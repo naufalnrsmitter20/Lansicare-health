@@ -1,8 +1,6 @@
 # LansiCare
 
-## Nama Tim
-
-- Prisma
+## Nama Tim : PRISMA
 
 ![Lansicare Logo](https://github.com/naufalnrsmitter20/lansicare-health/blob/Production/public/Lansicare_With_Bg.png?raw=true)
 
