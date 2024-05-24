@@ -19,7 +19,21 @@ export default function AboutComponent() {
 
         <main className="h-autoplace-items-center mx-[15px] justify-center rounded-[10px] border-gray-200 bg-primary-1000 shadow-md lg:mx-[35px]">
           <div className="relative h-full p-[100px]">
-            <div className="relative grid h-fit w-full grid-cols-1 gap-y-10 lg:mb-20 lg:mt-[200px] lg:h-20 lg:grid-cols-3">
+            <div className="relative grid h-fit w-full grid-cols-1 gap-y-10 lg:mb-20 lg:mt-[200px] lg:h-20 lg:grid-cols-4">
+              <div className="relative flex justify-center">
+                <div className="group relative w-52 transition-all hover:scale-105 lg:absolute lg:-top-64">
+                  <div>
+                    <Image
+                      src={image1}
+                      alt="image"
+                      className="rounded-[6px] group-hover:ring-4 group-hover:ring-mainBlue/20"
+                    />
+                    <p className="mt-3 hidden pb-7 text-center text-[12px] font-medium group-hover:block lg:mb-7">
+                      Muhammad Keefa Syawal (Hipster)
+                    </p>
+                  </div>
+                </div>
+              </div>
               <div className="relative flex justify-center">
                 <div className="group relative w-52 transition-all hover:scale-105 lg:absolute lg:-top-32">
                   <div>
