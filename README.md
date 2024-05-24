@@ -63,8 +63,9 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 
 ## Our Team
 
+- Rakha Adrian Nur Tanaya (Leader)
 - Raisya Ramadhani Achmad (Hustler)
-- Rakha Adrian Nur Tanaya (Hipster)
+- Muhammad Keefa Syawal (Hipster)
 - Naufal Nabil Ramadhan (Hacker)
 
 ## TechStack
