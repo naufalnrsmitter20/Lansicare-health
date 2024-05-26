@@ -80,6 +80,23 @@ export default function AboutComponent() {
           </div>
         </main>
 
+        <div className="mx-auto mt-10 rounded-[10px] border-gray-200 bg-primary-1000 py-10 shadow-md lg:mx-[35px]">
+          <h4 className="my-4 text-center text-5xl font-bold">
+            LansiCare <span className="text-mainBlue">Trailer</span>
+          </h4>
+          <iframe
+            className="mx-auto mb-7"
+            width={1024}
+            height={576}
+            src="https://www.youtube.com/embed/DhnEnsjj2DU?si=UjRdAr2gQ3c_qDep"
+            title="YouTube video player"
+            frameBorder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerPolicy="strict-origin-when-cross-origin"
+            allowFullScreen
+          ></iframe>
+        </div>
+
         <div className=" mx-[15px] mt-[10px] h-auto place-items-center justify-center rounded-[10px] border-gray-200 bg-primary-1000 shadow-md lg:mx-[35px]">
           <div className="relative mb-20 ml-10 mt-20 h-full">
             <div className="mx-5 mt-10 grid grid-cols-1 pb-10 pt-10 lg:mx-10 lg:flex">
