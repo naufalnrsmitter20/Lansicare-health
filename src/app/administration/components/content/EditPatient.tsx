@@ -38,11 +38,11 @@ export default function EditPatient({
   nfcId?: number;
   email?: string;
   riwayatPenyakit?: string;
-  pasienStatus?: "Rawat-inap" | "Rawat-jalan";
+  pasienStatus?: string;
   fullname?: string;
   NIK?: number;
   TTL?: string;
-  JenisKelamin?: "Laki-Laki" | "Perempuan";
+  JenisKelamin?: string;
   Alamat?: string;
   RT?: number;
   RW?: number;
@@ -399,7 +399,7 @@ export default function EditPatient({
                     value={newJenisKelamin}
                     onChange={(e) => setNewJenisKelamin(e.target.value)}
                   >
-                    <option value="">Pilih</option>
+                    <option>Pilih</option>
                     <option value="Laki-Laki">Laki-Laki</option>
                     <option value="Perempuan">Perempuan</option>
                   </Select>
@@ -508,6 +508,7 @@ export default function EditPatient({
                     value={newPasienStatus}
                     onChange={(e) => setNewStatus(e.target.value)}
                   >
+                    <option>Pilih</option>
                     <option value="Rawat-inap">Rawat Inap</option>
                     <option value="Rawat-jalan">Rawat Jalan</option>
                   </Select>

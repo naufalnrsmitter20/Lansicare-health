@@ -31,7 +31,10 @@ export default function withAuth(
       });
 
       if (!token && !authPage.includes(pathName)) {
-        const url = new URL("/signin", req.url);
+        if (pathName === "/profile") {
+          return NextResponse.redirect(new URL("/signin", req.url));
+        }
+        const url = new URL("/administration/login", req.url);
         url.searchParams.set("callbackUrl", encodeURI(req.url));
         return NextResponse.redirect(url);
       }

@@ -8,10 +8,10 @@ interface UserDocument extends Document {
   role: "pasien" | "dokter" | "superadmin";
   comparePassword(candidatePassword: string): Promise<boolean>;
   riwayatPenyakit: string;
-  pasienStatus: string;
+  pasienStatus: "Rawat-inap" | "Rawat-jalan";
   NIK: number;
   TTL: string;
-  JenisKelamin: string;
+  JenisKelamin: "Laki-Laki" | "Perempuan";
   Alamat: string;
   RT: number;
   RW: number;
@@ -56,8 +56,6 @@ const userSchema = new Schema<UserDocument>(
     },
     pasienStatus: {
       type: String,
-      enum: ["Rawat-inap", "Rawat-jalan"],
-      default: "Rawat-jalan",
     },
     NIK: {
       type: Number,
@@ -67,7 +65,6 @@ const userSchema = new Schema<UserDocument>(
     },
     JenisKelamin: {
       type: String,
-      enum: ["Laki-Laki", "Perempuan"],
     },
     Alamat: {
       type: String,
@@ -110,8 +107,8 @@ const userSchema = new Schema<UserDocument>(
     },
     status_dokter: {
       type: String,
-      enum: ["online", "offline"],
-      default: "online",
+      enum: ["online", "offline", null],
+      default: null,
     },
     spesialis: {
       type: String,

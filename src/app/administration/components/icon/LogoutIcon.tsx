@@ -7,7 +7,7 @@ function LogoutIcon() {
     <button
       className="group flex w-full items-center rounded-lg p-2 py-3 text-white hover:bg-red-600"
       type="button"
-      onClick={() => signOut()}
+      onClick={() => signOut({ callbackUrl: "/administration/login" })}
     >
       <svg
         className="h-5 w-5  flex-shrink-0 text-gray-400 transition duration-75 group-hover:text-white"
