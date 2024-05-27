@@ -19,8 +19,6 @@ export default function Login() {
     const emailRegex = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i;
     return emailRegex.test(email);
   };
-
-  console.log(session);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -42,12 +40,12 @@ export default function Login() {
       password,
     });
 
-    if (res?.error) {
+    if (!res?.ok) {
       setError("Invalid email or password");
-      if (res?.url) {
-        router.replace("/administration/");
-        router.refresh();
-      }
+    }
+    if (res?.url || res?.ok) {
+      router.replace("/administration/");
+      router.refresh();
     } else {
       setError("Invalid Emai or Password");
     }
@@ -56,11 +54,7 @@ export default function Login() {
   if (sessionStatus === "loading") {
     return <h1>Loading...</h1>;
   }
-  const handleReload = () => {
-    if (sessionStatus === "authenticated") {
-      window.location.reload();
-    }
-  };
+
   return (
     <>
       <div className="flex h-full min-w-full flex-1 flex-col justify-center align-middle lg:px-8">
@@ -132,9 +126,9 @@ export default function Login() {
                     Login
                   </button>
 
-                  {error !== "" && (
+                  {error ? (
                     <p className="mb-4 text-sm text-red-600">{error}</p>
-                  )}
+                  ) : null}
                 </div>
               </div>
             </form>

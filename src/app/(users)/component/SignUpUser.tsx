@@ -11,6 +11,8 @@ import { PrimaryButton, SecondaryButton } from "./buttons/Button";
 export default function SignUpUser() {
   const router = useRouter();
   const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState("");
+
   const [userInfo, setUserInfo] = useState({
     fullname: "",
     email: "",
@@ -26,20 +28,26 @@ export default function SignUpUser() {
   const handleSubmit: FormEventHandler<HTMLFormElement> = async (e: any) => {
     e.preventDefault();
     setIsLoading(true);
-    await fetch("/api/auth/users", {
+    const response = await fetch("/api/auth/users", {
       method: "POST",
       body: JSON.stringify(userInfo),
-    })
-      .then((res: any) => {
-        if (res.ok) {
-          router.push("/signin");
-          setIsLoading(false);
-        }
-      })
-      .catch((error) => {
+    });
+
+    const res = await response.json();
+    if (!response.ok) {
+      if (response.status === 422) {
+        setError(res.error);
         setIsLoading(false);
-        throw new Error(error);
-      });
+        console.log(response.status);
+      } else if (response.status === 201) {
+        setError(res.error);
+        setIsLoading(false);
+      }
+    }
+    if (response.ok) {
+      router.push("/signin");
+      setIsLoading(false);
+    }
   };
   return (
     <>
@@ -123,6 +131,9 @@ export default function SignUpUser() {
                     Sign Up
                   </p>
                 </PrimaryButton>
+                {error ? (
+                  <p className="mb-4 text-sm text-red-600">{error}</p>
+                ) : null}
 
                 <p className="mt-[20px] text-center text-[14px] font-semibold text-base-100 lg:text-[18px]">
                   Already have an account?
