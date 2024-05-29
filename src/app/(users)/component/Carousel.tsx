@@ -125,9 +125,9 @@ export default function Carousel() {
                 className="absolute -z-20 w-screen bg-top bg-blend-multiply"
                 alt="background Image"
               />
-              <div className="mx-auto max-w-screen-xl px-4 py-1 text-center lg:py-[85px]">
-                <h1 className="my-[80px] text-3xl font-extrabold leading-none tracking-tight text-slate-200 md:text-4xl lg:text-6xl">
-                  Ayo jadwalkan check-up kesehatan Anda sekarang juga!
+              <div className="mx-[20px] max-w-screen-xl px-4 py-1 text-center lg:mx-auto lg:py-[85px]">
+                <h1 className="my-[72.8px] text-2xl font-bold leading-none tracking-tight text-slate-200 md:text-4xl lg:my-[80px] lg:text-6xl lg:font-extrabold">
+                  Ayo jadwalkan check-up kesehatan Anda sekarang!
                 </h1>
 
                 <div className="flex flex-col space-y-4 sm:flex-row sm:justify-center sm:space-y-0"></div>
