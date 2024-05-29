@@ -85,13 +85,13 @@ export default function Carousel() {
                 className="absolute -z-20 w-screen bg-bottom"
                 alt="background Image"
               />
-              <div className="max-w-sm px-4 py-5 text-end lg:max-w-screen-xl lg:py-20">
+              <div className="max-w-sm px-4 py-5 text-end lg:max-w-[1300px] lg:py-20">
                 <h1 className="my-5 px-10 text-4xl font-extrabold leading-none tracking-tight text-white md:text-5xl lg:mr-5 lg:px-0 lg:text-6xl">
                   LansiCare{" "}
                 </h1>
                 <p className="mx-10 mb-4 text-ellipsis text-end text-[12px] font-normal text-gray-300 lg:mx-32 lg:mr-5 lg:text-lg">
                   Website ini membantu Anda dalam melakukan registrasi check-up
-                  secara online.
+                  kesehatan secara online.
                   <span className="hidden lg:inline">
                     Anda bisa melakukan registrasi check-up dengan memilih
                     dokter yang sesuai. Selanjutnya akan keluar nomor antrean
@@ -102,9 +102,9 @@ export default function Carousel() {
                     Jadwalkan check-up kesehatan Anda sekarang juga!
                   </span>
                 </p>
-                <div className="flex flex-row justify-end space-y-0 px-10 lg:mr-10 lg:space-y-4 lg:px-0 lg:pb-0">
+                <div className="flex flex-row justify-end space-y-0 px-10 lg:mx-7 lg:space-y-4 lg:px-0 lg:pb-0">
                   <CarouselButton type="button" href="/about">
-                    Explore more
+                    Jelajahi lebih
                     <RightArrow />
                   </CarouselButton>
                 </div>

@@ -81,8 +81,11 @@ export default function AboutComponent() {
         </main>
 
         <div className="mx-auto mt-10 rounded-[10px] border-gray-200 bg-primary-1000 py-10 shadow-md lg:mx-[35px]">
-          <h4 className="my-4 text-center text-5xl font-bold">
-            LansiCare <span className="text-mainBlue">Trailer</span>
+          <h4 className="mb-6 mt-4 text-center text-5xl font-bold">
+            LansiCare{" "}
+            <span className="mx-auto mt-5 bg-gradient-to-r from-darkBlue to-mainBlue bg-clip-text pb-[50px] text-center text-[45px] font-bold text-transparent lg:mt-10 lg:pb-[70px] lg:text-5xl">
+              Trailer
+            </span>
           </h4>
           <iframe
             className="mx-auto mb-7"
@@ -98,7 +101,7 @@ export default function AboutComponent() {
         </div>
 
         <div className=" mx-[15px] mt-[10px] h-auto place-items-center justify-center rounded-[10px] border-gray-200 bg-primary-1000 shadow-md lg:mx-[35px]">
-          <div className="relative mb-20 ml-10 mt-20 h-full">
+          <div className="relative mb-20 ml-10 mt-10 h-full">
             <div className="mx-5 mt-10 grid grid-cols-1 pb-10 pt-10 lg:mx-10 lg:flex">
               <div className=" w-full max-w-5xl">
                 <h1 className="flex justify-start text-5xl font-bold">Who</h1>
