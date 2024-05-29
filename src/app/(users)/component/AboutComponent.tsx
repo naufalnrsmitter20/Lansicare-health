@@ -19,7 +19,21 @@ export default function AboutComponent() {
 
         <main className="h-autoplace-items-center mx-[15px] justify-center rounded-[10px] border-gray-200 bg-primary-1000 shadow-md lg:mx-[35px]">
           <div className="relative h-full p-[100px]">
-            <div className="relative grid h-fit w-full grid-cols-1 gap-y-10 lg:mb-20 lg:mt-[200px] lg:h-20 lg:grid-cols-3">
+            <div className="relative grid h-fit w-full grid-cols-1 gap-y-10 lg:mb-20 lg:mt-[200px] lg:h-20 lg:grid-cols-4">
+              <div className="relative flex justify-center">
+                <div className="group relative w-52 transition-all hover:scale-105 lg:absolute lg:-top-64">
+                  <div>
+                    <Image
+                      src={image1}
+                      alt="image"
+                      className="rounded-[6px] group-hover:ring-4 group-hover:ring-mainBlue/20"
+                    />
+                    <p className="mt-3 hidden pb-7 text-center text-[12px] font-medium group-hover:block lg:mb-7">
+                      Muhammad Keefa Syawal (Hipster)
+                    </p>
+                  </div>
+                </div>
+              </div>
               <div className="relative flex justify-center">
                 <div className="group relative w-52 transition-all hover:scale-105 lg:absolute lg:-top-32">
                   <div>
@@ -65,6 +79,23 @@ export default function AboutComponent() {
             </div>
           </div>
         </main>
+
+        <div className="mx-auto mt-10 rounded-[10px] border-gray-200 bg-primary-1000 py-10 shadow-md lg:mx-[35px]">
+          <h4 className="my-4 text-center text-5xl font-bold">
+            LansiCare <span className="text-mainBlue">Trailer</span>
+          </h4>
+          <iframe
+            className="mx-auto mb-7"
+            width={1024}
+            height={576}
+            src="https://www.youtube.com/embed/DhnEnsjj2DU?si=UjRdAr2gQ3c_qDep"
+            title="YouTube video player"
+            frameBorder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerPolicy="strict-origin-when-cross-origin"
+            allowFullScreen
+          ></iframe>
+        </div>
 
         <div className=" mx-[15px] mt-[10px] h-auto place-items-center justify-center rounded-[10px] border-gray-200 bg-primary-1000 shadow-md lg:mx-[35px]">
           <div className="relative mb-20 ml-10 mt-20 h-full">

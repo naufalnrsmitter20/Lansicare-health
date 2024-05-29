@@ -8,7 +8,7 @@ function SVGLogout() {
       <button
         className="group mx-auto flex justify-center rounded-lg p-2 lg:block"
         type="button"
-        onClick={() => signOut()}
+        onClick={() => signOut({ callbackUrl: "/signin" })}
       >
         <svg
           className="group mx-auto h-5 w-5 flex-shrink-0 text-base-100 transition duration-75 group-hover:text-red-600"

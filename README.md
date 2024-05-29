@@ -1,8 +1,7 @@
 # LansiCare
 
-## Nama Tim
 
-- Prisma
+## Team Name : PRISMA
 
 ![Lansicare Logo](https://github.com/naufalnrsmitter20/lansicare-health/blob/Production/public/Lansicare_With_Bg.png?raw=true)
 
@@ -14,14 +13,14 @@ LansiCare, ide ini mengacu pada poin SDGs nomer 3 yaitu Kesehatan yang Baik dan 
 
 ## Features
 
-### Untuk Pengguna
+### For Patients
 
 - Register dan Login untuk Authentikasi Pengguna/pasien
 - Registrasi & CheckUp Kesehatan
 - Track Kesehatan berupa Riwayat Penyakit dan Riwayat CheckUp pada halaman Profil
 - Komentar yang dapat diisi sebagai feedback
 
-### Untuk Dokter
+### For Doctors
 
 - Login untuk Authentikasi dokter
 - Dashboard untuk monitoring pengguna/pasien
@@ -29,10 +28,9 @@ LansiCare, ide ini mengacu pada poin SDGs nomer 3 yaitu Kesehatan yang Baik dan 
 - Form CheckUp kesehatan di halaman Edit Profile
 - Profil Dokter
 
-### Socials
+### Presentation Video
 
-<a href="https://www.instagram.com/lansicare/" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/instagram.svg" alt="lansicare" height="30" width="40" /></a>
-<a href="https://www.youtube.com/@InnoSync_Production" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/youtube.svg" alt="lansicare" height="30" width="40" /></a>
+<a href="https://youtu.be/AxcdLAxHvYA" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/youtube.svg" alt="lansicare" height="30" width="40" /></a>
 
 ## How to Run
 
@@ -58,14 +56,15 @@ npm start
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-## Guru Pembina
+## Coaching Teacher
 
 - Muhammad Chusni Agus, M. Pd., Gr.
 
 ## Our Team
 
+- Rakha Adrian Nur Tanaya (Leader)
 - Raisya Ramadhani Achmad (Hustler)
-- Rakha Adrian Nur Tanaya (Hipster)
+- Muhammad Keefa Syawal (Hipster)
 - Naufal Nabil Ramadhan (Hacker)
 
 ## TechStack
@@ -85,7 +84,7 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 
 ### Admin
 
-[/administration](https://lansicare-health.vercel.app/administration) - Halaman Admin
+[/administration](https://lansicare-health.vercel.app/administration) - Admin Pages
 
 - Dashboard
 - Data
@@ -93,7 +92,7 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 
 ### User
 
-[/homepage](lansicare-health.vercel.app) - Halaman User
+[/homepage](lansicare-health.vercel.app) - Patient Pages
 
 - Home
 - About
