@@ -6,7 +6,7 @@ import Carousel from "../component/Carousel";
 export default function HomepagePages() {
   return (
     <>
-      <div>
+      <div className="bg-base-50">
         <Carousel />
         <Homepage />
       </div>

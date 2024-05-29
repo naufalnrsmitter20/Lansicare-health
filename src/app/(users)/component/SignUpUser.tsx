@@ -90,7 +90,7 @@ export default function SignUpUser() {
                   name="email"
                   value={email}
                   onChange={handleChange}
-                  className="block w-full rounded-lg border border-gray-300 bg-gray-50 px-2.5 py-2 text-sm text-base-100 invalid:text-red-500 focus:border-darkBlue focus:ring focus:ring-darkBlue invalid:focus:border-red-500 invalid:focus:ring-red-500"
+                  className="peer block w-full rounded-lg border border-gray-300 bg-gray-50 px-2.5 py-2 text-sm text-base-100 invalid:text-red-500 focus:border-darkBlue focus:ring focus:ring-darkBlue invalid:focus:border-red-500 invalid:focus:ring-red-500"
                   placeholder="Enter Your Email"
                   required
                 />
