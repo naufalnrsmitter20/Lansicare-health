@@ -13,7 +13,7 @@ interface ButtonProops {
 const customButton: CustomFlowbiteTheme["button"] = {
   color: {
     primary:
-      "border-darkBlue bg-darkBlue text-white hover:bg-white hover:text-base-100 focus:outline-none focus:ring-2 focus:ring-darkBlue mb-2 me-2 rounded-lg border-2 text-sm font-medium transition-all duration-200",
+      "border-darkBlue hover:border-mainBlue bg-darkBlue text-white hover:bg-mainBlue focus:outline-none focus:ring-2 focus:ring-darkBlue mb-2 me-2 rounded-lg border-2 text-sm font-medium transition-all duration-200",
     secondary:
       "mb-2 me-2 focus:bg-darkBlue focus:text-white rounded-lg  border-2 border-darkBlue py-1 text-sm font-medium text-base-100 transition-all duration-200 hover:bg-darkBlue hover:text-white focus:outline-none focus:ring-2 focus:ring-darkBlue",
     tertiary:

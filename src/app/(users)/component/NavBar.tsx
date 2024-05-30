@@ -61,26 +61,26 @@ export default function NavBar() {
             </button>
             {modal && (
               <>
-                <ul className="fixed left-0 mt-5 w-screen border-t border-slate-700 bg-primary-1000 py-2">
-                  <li className=" border-b border-b-gray-500">
+                <ul className="fixed left-0 mt-4 w-screen border-y border-slate-300 bg-primary-1000 py-2">
+                  <li className=" border-b border-b-slate-300">
                     <HomeIcon />
                   </li>
-                  <li className=" border-b border-b-gray-500">
+                  <li className=" mt-0.5 border-b border-b-slate-300">
                     <AboutIcon />
                   </li>
-                  <li className=" border-b border-b-gray-500">
+                  <li className=" mt-0.5 border-b border-b-slate-300">
                     <ProfileIcon />
                   </li>
                   {isAuth ? (
-                    <li className=" border-b border-b-gray-500">
+                    <li className=" mt-0.5 border-b border-b-slate-300">
                       <SVGLogout />
                     </li>
                   ) : (
                     <>
-                      <li className=" border-b border-b-gray-500">
+                      <li className=" mt-0.5 border-b border-b-slate-300">
                         <SVGSignin />
                       </li>
-                      <li className=" border-b border-b-gray-500">
+                      <li className="mt-0.5">
                         <SVGSignup />
                       </li>
                     </>

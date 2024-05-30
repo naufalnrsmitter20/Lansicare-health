@@ -80,12 +80,15 @@ export default function AboutComponent() {
           </div>
         </main>
 
-        <div className="mx-auto mt-10 rounded-[10px] border-gray-200 bg-primary-1000 py-10 shadow-md lg:mx-[35px]">
-          <h4 className="my-4 text-center text-5xl font-bold">
-            LansiCare <span className="text-mainBlue">Trailer</span>
+        <div className="mx-[15px] mt-10 rounded-[10px] border-gray-200 bg-primary-1000 py-10 shadow-md lg:mx-[35px]">
+          <h4 className="mb-6 mt-4 text-center text-4xl font-bold lg:text-5xl">
+            LansiCare{" "}
+            <span className="mx-auto mt-5 bg-gradient-to-r from-darkBlue to-mainBlue bg-clip-text pb-[50px] text-center text-4xl font-bold text-transparent lg:mt-10 lg:pb-[70px] lg:text-5xl">
+              Trailer
+            </span>
           </h4>
           <iframe
-            className="mx-auto mb-7"
+            className="mx-auto mb-7 max-h-[200px] max-w-[300px] lg:max-h-[580px] lg:max-w-[1000px]"
             width={1024}
             height={576}
             src="https://www.youtube.com/embed/DhnEnsjj2DU?si=UjRdAr2gQ3c_qDep"
@@ -98,15 +101,17 @@ export default function AboutComponent() {
         </div>
 
         <div className=" mx-[15px] mt-[10px] h-auto place-items-center justify-center rounded-[10px] border-gray-200 bg-primary-1000 shadow-md lg:mx-[35px]">
-          <div className="relative mb-20 ml-10 mt-20 h-full">
+          <div className="relative mb-20 ml-10 mt-10 h-full">
             <div className="mx-5 mt-10 grid grid-cols-1 pb-10 pt-10 lg:mx-10 lg:flex">
               <div className=" w-full max-w-5xl">
-                <h1 className="flex justify-start text-5xl font-bold">Who</h1>
-                <h3 className="ml-7 max-w-7xl  text-5xl font-bold text-darkBlue">
+                <h1 className="flex justify-start text-4xl font-bold lg:text-5xl">
+                  Who
+                </h1>
+                <h3 className="ml-7 max-w-7xl text-4xl font-bold text-darkBlue lg:text-5xl">
                   are we
                 </h3>
               </div>
-              <div className="mt-10 text-[12px] font-medium lg:text-[16px]">
+              <div className="mt-5 text-[12px] font-medium lg:text-[16px]">
                 <p className="flex justify-normal text-left lg:mx-20">
                   Selamat datang di website resmi LansiCare! Kami adalah tim
                   InnoSync yang terdiri dari empat individu berbakat yang
