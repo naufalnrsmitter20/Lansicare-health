@@ -54,6 +54,7 @@ const Forms: React.FC = () => {
             placeholder="Masukkan Nama"
             disabled={isVisible}
             required
+            className="focus:ring-darkBlue"
           />
         </div>
         <div className="mb-4">
@@ -72,6 +73,7 @@ const Forms: React.FC = () => {
             placeholder="Masukkan Email"
             disabled={isVisible}
             required
+            className="invalid:focus:ring-red-500"
           />
         </div>
         <div className="mb-4">

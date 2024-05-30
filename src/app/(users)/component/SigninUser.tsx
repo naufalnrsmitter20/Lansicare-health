@@ -73,7 +73,7 @@ export default function SigninUser() {
                   type="email"
                   id="email"
                   name="email"
-                  className="block w-full rounded-lg border border-gray-300 bg-gray-50 px-2.5 py-2 text-sm text-base-100 focus:border-darkBlue focus:ring-darkBlue"
+                  className="block w-full rounded-lg border border-gray-300 bg-gray-50 px-2.5 py-2 text-sm text-base-100 invalid:text-red-500 valid:focus:border-darkBlue invalid:focus:border-red-500 invalid:focus:ring-red-500"
                   placeholder="Enter Your email"
                   required
                 />
