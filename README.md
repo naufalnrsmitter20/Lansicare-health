@@ -1,7 +1,7 @@
 # LansiCare
 
 
-## Team Name : PRISMA
+## Team Name : InnoSync Production
 
 ![Lansicare Logo](https://github.com/naufalnrsmitter20/lansicare-health/blob/Production/public/Lansicare_With_Bg.png?raw=true)
 
