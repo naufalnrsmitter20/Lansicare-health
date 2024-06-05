@@ -8,31 +8,8 @@ import SpinnerProops from "../spinners/Spinner";
 import Toaster from "@/src/app/administration/components/utilities/Toaster";
 import { FaTelegramPlane } from "react-icons/fa";
 
-type Patient = {
-  _id: string;
-  nfcId: number;
-  email: string;
-  riwayatPenyakit: string;
-  pasienStatus: "Rawat-inap" | "Rawat-jalan";
-  fullname: string;
-  NIK: number;
-  TTL: string;
-  JenisKelamin: "Laki-Laki" | "Perempuan";
-  Alamat: string;
-  RT: number;
-  RW: number;
-  KelurahanDesa: string;
-  Kecamatan: string;
-  Agama: string;
-  StatusPerkawinan: boolean;
-  Pekerjaan: string;
-  Kewarganegaraan: string;
-  BerlakuHingga: Date;
-  updatedAt: string;
-};
 export default function ModalUsers({
   _id,
-  riwayatPenyakit,
   pasienStatus,
   fullname,
   NIK,
@@ -48,12 +25,11 @@ export default function ModalUsers({
   Kewarganegaraan,
 }: {
   _id: string;
-  riwayatPenyakit: string;
-  pasienStatus: "Rawat-inap" | "Rawat-jalan";
+  pasienStatus: string | undefined;
   fullname: string;
   NIK: number;
   TTL: string;
-  JenisKelamin: "Laki-Laki" | "Perempuan";
+  JenisKelamin: string | undefined;
   Alamat: string;
   RT: number;
   RW: number;
@@ -66,7 +42,7 @@ export default function ModalUsers({
   const { data: session } = useSession();
   const [isMutating, setIsMutating] = useState(false);
   const [isVisible, setIsVisible] = useState(false);
-  const [patient, setPatient] = useState<Patient | null>(null);
+  const [patient, setPatient] = useState<PatientData | null>(null);
   const router = useRouter();
   // State Edit Profile
   const [newFulllname, setNewFullname] = useState(fullname);
@@ -78,7 +54,6 @@ export default function ModalUsers({
   const [newKelurahanDesa, setNewKelurahan_desa] = useState(KelurahanDesa);
   const [newKecamatan, setNewKecamatan] = useState(Kecamatan);
   const [newNIK, setNewNIK] = useState(NIK);
-  const [newRiwayatPenyakit, setNewRiwayatPenyakit] = useState(riwayatPenyakit);
   const [newPasienStatus, setNewStatus] = useState(pasienStatus);
   const [newAgama, setNewAgama] = useState(Agama);
   const [newKewarganegaraan, setNewKewarganegaraan] = useState(Kewarganegaraan);
@@ -105,7 +80,6 @@ export default function ModalUsers({
           newKelurahanDesa,
           newKecamatan,
           newNIK,
-          newRiwayatPenyakit,
           newPasienStatus,
           newAgama,
           newKewarganegaraan,
@@ -119,10 +93,6 @@ export default function ModalUsers({
       console.log(await res.json());
       setIsMutating(false);
       setIsVisible(true);
-      setTimeout(() => {
-        router.refresh();
-        router.back();
-      }, 2000);
     } catch (error) {
       console.log(error);
     }
@@ -228,7 +198,7 @@ export default function ModalUsers({
                 className="bg-white"
                 id="jeniskelamin"
                 value={newJenisKelamin}
-                onChange={(e) => setNewJenisKelamin(JSON.parse(e.target.value))}
+                onChange={(e) => setNewJenisKelamin(e.target.value)}
               >
                 <option>Pilih</option>
                 <option value="Laki-Laki">Laki-Laki</option>
@@ -325,21 +295,7 @@ export default function ModalUsers({
                 placeholder="agama"
               />
             </div>
-            <div>
-              <label
-                htmlFor="RiwayatPenyakit"
-                className="mb-2 block text-sm font-medium text-gray-900 dark:text-white"
-              >
-                Riwayat Penyakit
-              </label>
-              <TextInput
-                type="text"
-                id="RiwayatPenyakit"
-                value={newRiwayatPenyakit}
-                onChange={(e) => setNewRiwayatPenyakit(e.target.value)}
-                placeholder="Riwayat Penyakit"
-              />
-            </div>
+
             <div>
               <label
                 htmlFor="kewarganegaraan"

@@ -13,7 +13,7 @@ interface PatientData extends DataAdmin {
   _id: string;
   nfcId: number;
   email: string;
-  riwayatPenyakit: string;
+  riwayatPenyakit: string[];
   pasienStatus: "Rawat-inap" | "Rawat-jalan";
   fullname: string;
   NIK: number;

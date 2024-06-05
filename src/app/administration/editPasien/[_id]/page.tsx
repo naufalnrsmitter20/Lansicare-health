@@ -48,7 +48,6 @@ const EditDataPages = ({ params }: { params: { _id: any } }) => {
     nfcId,
     _id,
     email,
-    riwayatPenyakit,
     pasienStatus,
     fullname,
     NIK,
@@ -84,7 +83,6 @@ const EditDataPages = ({ params }: { params: { _id: any } }) => {
             nfcId={nfcId}
             _id={_id}
             email={email}
-            riwayatPenyakit={riwayatPenyakit}
             pasienStatus={pasienStatus}
             fullname={fullname}
             NIK={NIK}

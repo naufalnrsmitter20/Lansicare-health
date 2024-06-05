@@ -5,7 +5,12 @@ import Imageprofile from "@/public/userdefault.png";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import Footer from "../component/Footer";
-import { SecondaryButton, TertiaryButton } from "./buttons/Button";
+import {
+  PrimaryButton,
+  SecondaryButton,
+  TertiaryButton,
+} from "./buttons/Button";
+import refresh from "@/public/refresh.png";
 
 export default function Profiles() {
   const { data: session, status } = useSession();
@@ -13,8 +18,6 @@ export default function Profiles() {
   const [patient, setPatient] = useState<PatientData | null>(null);
   const router = useRouter();
 
-  console.log(session);
-  console.log(status);
   if (session === null) {
     router.push("/signin");
   }
@@ -90,7 +93,7 @@ export default function Profiles() {
                           </div>
 
                           <div>
-                            <div className="grid max-w-[250px] grid-cols-2 lg:max-w-sm">
+                            <div className="grid max-w-[250px] grid-cols-3 lg:max-w-sm">
                               {patient ? (
                                 <SecondaryButton
                                   className="mt-4 max-w-[150px] lg:max-w-sm"
@@ -107,16 +110,28 @@ export default function Profiles() {
                                 <></>
                               )}
                               {patient ? (
-                                <TertiaryButton
-                                  className="max-w-[150px] lg:max-w-sm"
+                                <SecondaryButton
+                                  className="mt-4 max-w-[150px] lg:max-w-sm"
                                   type="button"
                                   onClick={HandleToggle}
                                 >
                                   See Details
-                                </TertiaryButton>
+                                </SecondaryButton>
                               ) : (
                                 <></>
                               )}
+                              <button
+                                type="button"
+                                onClick={() => window.location.reload()}
+                                className="mb-2 me-2 mt-4 w-fit rounded-lg border-2 border-base-100 px-3 text-sm font-semibold text-base-100 transition-all duration-200 hover:bg-base-150 hover:text-white focus:outline-none focus:ring-2 focus:ring-gray-500"
+                              >
+                                <Image
+                                  src={refresh}
+                                  width={24}
+                                  height={24}
+                                  alt="refresh"
+                                />
+                              </button>
                             </div>
                             {patient ? (
                               <>
@@ -538,25 +553,45 @@ export default function Profiles() {
                       {patient ? (
                         <>
                           <div className="mx-[15px] mb-10 mt-10 h-auto rounded-[10px] bg-primary-1000 pb-10 shadow-md lg:mx-[35px]">
-                            <h3 className="px-12 pb-4 pt-5 font-inter text-xl font-medium text-black lg:text-2xl">
-                              Riwayat Penyakit
-                            </h3>
-                            <div className="mt-4 px-12 pb-5">
-                              {patient.riwayatPenyakit &&
+                            <div className="flex justify-between">
+                              <h3 className="px-12 pb-4 pt-5 font-inter text-xl font-medium text-black lg:text-2xl">
+                                Riwayat Penyakit
+                              </h3>
+                              <SecondaryButton
+                                type="button"
+                                className="mr-4 mt-4 h-fit"
+                                onClick={() =>
+                                  router.push(
+                                    `/profile/detailRiwayatPenyakit/${patient._id}`,
+                                  )
+                                }
+                              >
+                                Tambah
+                              </SecondaryButton>
+                            </div>
+                            <div className="mt-4 grid grid-cols-1 gap-4 px-12 pb-5 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+                              {Array.isArray(patient.riwayatPenyakit) &&
                               patient.riwayatPenyakit.length !== 0 ? (
-                                <div className="max-w-[240px] rounded-[10px] border border-gray-200 bg-primary-1000 shadow ring-2 ring-mainBlue">
-                                  <div className="p-5">
-                                    <div>
-                                      <h5 className="mb-2 text-lg font-semibold tracking-tight text-gray-800 dark:text-white">
-                                        {patient.riwayatPenyakit}
-                                      </h5>
-                                    </div>
-                                  </div>
-                                </div>
+                                <>
+                                  {patient.riwayatPenyakit.map(
+                                    (riwayat, index) => (
+                                      <div
+                                        key={index}
+                                        className="h-auto w-full rounded-[10px] border border-gray-200 bg-primary-1000 px-4 py-2 shadow "
+                                      >
+                                        <div>
+                                          <div>
+                                            <p className=" text-base font-medium tracking-tight text-gray-800 dark:text-white">
+                                              {index + 1}. {riwayat}
+                                            </p>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    ),
+                                  )}
+                                </>
                               ) : (
-                                <h3 className="font-inter text-xl font-normal text-black">
-                                  Anda Tidak Memiliki Riwayat Penyakit
-                                </h3>
+                                <p>Tidak ada riwayat penyakit</p>
                               )}
                             </div>
                           </div>
