@@ -8,12 +8,12 @@ import Toaster from "../utilities/Toaster";
 import { HiCheck } from "react-icons/hi";
 import { LoadingButton, PrimaryButton } from "../utilities/Buttons";
 import { Modal } from "flowbite-react";
+import ModalRiwayatPenyakit from "./ModalRiwayatPenyakit";
 
 export default function EditPatient({
   _id,
   nfcId,
   email,
-  riwayatPenyakit,
   pasienStatus,
   fullname,
   NIK,
@@ -37,7 +37,6 @@ export default function EditPatient({
   _id?: string;
   nfcId?: number;
   email?: string;
-  riwayatPenyakit?: string;
   pasienStatus?: string;
   fullname?: string;
   NIK?: number;
@@ -71,9 +70,6 @@ export default function EditPatient({
   const [newKecamatan, setNewKecamatan] = useState(Kecamatan ?? "");
   const [newNIK, setNewNIK] = useState(NIK ?? "");
   const [newEmail, setNewEmail] = useState(email ?? "");
-  const [newRiwayatPenyakit, setNewRiwayatPenyakit] = useState(
-    riwayatPenyakit ?? "",
-  );
   const [newPasienStatus, setNewStatus] = useState(pasienStatus ?? "");
   const [newAgama, setNewAgama] = useState(Agama ?? "");
   const [newKewarganegaraan, setNewKewarganegaraan] = useState(
@@ -117,7 +113,6 @@ export default function EditPatient({
           newKecamatan,
           newNIK,
           newEmail,
-          newRiwayatPenyakit,
           newPasienStatus,
           newAgama,
           newKewarganegaraan,
@@ -152,13 +147,24 @@ export default function EditPatient({
         {role === "pasien" && (
           <>
             <div className="mb-10">
-              <PrimaryButton
-                onClick={() => setModal(true)}
-                className="max-w-56"
-                type="button"
-              >
-                CheckUp Pasien
-              </PrimaryButton>
+              <div className="flex justify-start gap-x-4">
+                <PrimaryButton
+                  onClick={() => setModal(true)}
+                  className="max-w-56"
+                  type="button"
+                >
+                  CheckUp Pasien
+                </PrimaryButton>
+                <PrimaryButton
+                  onClick={() =>
+                    router.push(`/administration/editPasien/RP/${_id}`)
+                  }
+                  className="max-w-56"
+                  type="button"
+                >
+                  List Riwayat Penyakit
+                </PrimaryButton>
+              </div>
               <Modal show={modal} size="md" onClose={onCloseModal} popup>
                 <Modal.Header />
                 <Modal.Body>
@@ -358,21 +364,6 @@ export default function EditPatient({
                 </div>
                 <div>
                   <label
-                    htmlFor="riwayatPenyakit"
-                    className="mb-2 block text-sm font-medium text-gray-900 dark:text-white"
-                  >
-                    Riwayat Penyakit
-                  </label>
-                  <TextInput
-                    type="text"
-                    id="riwayatPenyakit"
-                    onChange={(e) => setNewRiwayatPenyakit(e.target.value)}
-                    value={newRiwayatPenyakit}
-                    placeholder="Riwayat Penyakit"
-                  />
-                </div>
-                <div>
-                  <label
                     htmlFor="rt"
                     className="mb-2 block text-sm font-medium text-gray-900 dark:text-white"
                   >
@@ -529,7 +520,6 @@ export default function EditPatient({
                     <option value="pasien">Pasien</option>
                   </Select>
                 </div>
-                <div></div>
                 <div>
                   {!isMutating ? (
                     <>

@@ -1,27 +1,7 @@
-import { getData } from "@/services/profiles";
 import ModalUsers from "@/src/app/(users)/component/modal/ModalUsers";
 import ModalEditProfile from "@/src/app/(users)/component/ModalEditProfile";
 
-interface Patient {
-  _id: string;
-  riwayatPenyakit: string;
-  pasienStatus: "Rawat-inap" | "Rawat-jalan";
-  NIK: number;
-  TTL: string;
-  JenisKelamin: "Laki-Laki" | "Perempuan";
-  Alamat: string;
-  RT: number;
-  RW: number;
-  KelurahanDesa: string;
-  Kecamatan: string;
-  Agama: string;
-  StatusPerkawinan: boolean;
-  Pekerjaan: string;
-  Kewarganegaraan: string;
-  fullname: string;
-}
-
-const getTopicById = async (_id: string): Promise<Patient> => {
+const getTopicById = async (_id: string): Promise<PatientData> => {
   const res = await fetch(`${process.env.NEXTAUTH_URL}/api/topics/${_id}`, {
     cache: "no-store",
   });
@@ -36,22 +16,21 @@ const getTopicById = async (_id: string): Promise<Patient> => {
 export default async function addDetailsProfile(props: any) {
   const { params } = props;
 
-  let patientData: Patient | null = null;
+  let patientdata: PatientData | null = null;
 
   try {
-    patientData = await getTopicById(params._id);
+    patientdata = await getTopicById(params._id);
   } catch (error: any) {
     console.error(error.message);
     return <div>Error loading patient data.</div>;
   }
 
-  if (!patientData) {
+  if (!patientdata) {
     return <div>No patient data found.</div>;
   }
 
   const {
     _id,
-    riwayatPenyakit,
     pasienStatus,
     NIK,
     TTL,
@@ -65,7 +44,7 @@ export default async function addDetailsProfile(props: any) {
     Pekerjaan,
     Kewarganegaraan,
     fullname,
-  } = patientData;
+  } = patientdata;
 
   return (
     <>
@@ -73,7 +52,6 @@ export default async function addDetailsProfile(props: any) {
         <ModalUsers
           _id={_id}
           fullname={fullname}
-          riwayatPenyakit={riwayatPenyakit}
           pasienStatus={pasienStatus}
           NIK={NIK}
           TTL={TTL}

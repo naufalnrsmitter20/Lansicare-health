@@ -10,15 +10,6 @@ import { DangerButton, SuccessButton } from "../utilities/Buttons";
 import RemovePatient from "./RemovePatient";
 import { useSession } from "next-auth/react";
 
-type Users = {
-  _id: number;
-  nfcId: number;
-  status_dokter: "online" | "offline";
-  fullname: string;
-  pasienStatus: "Rawat-inap" | "Rawat-jalan";
-  role: "pasien" | "dokter" | "superadmin";
-};
-
 export const getData = async () => {
   try {
     const res = await fetch(`/api/topics/`, {
@@ -35,13 +26,13 @@ export const getData = async () => {
   }
 };
 export default function MainDashboard() {
-  const [admindoctor, setAdminDoctor] = useState<Users[]>([]);
-  const [superadmin, setSuperadmin] = useState<Users[]>([]);
-  const [patients, setPatients] = useState<Users[]>([]);
+  const [admindoctor, setAdminDoctor] = useState<PatientData[]>([]);
+  const [superadmin, setSuperadmin] = useState<PatientData[]>([]);
+  const [patients, setPatients] = useState<PatientData[]>([]);
   const [rawatInap, setRawatInap] = useState<Number>(0);
   const [rawatJalan, setRawatJalan] = useState<Number>(0);
   const { data: session } = useSession();
-  const [users, setUsers] = useState<Users | null>(null);
+  const [users, setUsers] = useState<PatientData | null>(null);
 
   useEffect(() => {
     const fetchData = async () => {

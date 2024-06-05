@@ -7,7 +7,7 @@ interface UserDocument extends Document {
   password: string;
   role: "pasien" | "dokter" | "superadmin";
   comparePassword(candidatePassword: string): Promise<boolean>;
-  riwayatPenyakit: string;
+  riwayatPenyakit: string[];
   pasienStatus: "Rawat-inap" | "Rawat-jalan";
   NIK: number;
   TTL: string;
@@ -52,7 +52,7 @@ const userSchema = new Schema<UserDocument>(
       default: "pasien",
     },
     riwayatPenyakit: {
-      type: String,
+      type: [String],
     },
     pasienStatus: {
       type: String,
