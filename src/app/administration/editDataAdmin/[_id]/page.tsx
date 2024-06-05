@@ -5,16 +5,6 @@ import Headers from "../../components/content/Headers";
 import WelcomeBack from "../../components/WelcomeBack";
 import EditDataAdmins from "../../components/content/EditDataAdmin";
 
-interface DataAdmin {
-  _id?: string;
-  fullname?: string;
-  email?: string;
-  nama_dokter?: string;
-  status_dokter?: "online" | "offline";
-  JenisKelamin?: "Laki-Laki" | "Perempuan" | undefined;
-  spesialis?: string;
-  role?: "pasien" | "dokter" | "superadmin";
-}
 const getTopicById = async (_id: any): Promise<DataAdmin> => {
   const res = await fetch(`/api/topics/${_id}`, {
     cache: "no-store",

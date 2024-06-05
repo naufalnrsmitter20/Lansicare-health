@@ -6,16 +6,6 @@ import InputSearch from "../utilities/InputSearch";
 import CopyClipboard from "../utilities/CopyClipboard";
 import { SuccessButton } from "../utilities/Buttons";
 
-type Users = {
-  _id: number;
-  nfcId: number;
-  riwayatPenyakit: string;
-  pasienStatus: "Rawat-inap" | "Rawat-jalan";
-  fullname: string;
-  updatedAt: string;
-  role: "pasien" | "dokter" | "superadmin";
-};
-
 export const getData = async () => {
   try {
     const res = await fetch(`/api/topics/`, {
@@ -34,8 +24,8 @@ export const getData = async () => {
 
 export default function TableData() {
   const [searchInput, setSearchInput] = useState<string>("");
-  const [patients, setPatients] = useState<Users[]>([]);
-  const [filteredPatients, setFilteredPatients] = useState<Users[]>([]);
+  const [patients, setPatients] = useState<PatientData[]>([]);
+  const [filteredPatients, setFilteredPatients] = useState<PatientData[]>([]);
 
   useEffect(() => {
     const fetchData = async () => {

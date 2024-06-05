@@ -8,18 +8,9 @@ import { useRouter } from "next/navigation";
 import SpinnerProops from "../utilities/Spinner";
 import { Spinner } from "flowbite-react";
 
-interface DokterProfile {
-  _id: string;
-  fullname: string;
-  email: string;
-  status_dokter: "online" | "offline";
-  JenisKelamin: "Laki-Laki" | "Perempuan";
-  spesialis: string;
-  role: "pasien" | "dokter" | "superadmin";
-}
 export default function DataAdmin() {
   const { data: session, status } = useSession();
-  const [dataAdmin, setDataAdmin] = useState<DokterProfile | null>(null);
+  const [dataAdmin, setDataAdmin] = useState<DataAdmin | null>(null);
   const [isMutating, setIsMutating] = useState(false);
   const router = useRouter();
   useEffect(() => {

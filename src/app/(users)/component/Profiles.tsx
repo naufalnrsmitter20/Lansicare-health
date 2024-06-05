@@ -4,43 +4,13 @@ import { useSession } from "next-auth/react";
 import Imageprofile from "@/public/userdefault.png";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
-import gammbarAsma from "@/public/gambar_Asma.jpg";
 import Footer from "../component/Footer";
 import { SecondaryButton, TertiaryButton } from "./buttons/Button";
-
-type Patient = {
-  _id: number;
-  nfcId: number;
-  email: string;
-  riwayatPenyakit: string;
-  pasienStatus: "Rawat-inap" | "Rawat-jalan";
-  fullname: string;
-  role: "pasien" | "dokter" | "superadmin";
-  NIK: number;
-  TTL: string;
-  JenisKelamin: "Laki-Laki" | "Perempuan";
-  Alamat: string;
-  RT: number;
-  RW: number;
-  KelurahanDesa: string;
-  Kecamatan: string;
-  Agama: string;
-  StatusPerkawinan: boolean;
-  Pekerjaan: string;
-  Kewarganegaraan: string;
-  BerlakuHingga: Date;
-  updatedAt: string;
-  tanggalCheckup: string;
-  rumah_sakit: string;
-  nama_dokter: string;
-  spesialis: string;
-  penyakit: string;
-};
 
 export default function Profiles() {
   const { data: session, status } = useSession();
   const [IsVisible, setIsVisible] = useState(false);
-  const [patient, setPatient] = useState<Patient | null>(null);
+  const [patient, setPatient] = useState<PatientData | null>(null);
   const router = useRouter();
 
   console.log(session);
@@ -251,8 +221,7 @@ export default function Profiles() {
                                           id="TTL"
                                           className="block w-full rounded-lg border border-gray-300 bg-gray-200 p-2.5 text-sm text-gray-900 placeholder:font-medium placeholder:text-black focus:border-blue-500 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500"
                                         >
-                                          {patient?.TTL &&
-                                          patient.TTL.toString.length > 0 ? (
+                                          {patient?.TTL && patient.TTL ? (
                                             <>{patient?.TTL}</>
                                           ) : (
                                             <>
@@ -338,8 +307,7 @@ export default function Profiles() {
                                           id="alamat"
                                           className="block w-full rounded-lg border border-gray-300 bg-gray-200 p-2.5 text-sm text-gray-900 placeholder:font-medium placeholder:text-black focus:border-blue-500 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500"
                                         >
-                                          {patient?.Alamat &&
-                                          patient.Alamat.toString.length > 0 ? (
+                                          {patient?.Alamat && patient.Alamat ? (
                                             <>{patient?.Alamat}</>
                                           ) : (
                                             <>
@@ -576,22 +544,13 @@ export default function Profiles() {
                             <div className="mt-4 px-12 pb-5">
                               {patient.riwayatPenyakit &&
                               patient.riwayatPenyakit.length !== 0 ? (
-                                <div className=" bborder-gray-200 max-w-[240px] rounded-[10px] border bg-primary-1000 shadow dark:border-gray-700 dark:bg-gray-800">
-                                  <a href="#">
-                                    <Image
-                                      className="rounded-t-lg"
-                                      src={gammbarAsma}
-                                      width={"300"}
-                                      height={"200"}
-                                      alt=""
-                                    />
-                                  </a>
+                                <div className="max-w-[240px] rounded-[10px] border border-gray-200 bg-primary-1000 shadow ring-2 ring-mainBlue">
                                   <div className="p-5">
-                                    <a href="#">
+                                    <div>
                                       <h5 className="mb-2 text-lg font-semibold tracking-tight text-gray-800 dark:text-white">
                                         {patient.riwayatPenyakit}
                                       </h5>
-                                    </a>
+                                    </div>
                                   </div>
                                 </div>
                               ) : (
@@ -609,11 +568,11 @@ export default function Profiles() {
                           <h3 className="px-12 pb-4 pt-5 font-inter text-xl font-medium text-black lg:text-2xl">
                             Riwayat Check Up
                           </h3>
-                          <div className="lg:grid ">
+                          <div className="px-12 lg:grid">
                             <>
                               {patient.nama_dokter &&
                               patient.nama_dokter.length !== 0 ? (
-                                <div className="block max-w-sm rounded-lg border border-gray-200 bg-white p-6 shadow hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700">
+                                <div className="block max-w-sm rounded-lg border border-gray-200 bg-white p-6 shadow ring-2 ring-darkBlue hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700">
                                   <h5 className="mb-2 text-sm font-bold tracking-tight text-gray-900 dark:text-white">
                                     {patient?.tanggalCheckup}
                                   </h5>

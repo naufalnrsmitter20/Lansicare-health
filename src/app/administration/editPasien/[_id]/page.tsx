@@ -5,33 +5,6 @@ import Headers from "../../components/content/Headers";
 import EditPatient from "../../components/content/EditPatient";
 import WelcomeBack from "../../components/WelcomeBack";
 
-interface PatientData {
-  _id: string;
-  nfcId: number;
-  email: string;
-  riwayatPenyakit: string;
-  pasienStatus: "Rawat-inap" | "Rawat-jalan";
-  fullname: string;
-  NIK: number;
-  TTL: string;
-  JenisKelamin: "Laki-Laki" | "Perempuan" | undefined;
-  Alamat: string;
-  RT: number;
-  RW: number;
-  KelurahanDesa: string;
-  Kecamatan: string;
-  Agama: string;
-  StatusPerkawinan: boolean;
-  Pekerjaan: string;
-  Kewarganegaraan: string;
-  role: "pasien" | "dokter" | "superadmin";
-  tanggalCheckup: string;
-  rumah_sakit: string;
-  nama_dokter: string;
-  spesialis: string;
-  penyakit: string;
-}
-
 const getTopicById = async (_id: any): Promise<PatientData> => {
   const res = await fetch(`/api/topics/${_id}`, {
     cache: "no-store",
